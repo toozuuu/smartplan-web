@@ -1,0 +1,33 @@
+<div class="main height">
+  <div class="container">
+    <div class="text-center">
+      <h3 class="white">Select your Goal and Time plan</h3>
+      <div class="d-flex flex-row justify-content-center gender align-content-center">
+        <div *ngIf="gender === 'male'">
+          <img alt="" src="../../../../assets/img/dashboard/avatar_male.png">
+        </div>
+        <div *ngIf="gender === 'female'">
+          <img alt="" src="../../../../assets/img/dashboard/avatar_female.png">
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="content">
+            <mat-form-field appearance="outline" class="mb-2">
+              <mat-label>Goal</mat-label>
+              <mat-select disableRipple [(value)]="selectedGoalType">
+                <mat-option *ngFor="let type of goalTypes" value="{{type.name}}">{{type.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Time (Months)</mat-label>
+              <mat-select disableRipple [(value)]="selectedTime">
+                <mat-option *ngFor="let time of goalTime" value="{{time.month}}">{{time.month}} Months</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <i aria-hidden="true" class="fa fa-arrow-right" style="font-size: 25px; margin-left: 15px; cursor: pointer;"
+            (click)="selectGoalNTime()"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

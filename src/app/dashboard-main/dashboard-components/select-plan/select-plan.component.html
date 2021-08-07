@@ -1,0 +1,319 @@
+<div class="main height">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-around flex-wrap mb-4 mt-5to">
+      <div class="top-left">
+        <h6 class="white">Daily Calories Calculator</h6>
+        <table class="">
+          <tr class="l-4">
+            <td>Weight (kg)</td>
+            <td>
+              <div class="bottom">
+                <mat-form-field appearance="outline" class="width-100">
+                  <input [(ngModel)]="weight" matInput min="0" type="number">
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr class="l-4">
+            <td>Height (cm)</td>
+            <td>
+              <div class="bottom">
+                <mat-form-field appearance="outline" class="width-100">
+                  <input [(ngModel)]="height" matInput min="0" type="number">
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr class="l-4">
+            <td>Body Fat % 
+            </td>
+            <td>
+              <div class="bottom">
+                <mat-form-field appearance="outline" class="width-100">
+                  <mat-select [(value)]="selectedBodyFat">
+                    <mat-option *ngFor="let f of fat" value="{{f.percentage}}">{{f.percentage}}%</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr class="l-4">
+            <td>Fat free mass (kg)</td>
+            <td>
+              <div class="bottom">
+                <mat-form-field appearance="outline" class="width-100">
+                  <input disabled matInput type="number" value="{{fatFreeCal(weight,selectedBodyFat)}}">
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr class="l-4">
+            <td>Estimated BMR (kcal)</td>
+            <td *ngIf="gender === 'male'">
+              <div  class="bottom">
+                <mat-form-field appearance="outline" class="width-100">
+                  <input disabled
+                         matInput
+                         min="0" type="number"
+                         value="{{estimatedBmrMale(66.50 + (13.75 * this.convertValue(this.fatFreeMass)) + (5 * this.convertValue(this.height)) - (6.76 * this.convertValue(this.age)))}}">
+                </mat-form-field>
+              </div>
+            </td>
+            <td *ngIf="gender === 'female'">
+              <div  class="bottom">
+                <mat-form-field appearance="outline" class="width-100">
+                  <input disabled
+                         matInput
+                         min="0" type="number"
+                         value="{{estimatedBmrFemale(655.10 + (9.56 * this.convertValue(this.fatFreeMass)) + (1.85 * this.convertValue(this.height)) - (4.68 * this.convertValue(this.age)))}}">
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr class="l-4">
+            <td>Activity Level</td>
+            <td>
+              <div class="bottom">
+                <mat-form-field appearance="outline" class="width-100">
+                  <mat-select [(value)]="activityLevel" (valueChange)="selectCaloriesToAdd(activityLevel)">
+                    <mat-option *ngFor="let act of activityLevelList" value="{{act.type}}">{{act.type}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr class="l-4">
+            <td>Calories to add muscle
+              or maintain
+            </td>
+            <td>
+              <div class="bottom">
+                <mat-form-field appearance="outline" class="width-100">
+                    <mat-select [(value)]="caloriesToAdd" (valueChange)="selectCaloriesToAdd(activityLevel)">
+                      <mat-option *ngFor="let cal of calariesToAddList" value="{{cal.count}}">{{cal.count}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr class="l-4">
+            <td>Daily Req. Intake (kcal)</td>
+            <td>
+              <div class="bottom">
+                <mat-form-field appearance="outline" class="width-100">
+                  <input disabled [(ngModel)]="dailyReq" matInput min="0" type="number">
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr class="l-4">
+            <td>Daily Req. Intake (Non workout day) kcal</td>
+            <td>
+              <div class="bottom">
+                <mat-form-field appearance="outline" class="width-100">
+                  <input [(ngModel)]="dailyReqNon" matInput min="0" type="number">
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="avater" *ngIf="gender === 'male'">
+        <img alt="" src="../../../../assets/img/dashboard/avatar_male.png">
+      </div>
+      <div class="avater" *ngIf="gender === 'female'">
+        <img alt="" src="../../../../assets/img/dashboard/avatar_female.png">
+      </div>
+      <div class="text-center bottom-div">
+        <h2 class="mb-4">{{name}}’s Calorie Plan</h2>
+        <div class="d-flex flex-column">
+          <div class="d-flex justify-content-around flex-wrap">
+            <div class="mr-4 mb-sm-4">
+              <h6 class="white">Daily Macronutrients count <br>
+                (Workout Day)
+              </h6>
+              <table class="text-left">
+                <tr class="l-4">
+                  <td>Protein:</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input [(ngModel)]="protein_workout" matInput min="0" type="number">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+
+                  </td>
+                </tr>
+                <tr class="l-4">
+                  <td>Carbs:</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input [(ngModel)]="carbs_workout" matInput min="0" type="number">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+                  </td>
+                </tr>
+                <tr class="l-4">
+                  <td>Fat:
+                  </td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input [(ngModel)]="fat_workout" matInput min="0" type="number">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+                  </td>
+                </tr>
+                <br>
+                <tr class="l-4">
+                  <td>Meals per day</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input [(ngModel)]="meals_per_day_workout" matInput min="0" type="number">
+                      </mat-form-field>
+                    </div>
+                  </td>
+                </tr>
+                <br>
+                <tr class="l-4">
+                  <td>Protein:</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input disabled matInput min="0" type="number"
+                               value="{{protein_workout/meals_per_day_workout| number:'1.0-0'}}">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+                  </td>
+                </tr>
+                <tr class="l-4">
+                  <td>Carbs:</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input disabled matInput min="0" type="number"
+                               value="{{carbs_workout/meals_per_day_workout| number:'1.0-0'}}">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+                  </td>
+                </tr>
+                <tr class="l-4">
+                  <td>Fat:</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input disabled matInput min="0" type="number"
+                               value="{{fat_workout/meals_per_day_workout| number:'1.0-0'}}">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="mr-4">
+              <h6 class="white">Daily Macronutrients count <br>
+                (Non-workout Day)
+              </h6>
+              <table class="text-left">
+                <tr class="l-4">
+                  <td>Protein:</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input [(ngModel)]="protein_non_workout" matInput min="0" type="number">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+
+                  </td>
+                </tr>
+                <tr class="l-4">
+                  <td>Carbs:</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input [(ngModel)]="carbs_non_workout" matInput min="0" type="number">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+                  </td>
+                </tr>
+                <tr class="l-4">
+                  <td>Fat:
+                  </td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input [(ngModel)]="fat_non_workout" matInput min="0" type="number">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+                  </td>
+                </tr>
+                <br>
+                <tr class="l-4">
+                  <td>Meals per day</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input [(ngModel)]="meals_per_day_non_workout" matInput min="0" type="number">
+                      </mat-form-field>
+                    </div>
+                  </td>
+                </tr>
+                <br>
+                <tr class="l-4">
+                  <td>Protein:</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input disabled matInput min="0" type="number"
+                               value="{{protein_non_workout/meals_per_day_non_workout| number:'1.0-0'}}">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+                  </td>
+                </tr>
+                <tr class="l-4">
+                  <td>Carbs:</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input disabled matInput min="0" type="number"
+                               value="{{carbs_non_workout/meals_per_day_non_workout| number:'1.0-0'}}">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+                  </td>
+                </tr>
+                <tr class="l-4">
+                  <td>Fat:</td>
+                  <td>
+                    <div class="bottom">
+                      <mat-form-field appearance="outline" class="width-100">
+                        <input disabled matInput min="0" type="number"
+                               value="{{fat_non_workout/meals_per_day_non_workout| number:'1.0-0'}}">
+                      </mat-form-field>
+                      &nbsp; g Per day
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a (click)="next()" class="button primary-btn" href="javascript:void(0)">Select My Meals</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

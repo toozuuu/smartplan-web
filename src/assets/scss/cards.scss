@@ -1,0 +1,302 @@
+.workflowcards {
+
+    .card-panel {
+        padding-top: 50px;
+
+        .row {
+            .workflowsheet {
+                background: #FFFFFF;
+                box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.13);
+                border-radius: 10px;
+                padding: 30px;
+                height: 440px;
+
+                .inner-card-content {
+                    text-align: center;
+
+                    .image-add {
+
+                        .workflow-img {
+                            background: linear-gradient(180deg, #358ADA 0%, #96DADE 100%);
+                            border-radius: 50%;
+                        }
+
+                        .addicon {
+                            position: absolute;
+                            cursor: pointer;
+                            top: 40px;
+                            right: 90px;
+                            width: 30px;
+                        }
+                    }
+
+                    .create-text {
+                        padding: 40px 0 25px 0;
+
+                        h3 {
+                            color: $default_blue;
+                            font-size: 30px;
+                        }
+
+                        p {
+                            font-size: 15px;
+                            color: $light_grey;
+                        }
+                    }
+                }
+
+                .heading-nav {
+
+                    h5 {
+                        color: $default_blue;
+                        font-weight: 800;
+                        display: inline;
+                        line-height: 40px;
+                    }
+
+                    .searchbar {
+                        width: 300px;
+                        float: right;
+
+                        .searchicon {
+                            position: absolute;
+                            top: 40px;
+                            right: 40px;
+                        }
+                    }
+
+                }
+
+                .cards-of-workflows {
+                    padding: 30px 0;
+
+                    .workflow-box {
+                        background: #FFFFFF;
+                        border: 1px solid #AAB1B6;
+                        box-sizing: border-box;
+                        border-radius: 10px;
+                        padding: 20px;
+
+                        .flow-title {
+                            .top {
+                                margin-bottom: 5px;
+                            }
+
+                            h4 {
+                                color: $default_blue;
+                                font-size: 15px !important;
+                                font-weight: 500;
+                                display: inline;
+                            }
+
+                            .dot-dropdown {
+                                float: right;
+                                cursor: pointer;
+                            }
+
+                            p {
+                                color: $light_grey;
+                                font-size: 10px;
+                                padding: 10px 0;
+                            }
+                        }
+
+                        .group-people {
+                            img {
+                                margin-left: -10px;
+
+                                &:first-child {
+                                    margin-left: 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Users cards */
+.user-cards {
+    margin: 30px 0;
+
+    .card-item-user {
+        background: #FFFFFF;
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.13);
+        border-radius: 10px;
+
+        .top-details {
+            text-align: center;
+
+            .top-info {
+                padding: 40px 20px;
+
+                h4 {
+                    color: $default_blue;
+                    font-weight: 700;
+                    padding: 10px 0 5px 0;
+                    margin-bottom: 0;
+                }
+
+                span {
+                    display: block;
+                    margin-bottom: 5px;
+                }
+            }
+
+            .contact-info {
+                margin-bottom: 10px;
+                padding: 0 10px;
+
+                .cols {
+                    padding: 5px;
+
+                    img {
+                        width: 15px;
+                    }
+
+                    span {
+                        color: $light_grey;
+                        font-size: 11px;
+                        padding-left: 5px;
+                    }
+                }
+
+            }
+        }
+
+        .bottom-buttons {
+            border-top: 1.5px solid #C0C0DD;
+            text-align: center;
+
+            .row {
+                margin: 0;
+
+                .col-6 {
+                    padding: 0;
+
+                    span {
+                        padding: 20px;
+                        display: block;
+                        border-right: none;
+
+                        a {
+                            color: #C0C0DD;
+                        }
+                    }
+
+                    .profilebtn {
+                        border-right: 1.5px solid #C0C0DD;
+                    }
+                }
+
+            }
+
+        }
+    }
+}
+
+/* Meeting cards - schedule */
+.plan-cards {
+    border: 0.5px solid #AAB1B6;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 20px;
+
+    &.yellow-bar {
+        border-left: 10px solid $yellow;
+    }
+
+    &.red-bar {
+        border-left: 10px solid $card_red;
+    }
+
+    &.purple-bar {
+        border-left: 10px solid $purple;
+    }
+
+    .top {
+        h4 {
+            color: $default_blue;
+            font-weight: 500;
+            font-size: 15px;
+            display: inline;
+        }
+
+        .rightbtn {
+            float: right;
+            padding: 5px;
+            height: 30px;
+            text-align: center;
+            width: 30px;
+            border-radius: 50%;
+
+            &.yellow {
+                background: rgba(255, 213, 79, 0.5);
+            }
+
+            &.red {
+                background: rgba(238, 108, 108, 0.5);
+            }
+
+            &.purple {
+                background: rgba(111, 82, 237, 0.5);
+            }
+        }
+    }
+
+    span {
+        font-size: 12px;
+        display: block;
+        color: #C0C0DD;
+        padding-bottom: 20px;
+    }
+
+    .group-people {
+        img {
+            margin-left: -10px;
+
+            &:first-child {
+                margin-left: 0px;
+            }
+        }
+    }
+}
+
+.price-packages {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    justify-content: center;
+    position: relative;
+    padding: 1%;
+    margin: 1%;
+    width: 17%;
+
+    mat-radio-button {
+        position: absolute;
+        right: 10px;
+    }
+
+    img {
+        margin-top: 15px;
+        height: 17vh;
+        width: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h5 {
+        color: #484B5C;
+        font-weight: 600;
+        line-height: 120.5%;
+        padding: 15px 0 0 0;
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        color: $search_btn;
+    }
+}

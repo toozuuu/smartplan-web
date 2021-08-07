@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex flex-row justify-content-between">
+            <div>
+                <h4 class="font-weight-bold black">
+                    <i class="fa fa-users" aria-hidden="true"></i> Users
+                </h4>
+            </div>
+        </div>
+        <div style="width:100%; max-height: 80vh; overflow-y: auto;">
+            <mat-form-field class="matsearch">
+                <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
+            </mat-form-field>
+
+            <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">
+
+                <ng-container matColumnDef="name">
+                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+                        Name
+                    </th>
+                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+                        {{row.name}}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="gender">
+                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+                        Gender
+                    </th>
+                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+                        {{row.gender}}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="consulter">
+                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+                        Consulter
+                    </th>
+                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+                        {{row.consulter}}
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="email">
+                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+                        Email
+                    </th>
+                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+                        {{row.email}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="password">
+                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+                        Password
+                    </th>
+                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+                        {{row.password}}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="age">
+                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+                        Age
+                    </th>
+                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+                        {{row.age}}
+                    </td>
+                </ng-container>
+
+                <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+                <tr *matRowDef="let row; columns: displayedColumns" mat-row>
+                </tr>
+            </table>
+
+            <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+        </div>
+    </div>
+</div>

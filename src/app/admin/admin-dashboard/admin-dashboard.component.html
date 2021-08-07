@@ -1,0 +1,48 @@
+<div class="d-flex bg-white">
+    <div class="side-bar">
+      <div class="brand">
+        <h1 class="white">Smart Plan</h1>
+      </div>
+      <div class="navigation" (click)="clickMeals()">
+        <ul>
+          <li>
+            <a href="javascript:void(0)">
+              <i aria-hidden="true" class="fa fa-cutlery"></i> Meals
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="navigation" (click)="clickUsers()">
+        <ul>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              Users
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="w-100" *ngIf="isMeals">
+        <div class="header">
+            <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
+                <h6>Admin Panel</h6>
+              <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
+            </div>
+        </div>
+        <div class="container-fluid mt-4">
+            <app-meals></app-meals>
+        </div>
+    </div>
+  <div class="w-100" *ngIf="isUsers">
+    <div class="header">
+      <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
+        <h6>Admin Panel</h6>
+        <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
+      </div>
+    </div>
+    <div class="container-fluid mt-4">
+      <app-users></app-users>
+    </div>
+  </div>
+</div>

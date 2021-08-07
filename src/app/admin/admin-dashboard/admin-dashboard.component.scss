@@ -1,0 +1,36 @@
+.side-bar {
+    height: 100vh;
+    background-color: #122143;
+    width: 250px;
+
+    .brand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 15vh;
+    }
+
+    .navigation ul {
+        list-style: none;
+        li {
+            a {
+                text-decoration: none;
+                color: #cbcbcb;
+                i {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+.header{
+    padding: 10px 0;
+    background-color: #CBCBCB;
+    color: #5d5959;
+
+    h6{
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+}

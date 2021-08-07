@@ -1,0 +1,78 @@
+.advanced-search{
+
+    a:hover{
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .title{
+        color: $extra_light_grey;
+        font-size: $font-size-h6;
+
+        i.fa {
+            display: inline-block;
+            border-radius: 60px;
+            border: 1px solid $extra_light_grey;
+            color: $extra_light_grey;
+            padding: 0.5em 0.6em;
+            margin-left: 10px;
+          }
+    }
+
+    .sidebar {
+        height: 100%;
+        width: 300px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: -300px;
+        background-color: $white;
+        box-shadow: -6px 4px 33px rgba(0, 0, 0, 0.09);
+        overflow-x: hidden;
+        transition: all 0.5s ease;
+        padding-top: 50px;
+        color: $default_blue;
+
+        mat-form-field{
+           padding: 25px 15px 10px 15px;
+
+           .mat-form-field-prefix,
+           .mat-form-field-suffix{
+               top: 0px;
+               color: $gray-light !important;
+            }
+        }
+
+        hr{
+            color:  $light_grey;
+        }
+
+        button{
+            margin-top: 10px;
+            padding: 7px 60px !important;
+        }
+
+        small{
+            color : $gray-light;
+            padding-left: 10px;
+        }
+
+        ul h6{
+            margin-top: 5px;
+            font-size : $font-size-small !important;
+            font-weight: $font-weight-normal;
+            color : $light_grey;
+        }
+
+        .closebtn {
+            position: absolute;
+            top: 15px;
+            left: 25px;
+
+            img{
+                width: 15px;
+            }
+          }
+
+      }
+}

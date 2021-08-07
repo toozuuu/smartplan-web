@@ -1,0 +1,256 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $background-color !important;
+    font-family: $main-font-family;
+    font-size: $font-size-default !important;
+    color: #cbcfc6 !important;
+
+    &::-webkit-scrollbar-track {
+        // border-radius: 25px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #f5f5f5;
+    }
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        background-color: #f5f5f5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 25px;
+        background-image: linear-gradient(to bottom, #959ac5, #9fa9cc, #abb8d2, #bac6d8, #ccd4dd);
+    }
+
+    .main {
+        background: url(assets/img/public/main.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-color: $white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.height {
+    height: 100vh;
+    overflow: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $main-font-family;
+}
+
+h1 {
+    font-size: $font-size-h1 !important;
+    color: $black;
+}
+
+h2 {
+    font-size: $font-size-h2 !important;
+}
+
+h3 {
+    font-size: $font-size-h3 !important;
+}
+
+h4 {
+    font-size: $font-size-h4 !important;
+}
+
+h5 {
+    font-size: $font-size-h5 !important;
+}
+
+h6 {
+    font-size: $font-size-h6 !important;
+}
+
+p {
+    font-size: $font-size-default !important;
+}
+
+hr {
+    margin-top: 0px !important;
+}
+
+.content {
+    padding: 10px !important;
+    background-color: rgba(255, 255, 225, 0.1);
+}
+
+.panel {
+    background-color: $white !important;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.13);
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.card {
+    border: 0.5px solid $gray;
+    box-sizing: border-box;
+    border-radius: 10px !important;
+}
+
+button:focus,
+button.mat-icon-button.mat-button-base {
+    outline: none !important;
+}
+
+// colors classess
+.primary-blue {
+    color: $primary-blue !important;
+}
+
+.secondary-blue {
+    color: $secondary-blue;
+}
+
+.default-blue {
+    color: $default_blue;
+}
+
+.white {
+    color: $white;
+}
+
+.black {
+    color: $black;
+}
+
+.yellow {
+    color: $yellow;
+}
+
+.red {
+    color: $red;
+}
+
+.light-red {
+    color: $red-light;
+}
+
+.green {
+    color: $green;
+}
+
+.green-light {
+    color: $bar;
+}
+
+.green-light-3 {
+    color: $green_3;
+}
+
+.gray {
+    color: $gray;
+}
+
+.gray-2 {
+    color: $gray-light;
+}
+
+.dark-gray {
+    color: $dark_grey;
+}
+
+.bg-primary-blue {
+    background-color: $primary-blue !important;
+}
+
+.bg-secondary-blue {
+    background-color: $secondary-blue !important;
+}
+
+.bg-liner {
+    background: $liner !important;
+}
+
+.bg-white {
+    background-color: $white !important;
+}
+
+.bg-black {
+    background-color: $black !important;
+}
+
+.bg-yellow {
+    background-color: $yellow !important;
+}
+
+.bg-red {
+    background-color: $red !important;
+}
+
+.bg-light-red {
+    background-color: $light-red !important;
+}
+
+.bg-green {
+    background-color: $green !important;
+}
+
+.bg-gray {
+    background-color: $gray !important;
+}
+
+.bg-gray-light {
+    background-color: $gray-light !important;
+}
+
+// font
+.font-weight-normal {
+    font-weight: $font-weight-normal;
+}
+
+.font-weight-300 {
+    font-weight: $font-weight-300;
+}
+
+.font-weight-400 {
+    font-weight: $font-weight-400;
+}
+
+.font-weight-500 {
+    font-weight: $font-weight-500;
+}
+
+.font-weight-600 {
+    font-weight: $font-weight-600;
+}
+
+.font-weight-700 {
+    font-weight: $font-weight-700;
+}
+
+.font-weight-800 {
+    font-weight: $font-weight-800;
+}
+
+.font-weight-900 {
+    font-weight: $font-weight-900;
+}
+
+.font-weight-bold {
+    font-weight: $font-weight-bold;
+}
+
+.font-weight-bolder {
+    font-weight: $font-weight-bolder;
+}
+
+.modal-content {
+    border-radius: 1rem !important;
+}

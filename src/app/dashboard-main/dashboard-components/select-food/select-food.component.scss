@@ -1,0 +1,46 @@
+.food-btn {
+    border: 1px solid #cbcfc6;
+    border-radius: 1px;
+    padding: 3px 20px;
+    color: #cbcfc6 !important;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: gray;
+}
+
+.mtop-3 {
+    margin-top: 3% !important;
+}
+
+.mbottm-3 {
+    margin-bottom: 3% !important;
+}
+
+@media (max-width: 1154px) {
+    .main {
+        padding: 25px !important;
+        align-items: normal !important;
+    }
+}
+
+@media (max-width: 1042px) {
+    .w-25 {
+        width: 30% !important;
+    }
+}
+
+@media (max-width: 942px) {
+    .w-25 {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .w-25 {
+        width: 100% !important;
+        margin-bottom: 3%;
+    }
+}

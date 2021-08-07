@@ -1,0 +1,78 @@
+@import "../../../assets/scss/variables/colors";
+
+.main {
+    .login-content {
+        width: 20%;
+
+        .login-box {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 25px;
+
+            .sign-up {
+                &:hover {
+                    text-decoration: none;
+                    color: #555555;
+                }
+            }
+        }
+    }
+}
+
+/* placeholder */
+::-webkit-input-placeholder {
+    /* Edge */
+    color: $light_grey;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $light_grey;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+::placeholder {
+    color: $light_grey;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+    .main {
+        .login-content {
+            width: 80%;
+            margin: 10% 0;
+        }
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .main {
+        .login-content {
+            width: 60%;
+            margin: 7% 0;
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .main {
+        .login-content {
+            width: 40%;
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .main {
+        .login-content {
+            width: 30%;
+        }
+    }
+}

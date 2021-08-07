@@ -1,0 +1,26 @@
+<div class="main height">
+  <div class="container">
+    <div class="text-center">
+      <h3 class="white">Enter Your Age</h3>
+      <div class="d-flex flex-row justify-content-center gender align-content-center">
+        <div *ngIf="gender === 'male'">
+          <img alt="" src="../../../../assets/img/dashboard/avatar_male.png">
+        </div>
+        <div *ngIf="gender === 'female'">
+          <img alt="" src="../../../../assets/img/dashboard/avatar_female.png">
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="content">
+            <mat-form-field appearance="outline" class="age">
+              <input [(ngModel)]="age" matInput min="5" placeholder="age" type="number">
+              <i class="fa fa-edit" matPrefix></i>
+            </mat-form-field>
+          </div>
+          &nbsp;
+          <i aria-hidden="true" class="fa fa-arrow-right" style="font-size: 25px;cursor: pointer;"
+            (click)="selectAge()"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

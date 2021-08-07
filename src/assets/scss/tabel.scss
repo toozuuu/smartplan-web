@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  box-shadow: none !important;
+  font-family: $main-font-family;
+
+  mat-footer-row,
+  mat-header-row,
+  mat-row,
+  td.mat-cell,
+  td.mat-footer-cell {
+    border-bottom: 0.5px solid $table-border !important;
+    font-weight: $font-weight-500;
+    color: $font-color !important;
+    text-align: left;
+    padding: 10px !important;
+  }
+}
+
+.table th{
+  border-top: none !important;
+}

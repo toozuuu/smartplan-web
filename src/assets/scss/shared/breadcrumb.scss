@@ -1,0 +1,25 @@
+.breadcrumb{
+    background: $white !important;
+    border-radius: 0px !important;
+    color: $extra_light_grey;
+    margin-bottom: 0 !important;
+    ul{
+        margin: 0px !important;
+        list-style: none !important;
+        padding-left: 0px !important;
+
+        li{
+            display: inline;
+            padding-left: 15px;
+            text-transform: uppercase;
+
+            .main-icon{
+                font-size: $font-size-h5;
+            }
+        }
+        span{
+            padding-left: 6px;
+            padding-right: 13px;
+        }
+    }
+}

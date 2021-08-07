@@ -1,0 +1,51 @@
+// first tab
+.mat-tab-label {
+    text-align: left !important;
+    justify-content: left !important;
+    align-items: flex-start !important;
+    padding: 0px !important;
+    height: 30px !important;
+}
+
+.mat-tab-label,
+.mat-tab-group{
+    font-family: $main-font-family;
+    color: $form-label-color !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar{
+    background-color: $secondary-blue;
+    height: 5px;
+    border-radius: 100px;
+    width: 100px !important; 
+}
+
+.mat-tab-header, .mat-tab-nav-bar{
+    border-bottom: none !important;
+}
+
+.mat-tab-body-content {
+    padding: 20px 0;
+}
+
+
+// second tab
+.nav-pills .nav-link{
+    font-family: $main-font-family;
+    color: $form-label-color;
+    background: $white;
+    border: 1px solid $gray;
+    margin-bottom: 5px;  
+}
+
+.nav-pills .nav-link.active{
+        background: $secondary-blue !important;
+        border-radius: 6px !important;
+        border: none !important;
+}
+
+.tab-content{
+    border: 1px solid $gray;
+    padding: 20px;
+    border-radius: 10px;
+}

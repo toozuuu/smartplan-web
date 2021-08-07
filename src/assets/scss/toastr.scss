@@ -1,0 +1,33 @@
+.toast-close-button {
+    span {
+        font-weight: normal;
+    }
+}
+
+.toast-container .ngx-toastr {
+    padding: 15px 15px 15px 15px !important;
+    width: 300px !important;
+    border-radius: 4px !important;
+    background-position: right 20px center !important;
+    box-shadow: 0 0 5px $light_grey !important;
+    background-size: 30px !important;
+    color: #FFFFFF !important;
+    background-color: rgba(50, 53, 88, 0.8);
+}
+
+.toast-title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.toast-message{
+    padding-right: 40px;
+}
+
+.toast-success {
+    background-image: url('assets/img/icon/message_icon.svg') !important;
+}
+
+.toast-error{
+    background-color: rgba(214, 30, 30, 0.7) !important;
+}

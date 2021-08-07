@@ -1,0 +1,53 @@
+.gender {
+    img {
+        width: 80%;
+    }
+}
+.width-100 {
+    width: 100px;
+}
+.bottom {
+    display: flex;
+    align-items: center;
+}
+.l-4 {
+    line-height: 4 !important;
+}
+
+.mt-5to {
+    margin-top: 5% !important;
+}
+
+@media (max-width: 1304px) {
+    .l-4 {
+        line-height: 3 !important;
+    }
+    .height {
+        align-items: normal !important;
+    }
+    .width-100 {
+        width: 200px !important;
+    }
+    .bottom-div {
+        width: 100%;
+        margin: 25px 0;
+    }
+}
+
+@media (max-width: 835px) {
+    .top-left {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .mt-xl-3 {
+        margin-top: 10%;
+    }
+    .bottom {
+        flex-direction: column;
+    }
+    .avater {
+        display: none;
+    }
+}

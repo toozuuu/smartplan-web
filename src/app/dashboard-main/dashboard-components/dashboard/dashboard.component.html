@@ -1,0 +1,122 @@
+<div class="main-dash">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center mt-3">
+            <h4>My Profile</h4>
+            <div class="text-right">
+                <!-- <h4>My Point <span class="font-weight-bold">550</span> -->
+                <h4 class="mb-0">Welcome {{name}}! &nbsp;&nbsp;
+                    <i (click)="logout()" class="fa fa-sign-out mouse-over"></i>
+                </h4>
+                <div class="d-flex flex-row justify-content-end mouse-over" data-target=".addressModel" data-toggle="modal">
+                    <div class="text-right mr-2">
+                        <p class="m-0">{{address}}</p>
+                    </div>
+                    <i class="fa fa-cog mt-1"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="d-flex flex-wrap justify-content-around">
+            <div class="avater">
+                <div *ngIf="gender === 'male'">
+                    <img alt="" src="../../../../assets/img/dashboard/avatar_male.png">
+                </div>
+                <div *ngIf="gender === 'female'">
+                    <img alt="" src="../../../../assets/img/dashboard/avatar_female.png">
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center">
+                <div class="d-flex flex-wrap">
+                    <div class="plan">
+                        <h6 class="mb-3">Current Meals</h6>
+                        <div class="meals">
+                            <div *ngFor="let newMeal of newMealsList" class="card-div">
+                                <div class="checkbox-div" (click)="addToCart(newMeal)">
+                                    <mat-checkbox [disableRipple]="true" class="checkbox-component"></mat-checkbox>
+                                </div>
+                                <img src="{{'http://159.203.158.23:8080/file/download/' + newMeal.image}}">
+                                <div class="price">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="white">{{newMeal.mealName}}</p>
+                                        <p class="yellow font-weight-bold">LKR &nbsp;{{newMeal.price}}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan">
+                        <h6 class="mb-3">New Options</h6>
+                        <div class="meals">
+                            <div *ngFor="let newMeal of newMealsList" class="card-div">
+                                <div class="checkbox-div">
+                                    <mat-checkbox (click)="addToCart(newMeal)" [disableRipple]="true" class="checkbox-component">
+                                    </mat-checkbox>
+                                </div>
+                                <img src="{{'http://159.203.158.23:8080/file/download/' + newMeal.image}}">
+                                <div class="price">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="white">{{newMeal.mealName}}</p>
+                                        <p class="yellow font-weight-bold">LKR &nbsp;{{newMeal.price}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a class="button primary-btn mt-25" href="javascript:void(0)" (click)="orderNow()"> Order Now</a>
+                </div>
+            </div>
+            <div class="history ml-3">
+                <h6 class="mb-3">Order History</h6>
+                <div>
+                    <div class="dates">
+                        <p *ngFor="let order of orderDetailList">{{convertDate(order.created)}}</p>
+                    </div>
+                    <div class="daily-target mt-2">
+                        <div class="top">
+                            <p>Daily Target</p>
+                        </div>
+                        <div class="bottom">
+                            <p>{{dailyReqOld | number:'1.0-0'}} kcal</p>
+                        </div>
+                    </div>
+                    <h6 class="mt-4 mouse-over" (click)="setupNewGoal()">Got a new goal?</h6>
+                    <div class="mt-4">
+                        <h6 class="gray-2 mb-0 pb-0">Time Line</h6>
+                        <mat-slider class="w-100" max="365" disabled [(ngModel)]="numOfDays" min="1" thumbLabel tickInterval="1000">
+                        </mat-slider>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- address -->
+<div aria-hidden="true" aria-labelledby="mySmallModalLabel" class="modal fade addressModel" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title black">Edit Address</h5>
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <mat-form-field appearance="outline">
+                        <textarea [(ngModel)]="address" matInput placeholder="Textarea" rows="5" style="color: black!important;"></textarea>
+                    </mat-form-field>
+                    <br>
+                    <div class="d-flex justify-content-end">
+                        <a (click)="updateAddress()" class="button primary-btn" data-dismiss="modal" href="javascript:void(0)">Update</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
