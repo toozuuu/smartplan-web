@@ -18,3 +18,12 @@
 // agGrid
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import '~ag-grid-community/src/styles/ag-theme-material/sass/ag-theme-material';
+
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

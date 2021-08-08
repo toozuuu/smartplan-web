@@ -1,14 +1,14 @@
 <div class="main height">
   <div class="login-content">
-    <h1 class="white mb-3 mt-xl-3 text-center">K-Plan</h1>
+    <h1 class="white mb-3 text-center">Smart Plan</h1>
     <div class="login-box">
       <h4 class="gray-2 m-3 text-center font-weight-bold white">Sign Up</h4>
       <form (ngSubmit)="onSubmitSignUp()" [formGroup]="signUpForm" class="login-form">
         <mat-form-field appearance="outline" class="mb-2">
           <input [(ngModel)]="name" [ngClass]="{ 'is-invalid': submittedSignUpForm && f.name.errors }"
-            formControlName="name" matInput name="name" placeholder="name" type="text">
+            formControlName="name" matInput name="name" placeholder="Name" type="text">
           <i class="fa fa-user" matPrefix></i>
-          <div *ngIf="submittedSignUpForm && f.name.errors" class="invalid-feedback">
+          <div *ngIf="submittedSignUpForm && f.name.errors" >
             <div *ngIf="f.name.errors.required" style="font-size: 12px;color: red">
               Name is required.
             </div>
@@ -17,9 +17,9 @@
         <mat-form-field appearance="outline" class="mb-2">
           <input (focusout)="checkEmail(email)" [(ngModel)]="email"
             [ngClass]="{ 'is-invalid': submittedSignUpForm && f.email.errors }" formControlName="email" matInput
-            name="email" placeholder="email" type="email">
+            name="email" placeholder="Email" type="email">
           <i class="fa fa-envelope" matPrefix></i>
-          <div *ngIf="submittedSignUpForm && f.email.errors" class="invalid-feedback">
+          <div *ngIf="submittedSignUpForm && f.email.errors" >
             <div *ngIf="f.email.errors.required" style="font-size: 12px;color: red">
               Email is required.
             </div>
@@ -27,9 +27,9 @@
         </mat-form-field>
         <mat-form-field appearance="outline" class="mb-2">
           <input [(ngModel)]="password" [ngClass]="{ 'is-invalid': submittedSignUpForm && f.password.errors }"
-            formControlName="password" matInput name="password" placeholder="password" type="password">
+            formControlName="password" matInput name="password" placeholder="Password" type="password">
           <i class="fa fa-key" matPrefix></i>
-          <div *ngIf="submittedSignUpForm && f.password.errors" class="invalid-feedback">
+          <div *ngIf="submittedSignUpForm && f.password.errors" >
             <div *ngIf="f.password.errors.required" style="font-size: 12px;color: red">
               Password is required.
             </div>
@@ -37,9 +37,9 @@
         </mat-form-field>
         <mat-form-field appearance="outline" class="mb-2">
           <input [(ngModel)]="rePassword" [ngClass]="{ 'is-invalid': submittedSignUpForm && f.rePassword.errors }"
-            formControlName="rePassword" matInput name="password" placeholder="confirm password" type="password">
+            formControlName="rePassword" matInput name="password" placeholder="Confirm password" type="password">
           <i class="fa fa-key" matPrefix></i>
-          <div *ngIf="submittedSignUpForm && f.rePassword.errors" class="invalid-feedback">
+          <div *ngIf="submittedSignUpForm && f.rePassword.errors" >
             <div *ngIf="f.rePassword.errors.required" style="font-size: 12px;color: red">
               Confirm password is required.
             </div>
@@ -47,12 +47,25 @@
         </mat-form-field>
         <mat-form-field appearance="outline" class="mb-2">
           <input [(ngModel)]="consulter" [ngClass]="{ 'is-invalid': submittedSignUpForm && f.consulter.errors }"
-            formControlName="consulter" matInput name="consulter" placeholder="consulter name" type="text">
+            formControlName="consulter" matInput name="consulter" placeholder="Consulter name" type="text">
           <i class="fa fa-user-secret" matPrefix></i>
+          <div *ngIf="submittedSignUpForm && f.consulter.errors" >
+            <div *ngIf="f.consulter.errors.required" style="font-size: 12px;color: red">
+              Consulter is required.
+            </div>
+          </div>
         </mat-form-field>
+
         <mat-form-field appearance="outline" class="mb-2">
           <textarea [(ngModel)]="address" [ngClass]="{ 'is-invalid': submittedSignUpForm && f.address.errors }"
             formControlName="address" matInput name="address" placeholder="Address" type="text"></textarea>
+
+          <div *ngIf="submittedSignUpForm && f.address.errors" >
+            <div *ngIf="f.address.errors.required" style="font-size: 12px;color: red">
+              Address is required.
+            </div>
+          </div>
+
         </mat-form-field>
         <button class="button primary-btn w-100 mt-3 mb-3" type="submit">Sign Up</button>
       </form>

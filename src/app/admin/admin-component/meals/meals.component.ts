@@ -8,6 +8,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {catchError, last, map} from "rxjs/operators";
 import {of} from "rxjs";
 import Swal from "sweetalert2";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-meals',
@@ -171,7 +172,7 @@ export class MealsComponent implements OnInit {
     headers = headers.append('Access-Control-Allow-Origin', '*');
     headers = headers.append('Set-Cookie', 'HttpOnly;Secure;SameSite=Strict');
 
-    let req = new HttpRequest('POST', 'http://159.203.158.23:8080/file/upload/', formData, {
+    let req = new HttpRequest('POST', environment.proxy+'/file/upload/', formData, {
       headers: headers,
       reportProgress: true,
     });
