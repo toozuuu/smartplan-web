@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  proxy:"http://localhost:8080"
+
 };

@@ -1,16 +1,17 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  // PROXY = "http://localhost:8080";
-  PROXY = 'http://159.203.158.23:8080';
+  PROXY: string;
 
   constructor(private http: HttpClient) {
+    this.PROXY = environment.proxy;
   }
 
   createCart(body): Observable<any> {
@@ -25,8 +26,8 @@ export class UserService {
     return this.http.get<any>(this.PROXY + '/cart/getByUser/' + email);
   }
 
-  deleteCartItem(id):Observable<any>{
-    return  this.http.delete<any>(this.PROXY + '/cart/delete/' + id);
+  deleteCartItem(id): Observable<any> {
+    return this.http.delete<any>(this.PROXY + '/cart/delete/' + id);
   }
 
   loginIn(body): Observable<any> {
@@ -65,7 +66,7 @@ export class UserService {
     return this.http.post<any>(this.PROXY + '/meal/save', body);
   }
 
-  updateMeal(body):Observable<any>{
+  updateMeal(body): Observable<any> {
     return this.http.post<any>(this.PROXY + '/meal/update', body);
   }
 
@@ -73,8 +74,8 @@ export class UserService {
     return this.http.delete<any>(this.PROXY + '/meal/delete/' + id);
   }
 
-  deleteIng(id):Observable<any>{
-    return this.http.delete<any>(this.PROXY + '/meal/ing/delete/'+id);
+  deleteIng(id): Observable<any> {
+    return this.http.delete<any>(this.PROXY + '/meal/ing/delete/' + id);
   }
 
   updateAddress(body): Observable<any> {
