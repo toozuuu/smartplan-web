@@ -11,7 +11,7 @@ import {UserService} from '../../../service/user.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'gender', 'consulter', 'email', 'password', 'age'];
+  displayedColumns: string[] = ['name', 'gender', 'consulter', 'email', 'age', 'status', 'action'];
   @ViewChild('paginator', {static: true}) paginator: MatPaginator;
 
   dataSource: MatTableDataSource<any>;
@@ -37,7 +37,7 @@ export class UsersComponent implements OnInit {
           'gender': user.gender,
           'consulter': user.consulter,
           'email': user.email,
-          'password': user.password,
+          'status': user.status,
           'age': user.age
         });
       }
@@ -65,4 +65,20 @@ export class UsersComponent implements OnInit {
       }
     });
   }
+
+  userDetails:any;
+
+  editUser(data) {
+    this.userDetails = data;
+  }
+
+  updateStatus(status){
+    this.userService.updateUserStatus({
+      'email': this.userDetails.email,
+      'status': status
+    }).subscribe(() => {
+      this.loadUsers();
+    });
+  }
+
 }

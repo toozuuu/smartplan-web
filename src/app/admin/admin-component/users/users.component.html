@@ -1,77 +1,117 @@
 <div class="row">
-    <div class="col-12">
-        <div class="d-flex flex-row justify-content-between">
-            <div>
-                <h4 class="font-weight-bold black">
-                    <i class="fa fa-users" aria-hidden="true"></i> Users
-                </h4>
-            </div>
-        </div>
-        <div style="width:100%; max-height: 80vh; overflow-y: auto;">
-            <mat-form-field class="matsearch">
-                <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
-            </mat-form-field>
-
-            <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">
-
-                <ng-container matColumnDef="name">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-                        Name
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.name}}
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="gender">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-                        Gender
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.gender}}
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="consulter">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-                        Consulter
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.consulter}}
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="email">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-                        Email
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.email}}
-                    </td>
-                </ng-container>
-
-                <ng-container matColumnDef="password">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-                        Password
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.password}}
-                    </td>
-                </ng-container>
-
-                <ng-container matColumnDef="age">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-                        Age
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.age}}
-                    </td>
-                </ng-container>
-
-                <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-                <tr *matRowDef="let row; columns: displayedColumns" mat-row>
-                </tr>
-            </table>
-
-            <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-
-        </div>
+  <div class="col-12">
+    <div class="d-flex flex-row justify-content-between">
+      <div>
+        <h4 class="font-weight-bold black">
+          <i class="fa fa-users" aria-hidden="true"></i> Users
+        </h4>
+      </div>
     </div>
+    <div style="width:100%; max-height: 80vh; overflow-y: auto;">
+      <mat-form-field class="matsearch">
+        <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
+      </mat-form-field>
+
+      <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">
+
+        <ng-container matColumnDef="name">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Name
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.name}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="gender">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Gender
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.gender}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="consulter">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Consulter
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.consulter}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Email
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.email}}
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="age">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Age
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.age}}
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="status">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Status
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
+            {{row.status}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
+            <button (click)="editUser(row)" style="cursor: pointer" data-target="#editUserStatus"
+                    data-toggle="modal" class="btn btn-primary" type="button">
+              <em class="fa fa-pencil"></em></button>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns" mat-row>
+        </tr>
+      </table>
+
+      <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="editUserStatus" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="color:#000;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{userDetails?.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span>Gender : {{userDetails?.gender}}</span><br>
+        <span>Email : {{userDetails?.email}}</span><br>
+        <span>Age : {{userDetails?.age}}</span><br>
+        <span>Consulter : {{userDetails?.consulter}}</span>
+      </div>
+      <div class="modal-footer" style="justify-content: center">
+        <button [disabled]="userDetails?.status === 'ACTIVE'" type="button" class="btn btn-success" data-dismiss="modal" (click)="updateStatus('ACTIVE')">Active
+        </button>
+        <button [disabled]="userDetails?.status === 'REJECTED'" type="button" class="btn btn-danger" data-dismiss="modal" (click)="updateStatus('REJECTED')">Reject
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

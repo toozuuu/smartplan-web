@@ -3,6 +3,8 @@
       <div class="brand">
         <h1 class="white">Smart Plan</h1>
       </div>
+
+      
       <div class="navigation" (click)="clickMeals()">
         <ul>
           <li>
@@ -12,6 +14,7 @@
           </li>
         </ul>
       </div>
+
       <div class="navigation" (click)="clickUsers()">
         <ul>
           <li>
@@ -22,7 +25,21 @@
           </li>
         </ul>
       </div>
+
+
+      <div class="navigation" (click)="clickSettings()">
+        <ul>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="fa fa-cog" aria-hidden="true"></i>
+              Settings
+            </a>
+          </li>
+        </ul>
+      </div>
+
     </div>
+
     <div class="w-100" *ngIf="isMeals">
         <div class="header">
             <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
@@ -34,6 +51,7 @@
             <app-meals></app-meals>
         </div>
     </div>
+
   <div class="w-100" *ngIf="isUsers">
     <div class="header">
       <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
@@ -45,4 +63,5 @@
       <app-users></app-users>
     </div>
   </div>
+
 </div>

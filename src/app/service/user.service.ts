@@ -86,7 +86,7 @@ export class UserService {
     return this.http.post<any>(this.PROXY + '/user/update', body);
   }
 
-  updateUserPlanV1(body): Observable<any> {
-    return this.http.post<any>(this.PROXY + '/user/updateV1', body);
+  updateUserStatus(body): Observable<any> {
+    return this.http.post<any>(this.PROXY + '/user/updateUserStatus', body)
   }
 }

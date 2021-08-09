@@ -28,12 +28,14 @@ import {AdminDashboardComponent} from './admin-dashboard/admin-dashboard.compone
 import {MealsComponent} from './admin-component/meals/meals.component';
 import {NgxDropzoneModule} from 'ngx-dropzone';
 import { UsersComponent } from './admin-component/users/users.component';
+import { SettingsComponent } from './admin-component/settings/settings.component';
 
 @NgModule({
   declarations: [
   AdminDashboardComponent,
   MealsComponent,
-  UsersComponent],
+  UsersComponent,
+  SettingsComponent],
     imports: [
         CommonModule,
         MatButtonModule,

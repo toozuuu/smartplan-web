@@ -45,4 +45,8 @@ export class AdminDashboardComponent implements OnInit {
     this.isMeals = false;
     this.isUsers = true;
   }
+
+  clickSettings() {
+
+  }
 }
