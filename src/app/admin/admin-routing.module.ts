@@ -4,6 +4,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { MealsComponent } from './admin-component/meals/meals.component';
 import {UsersComponent} from './admin-component/users/users.component';
 import {SettingsComponent} from "./admin-component/settings/settings.component";
+import {ChatboxComponent} from "./admin-component/chatbox/chatbox.component";
 const routes: Routes = [
   {
     path: 'admin',
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'setting',
         component: SettingsComponent
+      },
+      {
+        path: 'chat',
+        component: ChatboxComponent
       }
     ]
   },

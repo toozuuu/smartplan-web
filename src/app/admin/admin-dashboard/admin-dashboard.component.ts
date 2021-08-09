@@ -10,6 +10,8 @@ import {Router} from '@angular/router';
 export class AdminDashboardComponent implements OnInit {
   isMeals: any = true;
   isUsers: any = false;
+  isChat: any = false;
+  isSetting: any = false;
 
   constructor(private router: Router) {
   }
@@ -39,14 +41,28 @@ export class AdminDashboardComponent implements OnInit {
   clickMeals() {
     this.isMeals = true;
     this.isUsers = false;
+    this.isSetting = false;
+    this.isChat = false;
   }
 
   clickUsers() {
     this.isMeals = false;
     this.isUsers = true;
+    this.isSetting = false;
+    this.isChat = false;
   }
 
   clickSettings() {
+    this.isMeals = false;
+    this.isUsers = false;
+    this.isSetting = true;
+    this.isChat = false;
+  }
 
+  clickChat() {
+    this.isMeals = false;
+    this.isUsers = false;
+    this.isSetting = false;
+    this.isChat = true;
   }
 }
