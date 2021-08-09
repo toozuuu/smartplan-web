@@ -147,7 +147,7 @@ export class DashboardComponent implements OnInit {
       for (let item of this.selectedMeals) {
         body.push(this.commonBody(item.price, item.id))
       }
-      this.userService.createCart(body).subscribe(result => {
+      this.userService.createCart(body).subscribe(() => {
         this.router.navigate(['/dashboard/checkout']);
       });
     } else {
@@ -177,7 +177,15 @@ export class DashboardComponent implements OnInit {
   }
 
   addToCart(meal: any) {
-    this.selectedMeals.push(meal);
+    if (this.selectedMeals.length > 0) {
+      for (let mealList of this.selectedMeals) {
+        if (mealList.id !== meal.id) {
+          this.selectedMeals.push(meal);
+        }
+      }
+    } else {
+      this.selectedMeals.push(meal);
+    }
     sessionStorage.setItem('selectMeals', JSON.stringify(this.selectedMeals))
     this.interactionService.passSelectedData(this.selectedMeals);
   }
