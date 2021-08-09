@@ -15,10 +15,6 @@
 @import "assets/scss/form.scss";
 @import "assets/scss/tabel.scss";
 
-// agGrid
-@import "~ag-grid-community/dist/styles/ag-grid.css";
-@import '~ag-grid-community/src/styles/ag-theme-material/sass/ag-theme-material';
-
 
 .noselect {
   -webkit-touch-callout: none;
@@ -26,4 +22,15 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+body{
+  .main {
+    background-size: cover;
+    //background: $white url('src/assets/img/public/main.png') no-repeat center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }

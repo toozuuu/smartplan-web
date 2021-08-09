@@ -25,12 +25,9 @@ body {
     }
 
     .main {
-        background: url(assets/img/public/main.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        background-color: $white;
-        display: flex;
+      background-size: cover;
+      background: $white url(src/assets/img/public/main.png) no-repeat center;
+      display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -81,7 +78,7 @@ p {
 }
 
 hr {
-    margin-top: 0px !important;
+    margin-top: 0 !important;
 }
 
 .content {
@@ -91,7 +88,7 @@ hr {
 
 .panel {
     background-color: $white !important;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.13);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.13);
     border-radius: 10px;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -109,7 +106,7 @@ button.mat-icon-button.mat-button-base {
     outline: none !important;
 }
 
-// colors classess
+// colors classes
 .primary-blue {
     color: $primary-blue !important;
 }

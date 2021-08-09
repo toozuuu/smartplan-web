@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Route, Router} from '@angular/router';
-import {log} from 'util';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-select-plan',
