@@ -26,7 +26,8 @@ body {
 
     .main {
       background-size: cover;
-      background: $white url(src/assets/img/public/main.png) no-repeat center;
+      background-color: #263238;
+      //background: $white url(src/assets/img/public/main.png) no-repeat center;
       display: flex;
         flex-direction: row;
         justify-content: center;

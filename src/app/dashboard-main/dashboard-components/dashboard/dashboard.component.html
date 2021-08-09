@@ -1,20 +1,6 @@
+<app-header></app-header>
 <div class="main-dash">
-    <div class="container-fluid">
-        <div class="d-flex justify-content-between align-items-center mt-3">
-            <h4>My Profile</h4>
-            <div class="text-right">
-                <h4 class="mb-0">Welcome {{name}}! &nbsp;&nbsp;
-                    <i (click)="logout()" class="fa fa-sign-out mouse-over"></i>
-                </h4>
-                <div class="d-flex flex-row justify-content-end mouse-over" data-target=".addressModel" data-toggle="modal">
-                    <div class="text-right mr-2">
-                        <p class="m-0">{{address}}</p>
-                    </div>
-                    <i class="fa fa-cog mt-1"></i>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="container-fluid">
         <div class="d-flex flex-wrap justify-content-around">
             <div class="avater">
@@ -95,30 +81,6 @@
 </div>
 
 
-<!-- address -->
-<div aria-hidden="true" aria-labelledby="mySmallModalLabel" class="modal fade addressModel" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title black">Edit Address</h5>
-                    <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-            <span aria-hidden="true">&times;</span>
-          </button>
-                </div>
-                <div class="modal-body">
-                    <mat-form-field appearance="outline">
-                        <textarea [(ngModel)]="address" matInput placeholder="Textarea" rows="5" style="color: black!important;"></textarea>
-                    </mat-form-field>
-                    <br>
-                    <div class="d-flex justify-content-end">
-                        <a (click)="updateAddress()" class="button primary-btn" data-dismiss="modal" href="javascript:void(0)">Update</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <app-chat-config></app-chat-config>
 <app-chat-widget></app-chat-widget>

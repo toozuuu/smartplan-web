@@ -36,6 +36,7 @@ import {MatCardModule} from "@angular/material/card";
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import {ChatModule} from "./chat";
+import { HeaderComponent } from './dashboard-components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {ChatModule} from "./chat";
     SelectFoodComponent,
     DashboardComponent,
     CheckoutComponent,
+    HeaderComponent,
   ],
     imports: [
         CommonModule,
