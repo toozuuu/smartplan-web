@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-chat-input',
@@ -13,7 +13,8 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, V
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./chat-input.component.css'],
 })
-export class ChatInputComponent implements OnInit {
+export class ChatInputComponent {
+
   @Input() public buttonText = '↩︎';
   @Input() public focus = new EventEmitter();
   @Output() public send = new EventEmitter();
@@ -23,9 +24,6 @@ export class ChatInputComponent implements OnInit {
   sender: any;
 
   constructor() {
-  }
-
-  ngOnInit() {
     this.focus.subscribe(() => this.focusMessage());
   }
 

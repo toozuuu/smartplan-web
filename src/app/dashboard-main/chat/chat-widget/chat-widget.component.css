@@ -16,7 +16,7 @@
   bottom: 20px;
   right: 40px;
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
-  background: #1976d2;
+  background: #006064 ;
   border-radius: 50%;
   border: none;
   outline: none;
@@ -50,7 +50,7 @@
   filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.25));
   cursor: pointer;
   z-index: 1000;
-  background-color: #0c69cd;
+  background-color: #006064 ;
 }
 
 .chat-button:focus {
@@ -85,7 +85,7 @@
 .chat-box-header {
   padding: 10px;
   color: #fff;
-  background: #1758ff;
+  background: #006064 ;
 }
 
 .chat-box-main {
@@ -167,14 +167,13 @@ Received message style
 }
 
 .chat-message-received .chat-message-text {
-  background: #1758ff;
+  background: #006064 ;
   box-sizing: border-box;
   box-shadow: 10px 10px 25px rgba(112, 124, 151, 0.05),
     15px 15px 35px rgba(112, 124, 151, 0.05);
-  border-radius: 10px;
   margin-left: 50px;
   color: #fff;
-  border-bottom-left-radius: 0;
+  border-radius: 10px 10px 10px 0;
 }
 
 .chat-message-received .chat-message-text:before {
@@ -182,7 +181,7 @@ Received message style
   content: " ";
   left: -10px;
   bottom: 0;
-  border-right: solid 10px #1758ff;
+  border-right: solid 10px #006064 ;
   border-top: solid 10px transparent;
   z-index: 0;
 }
@@ -213,10 +212,9 @@ Sent message style
   box-sizing: border-box;
   box-shadow: 10px 10px 25px rgba(112, 124, 151, 0.05),
     15px 15px 35px rgba(112, 124, 151, 0.05);
-  border-radius: 10px;
   margin-right: 50px;
   color: #022450;
-  border-bottom-right-radius: 0;
+  border-radius: 10px 10px 0 10px;
 }
 
 .chat-message-sent .chat-message-text:after {
@@ -241,10 +239,10 @@ Sent message style
 }
 
 .blue .chat-button {
-  background: #1976d2;
+  background: #006064 ;
 }
 .blue .chat-box {
-  background: #1976d2;
+  background: #006064 ;
 }
 
 .grey .chat-button {
