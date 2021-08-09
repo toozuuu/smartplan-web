@@ -3,7 +3,7 @@
     <h1 class="white mb-3 text-center">Smart Plan</h1>
     <div class="login-box">
       <h4 class="gray-2 m-3 text-center font-weight-bold">Login</h4>
-      <form [formGroup]="signInForm" class="login-form" (ngSubmit)="onSubmitLogin()">
+      <form [formGroup]="signInForm" class="login-form" (ngSubmit)="onSubmitLogin()" autocomplete="off">
         <mat-form-field appearance="outline" class="mb-3">
           <input [(ngModel)]="email" [ngClass]="{ 'is-invalid': submittedLoginForm && f.email.errors }"
                  formControlName="email" matInput name="email" placeholder="Email" type="email" autocomplete="off">

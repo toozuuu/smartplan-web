@@ -1,45 +1,44 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
+  PROXY: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.PROXY = environment.proxy;
+
+  }
 
   imageUpload(body): Observable<any> {
-    // @ts-ignore
-    return this.http.post<any>('http://127.0.0.1:5000/image/', body,{ responseType: 'text'});
+    return this.http.post<any>('http://127.0.0.1:5000/image/', body, {responseType: 'json'});
   }
 
   chat(body): Observable<any> {
-    // return this.http.post<any>(this.mainUrl.MAIN_URL_CHAT + '/chat/save', body);
-    return;
+    return this.http.post<any>(this.PROXY + '/chat/save', body);
   }
 
   getSenderId(sender): Observable<any> {
-    // return this.http.get<any>(this.mainUrl.MAIN_URL_CHAT + '/chat/fetchChatRoomList/' + sender);
-    return;
+    return this.http.get<any>(this.PROXY + '/chat/fetchChatRoomList/' + sender);
 
   }
 
   getMessages(chatRoomId): Observable<any> {
-    // return this.http.get<any>(this.mainUrl.MAIN_URL_CHAT + '/chat/fetchMessagesByChatRoomId/' + chatRoomId);
-    return;
+    return this.http.get<any>(this.PROXY + '/chat/fetchMessagesByChatRoomId/' + chatRoomId);
 
   }
 
   getChatRoomList(sender) {
-    // return this.http.get<any>( this.mainUrl.MAIN_URL_CHAT +'/chat/fetchChatRoomList/' + sender);
-    return;
+    return this.http.get<any>(this.PROXY + '/chat/fetchChatRoomList/' + sender);
 
   }
 
   getChatMessagesList(chatRoomId) {
-    // return this.http.get<any>( this.mainUrl.MAIN_URL_CHAT +'/chat/fetchMessagesByChatRoomId/' + chatRoomId);
-    return;
+    return this.http.get<any>(this.PROXY + '/chat/fetchMessagesByChatRoomId/' + chatRoomId);
 
   }
 }

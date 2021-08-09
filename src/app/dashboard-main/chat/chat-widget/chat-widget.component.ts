@@ -13,11 +13,10 @@ import {ChatService} from "../../../service/chat.service";
 })
 export class ChatWidgetComponent implements OnInit {
 
-  @ViewChild('bottom',{static:true}) bottom: ElementRef;
+  @ViewChild('bottom', {static: true}) bottom: ElementRef;
   @Input() public theme: 'blue' | 'grey' | 'red' = 'grey';
 
   public _visible = false;
-  tenantValue: any;
   id: any;
   message: any;
   url: any;
@@ -29,37 +28,35 @@ export class ChatWidgetComponent implements OnInit {
   username: any;
   chatroomid: any;
   notificationCount: any = 0;
+  result: any;
+  isLog: any;
 
 
   constructor(private service: ChatService) {
+    this.username = "sachindilshan040@gmail.com"
     setInterval(() => {
       this.randomMessage();
     }, 3000);
   }
 
   ngOnInit() {
-    // this.tenantValue = localStorage.getItem('TENANT_VALUE');
-    // setTimeout(() => this.visible = true, 1000);
-    // this.interactionService.contactSeller.subscribe(result => {
-    //   let isLoggedIn = localStorage.getItem('isLogged');
-    //
-    //   if (isLoggedIn === 'True') {
-    //     this.visible = !this.visible;
-    //     this.sendMessage({
-    //       'message': result
-    //     });
-    //   } else {
-    //     Swal.close();
-    //     Swal.fire({
-    //       position: 'center',
-    //       type: 'warning',
-    //       title: 'Please Login First!',
-    //       showConfirmButton: false,
-    //       timer: 1500
-    //     });
-    //   }
-    //
-    // });
+    this.isLog = localStorage.getItem('$LOG');
+    setTimeout(() => this.visible = true, 1000);
+    if (this.isLog === 'LOGGED') {
+      this.visible = !this.visible;
+      this.sendMessage({
+        'message': this.result
+      });
+    } else {
+      Swal.close();
+      Swal.fire({
+        position: 'center',
+        title: 'Please Login First!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+
   }
 
 
@@ -82,7 +79,7 @@ export class ChatWidgetComponent implements OnInit {
   public focus = new Subject();
 
   public operator = {
-    name: 'Brision',
+    name: 'SmartPlan',
     status: 'online'
   };
 
@@ -93,7 +90,6 @@ export class ChatWidgetComponent implements OnInit {
 
   public messages = [];
   image: any;
-  imageUrl: any;
 
   public addMessage(from, text, img, type: 'received' | 'sent', date) {
     this.messages.unshift({
@@ -103,7 +99,6 @@ export class ChatWidgetComponent implements OnInit {
       type,
       date: date,
     });
-    // date: new Date().getTime(),
     this.scrollToBottom();
   }
 
@@ -123,119 +118,60 @@ export class ChatWidgetComponent implements OnInit {
       return;
     }
 
-    let isLoggedIn = localStorage.getItem('isLogged');
+    if (this.isLog === 'LOGGED') {
+      this.username = 'TEST_USERNAME';
+      localStorage.setItem('LOGGED_USERNAME', this.username);
 
-    // if (isLoggedIn === 'True') {
-    //   this.userRoleService.whoAmI().subscribe(whoAmIDetails => {
-    //     this.username = whoAmIDetails.email;
-    //     localStorage.setItem('LOGGED_USERNAME', this.username);
-    //
-    //     let body = {
-    //       'sender': this.username,
-    //       'content': message.message,
-    //       'receiver': 'ADMIN',
-    //     };
-    //     this.service.chat(body).subscribe(() => {
-    //     }, () => {
-    //     });
-    //   }, () => {
-    //     Swal.close();
-    //   });
-    //   this.addMessage(this.client, message.message, '', 'sent', new Date().getTime());
-    //   setTimeout(() => this.randomMessage(), 1000);
-    // } else {
-    //   Swal.close();
-    //   Swal.fire({
-    //     position: 'center',
-    //     type: 'warning',
-    //     title: 'Please Login First!',
-    //     showConfirmButton: false,
-    //     timer: 1500
-    //   }).then(() => {
-    //   });
-    // }
+      let body = {
+        'sender': this.username,
+        'content': message.message,
+        'receiver': 'ADMIN',
+      };
+      this.service.chat(body).subscribe(() => {
+      });
+      this.addMessage(this.client, message.message, '', 'sent', new Date().getTime());
+      setTimeout(() => this.randomMessage(), 1000);
+    } else {
+      Swal.close();
+      Swal.fire({
+        position: 'center',
+        title: 'Please Login First!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
   }
 
   // message received
-  public randomMessage() {
-    // this.service.getSenderId(this.username).subscribe(result => {
-    //   if (Object.keys(result).length > 0) {
-    //     this.chatroomid = result[0].chatRoomId;
-    //     this.service.getMessages(this.chatroomid).subscribe(getMessage => {
-    //       if (this.messages.length - 1 !== Object.keys(getMessage).length) {
-    //         // this.notificationCount = ((Object.keys(getMessage).length) - (this.messages.length - 1));
-    //         this.messages = [];
-    //         this.notificationCount = 0;
-    //         this.addMessage(this.operator, 'Hi, how can we help you?', '', 'received', new Date().getTime());
-    //         if (getMessage != null) {
-    //           for (let msg of getMessage) {
-    //
-    //             if (msg.sender === 'ADMIN') {
-    //               if(msg.status==='NEW'){
-    //                 this.notificationCount ++;
-    //               }
-    //
-    //               this.addMessage(this.operator, msg.content, '', 'received', msg.time);
-    //             } else {
-    //               this.addMessage(this.client, msg.content, '', 'sent', msg.time);
-    //             }
-    //           }
-    //         }
-    //       }
-    //     });
-    //   }
-    //
-    // });
-  }
+  randomMessage() {
+    this.service.getSenderId(this.username).subscribe(result => {
+      if (Object.keys(result).length > 0) {
+        this.chatroomid = result[0].chatRoomId;
+        this.service.getMessages(this.chatroomid).subscribe(getMessage => {
+          if (this.messages.length - 1 !== Object.keys(getMessage).length) {
+            this.messages = [];
+            this.notificationCount = 0;
+            this.addMessage(this.operator, 'Hi, how can we help you?', '', 'received', new Date().getTime());
+            if (getMessage != null) {
+              for (let msg of getMessage) {
 
-  // public randomMessage(message) {
-  //
-  //   let isLoggedIn = localStorage.getItem('isLogged');
-  //
-  //   if (isLoggedIn === 'True') {
-  //     this.userRoleService.whoAmI().subscribe(whoAmIDetails => {
-  //       this.username = whoAmIDetails.email;
-  //       console.log(whoAmIDetails);
-  //
-  //       let body = {
-  //         'userName': whoAmIDetails.email,
-  //         'chatMessageId': this.tenantValue,
-  //         'content': this.message,
-  //         'url': this.url,
-  //         'sender': this.name,
-  //         'receiver': this.receiver,
-  //         'status': this.operator,
-  //         'time': this.time,
-  //         'deliveredTime': this.deliveredTime
-  //       };
-  //       this.service.chat(body).subscribe(result => {
-  //         this.addMessage(this.operator, result[0].text, '', 'received');
-  //         console.log('saved sucessfully');
-  //
-  //       }, () => {
-  //       });
-  //     }, () => {
-  //       Swal.close();
-  //     });
-  //   }
-  //   this.getMessages();
-  // }
+                if (msg.sender === 'ADMIN') {
+                  if (msg.status === 'NEW') {
+                    this.notificationCount++;
+                  }
 
-  getMessages() {
-    this.service.getSenderId(this.sender).subscribe(result => {
-      this.chatroomid = result.chatRoomId;
-    });
+                  this.addMessage(this.operator, msg.content, '', 'received', msg.time);
+                } else {
+                  this.addMessage(this.client, msg.content, '', 'sent', msg.time);
+                }
+              }
+            }
+          }
+        });
+      }
 
-    this.service.getMessages(this.chatroomid).subscribe(messages => {
     });
   }
-
-
-  setAsDeliveredMessages(chatRoomID, sender) {
-    // this.coreService.setAsDeliveredByChatRoomId(chatRoomID, sender).subscribe(() => {
-    // });
-  }
-
 
   public toggleChat() {
 
@@ -243,22 +179,13 @@ export class ChatWidgetComponent implements OnInit {
 
     if (!this.visible) {
       this.notificationCount = 0;
-      let isLoggedIn = localStorage.getItem('isLogged');
 
-      if (isLoggedIn === 'True') {
-        this.username = localStorage.getItem('LOGGED_USERNAME');
+      if (this.isLog === 'LOGGED') {
         if (this.username == null) {
-          // this.userRoleService.whoAmI().subscribe(whoAmIDetails => {
-          //   this.username = whoAmIDetails.email;
-          //   localStorage.setItem('LOGGED_USERNAME', this.username);
-          //
-          //   this.randomMessage();
-          // });
+          this.username = "TEXT_USERNAME";
+          this.randomMessage();
         } else {
           this.randomMessage();
-        }
-        if(this.chatroomid !== undefined && this.chatroomid !== null){
-          this.setAsDeliveredMessages(this.chatroomid, 'ADMIN');
         }
       } else {
         this.messages = [];
@@ -272,18 +199,7 @@ export class ChatWidgetComponent implements OnInit {
     if (event.key === '/') {
       this.focusMessage();
     }
-    if (event.key === '?' && !this._visible) {
-      // this.toggleChat();
-    }
 
   }
 
-  imageRes(message, file) {
-    this.imageUrl = 'http://127.0.0.1:5000/uploads/' + file;
-    this.addMessage(this.operator, '', this.imageUrl, 'sent', new Date().getTime());
-
-    setTimeout(() => {
-      this.addMessage(this.operator, message, '', 'received', new Date().getTime());
-    }, 1000);
-  }
 }
