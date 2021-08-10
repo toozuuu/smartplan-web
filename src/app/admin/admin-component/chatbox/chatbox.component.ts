@@ -73,9 +73,11 @@ export class ChatboxComponent implements OnInit {
   }
 
   selectedRoom: any;
+  sender:any;
 
   chatRoomClick(room: any, i: number) {
     this.activeChat = i;
+    this.sender = room.sender;
     this.selectedRoom = room;
     this.isUserSelected = true;
     this.loadChatMessagesList(room.chatRoomId);

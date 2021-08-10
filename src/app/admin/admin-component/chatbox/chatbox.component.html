@@ -9,8 +9,8 @@
                 <div class="tabp fade show active">
                   <div class="m-tab-box">
                     <ul>
-                      <li *ngFor="let room of chatRoomList ; let i = index" [id]="'room'+i"
-                          [ngClass]="{'active':activeChat==i}" (click)="chatRoomClick(room,i)"
+                      <li *ngFor="let room of chatRoomList ; let i = index"
+                          [ngClass]="{'active':activeChat===i}" (click)="chatRoomClick(room,i)"
                           style="margin-left: 10px;background-color: #122143;color: white;border: 1px solid">
                         <div
                           class="d-flex align-items-center justify-content-between">
@@ -41,6 +41,10 @@
                           </div>
                         </div>
                       </li>
+                      <li *ngIf="chatRoomList.length === 0" style="color: red;font-weight: bold;"
+                          [ngClass]="{'active':activeChat===20}">
+                        No messages!
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -52,11 +56,11 @@
         <div class="col-xs-10 col-md-6 col-lg-6" id="chatmobile">
           <div class="main-msg-chatbox" *ngIf="isUserSelected"
                style="margin-left: 10px;background-color: #122143;color: white;border: 1px solid">
+            <p style="margin: 10px">{{sender}}</p>
             <div class="chat1">
-              <ul style="overflow: scroll;" #scrollMe [scrollTop]="scrollMe.scrollHeight" class="chat">
+              <ul style="overflow: scroll;" class="chat">
 
                 <div *ngFor="let msg of chatMessagesList ; let i = index">
-
                   <li class="you" *ngIf="msg.receiver==='ADMIN'">
                     <div class="message">
                       {{msg.content}}
