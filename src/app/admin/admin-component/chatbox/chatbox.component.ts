@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ChatService} from "../../../service/chat.service";
 
 @Component({
@@ -6,7 +6,7 @@ import {ChatService} from "../../../service/chat.service";
   templateUrl: './chatbox.component.html',
   styleUrls: ['./chatbox.component.scss']
 })
-export class ChatboxComponent {
+export class ChatboxComponent implements OnInit {
 
 
   msgTab = 1;
@@ -45,6 +45,12 @@ export class ChatboxComponent {
     this.loadChatList();
   }
 
+  ngOnInit() {
+    setInterval(() => {
+      this.loadChatList();
+    }, 3000);
+  }
+
   loadChatList() {
     this.chatService.getChatRoomList("ADMIN").subscribe(result => {
       this.chatRoomList = result;
@@ -69,6 +75,7 @@ export class ChatboxComponent {
   selectedRoom: any;
 
   chatRoomClick(room: any, i: number) {
+    this.activeChat = i;
     this.selectedRoom = room;
     this.isUserSelected = true;
     this.loadChatMessagesList(room.chatRoomId);

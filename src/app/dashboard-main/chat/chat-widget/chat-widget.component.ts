@@ -30,7 +30,7 @@ export class ChatWidgetComponent implements OnInit {
 
 
   constructor(private service: ChatService) {
-    this.username = "TEST_USERNAME"
+    this.username = localStorage.getItem('$email');
     setInterval(() => {
       this.randomMessage();
     }, 3000);
@@ -108,7 +108,7 @@ export class ChatWidgetComponent implements OnInit {
   sendMessage(message) {
 
     if (this.isLog === 'LOGGED' && message !== null && message !== undefined) {
-      this.username = 'TEST_USERNAME';
+      this.username = localStorage.getItem('$email');
       localStorage.setItem('LOGGED_USERNAME', this.username);
 
       let body = {
@@ -171,7 +171,7 @@ export class ChatWidgetComponent implements OnInit {
 
       if (this.isLog === 'LOGGED') {
         if (this.username == null) {
-          this.username = "TEXT_USERNAME";
+          this.username = localStorage.getItem('$email');
           this.randomMessage();
         } else {
           this.randomMessage();

@@ -6,20 +6,18 @@
           <aside>
             <div class="msg-tabs">
               <div class="tab-content" id="pills-tabContent">
-                <div class="tabp fade show active" *ngIf="msgTab==1">
+                <div class="tabp fade show active">
                   <div class="m-tab-box">
                     <ul>
-                      <li *ngFor="let room of chatRoomList ; let i = index"
+                      <li *ngFor="let room of chatRoomList ; let i = index" [id]="'room'+i"
                           [ngClass]="{'active':activeChat==i}" (click)="chatRoomClick(room,i)"
-                          style="margin-left: 10px">
+                          style="margin-left: 10px;background-color: #122143;color: white;border: 1px solid">
                         <div
                           class="d-flex align-items-center justify-content-between">
                           <div class="left-m d-flex align-items-center">
 
-                            <ng-template>
-                              <img src="https://www.gravatar.com/avatar/?d=mp"
-                                   alt="">
-                            </ng-template>
+                            <img src="https://www.gravatar.com/avatar/?d=mp"
+                                 alt="">
 
                             <span class="p-ab red-box notifications">
                                         <p>{{room.newMessageCount}}</p>
@@ -52,20 +50,8 @@
           </aside>
         </div>
         <div class="col-xs-10 col-md-6 col-lg-6" id="chatmobile">
-          <div class="main-msg-chatbox" *ngIf="isUserSelected">
-            <header>
-              <div class="d-flex align-items-center justify-content-between">
-                <div class="profile-box d-flex align-items-center">
-                  <img src="{{displayedImageUrl}}" alt="">
-                  <div class="main-color">
-                    <h2>{{displayedChatName}} </h2>
-                    <h5>
-                      {{ selectedUserLastMsgTime | date:'medium' }}
-                    </h5>
-                  </div>
-                </div>
-              </div>
-            </header>
+          <div class="main-msg-chatbox" *ngIf="isUserSelected"
+               style="margin-left: 10px;background-color: #122143;color: white;border: 1px solid">
             <div class="chat1">
               <ul style="overflow: scroll;" #scrollMe [scrollTop]="scrollMe.scrollHeight" class="chat">
 
@@ -92,11 +78,13 @@
                 </div>
               </ul>
             </div>
-            <footer>
+            <footer style="margin-left: 10px;background-color: #3F51B5;color: white;">
               <div class="d-flex align-items-center">
                                                     <textarea placeholder="Type your message" [(ngModel)]="message"
+                                                              style="color: black;"
                                                     ></textarea>
-                <a (click)="sendMessageClick()" class="greytxt"><span class="material-icons"> send </span></a>
+                <a (click)="sendMessageClick()" class="greytxt" style="margin: 15px;color: white;cursor: pointer"><span
+                  class="material-icons"> send </span></a>
               </div>
             </footer>
           </div>
