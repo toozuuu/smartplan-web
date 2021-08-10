@@ -16,24 +16,21 @@ export class ChatWidgetComponent implements OnInit {
   @ViewChild('bottom', {static: true}) bottom: ElementRef;
   @Input() public theme: 'blue' | 'grey' | 'red' = 'grey';
 
-  public _visible = false;
+  _visible = false;
   id: any;
   message: any;
-  url: any;
   name: any;
-  state: any;
   sender: any;
   status: any;
   time: any;
   username: any;
   chatroomid: any;
   notificationCount: any = 0;
-  result: any;
   isLog: any;
 
 
   constructor(private service: ChatService) {
-    this.username = "sachindilshan040@gmail.com"
+    this.username = "TEST_USERNAME"
     setInterval(() => {
       this.randomMessage();
     }, 3000);
@@ -44,9 +41,7 @@ export class ChatWidgetComponent implements OnInit {
     setTimeout(() => this.visible = true, 1000);
     if (this.isLog === 'LOGGED') {
       this.visible = !this.visible;
-      this.sendMessage({
-        'message': this.result
-      });
+      this.randomMessage();
     } else {
       Swal.close();
       Swal.fire({
@@ -59,14 +54,12 @@ export class ChatWidgetComponent implements OnInit {
 
   }
 
-
-  public get visible() {
+  get visible() {
     return this._visible;
   }
 
-
   @Input()
-  public set visible(visible) {
+  set visible(visible) {
     this._visible = visible;
     if (this._visible) {
       setTimeout(() => {
@@ -76,22 +69,22 @@ export class ChatWidgetComponent implements OnInit {
     }
   }
 
-  public focus = new Subject();
+  focus = new Subject();
 
-  public operator = {
+  operator = {
     name: 'SmartPlan',
     status: 'online'
   };
 
-  public client = {
+  client = {
     name: 'User',
     status: 'online'
   };
 
-  public messages = [];
+  messages = [];
   image: any;
 
-  public addMessage(from, text, img, type: 'received' | 'sent', date) {
+  addMessage(from, text, img, type: 'received' | 'sent', date) {
     this.messages.unshift({
       from,
       text,
@@ -102,23 +95,19 @@ export class ChatWidgetComponent implements OnInit {
     this.scrollToBottom();
   }
 
-  public scrollToBottom() {
+  scrollToBottom() {
     if (this.bottom !== undefined) {
       this.bottom.nativeElement.scrollIntoView();
     }
   }
 
-  public focusMessage() {
+  focusMessage() {
     this.focus.next(true);
   }
 
-  // message sent
-  public sendMessage(message) {
-    if (message === '' || message === undefined) {
-      return;
-    }
+  sendMessage(message) {
 
-    if (this.isLog === 'LOGGED') {
+    if (this.isLog === 'LOGGED' && message !== null && message !== undefined) {
       this.username = 'TEST_USERNAME';
       localStorage.setItem('LOGGED_USERNAME', this.username);
 
@@ -128,6 +117,7 @@ export class ChatWidgetComponent implements OnInit {
         'receiver': 'ADMIN',
       };
       this.service.chat(body).subscribe(() => {
+        //do_something();
       });
       this.addMessage(this.client, message.message, '', 'sent', new Date().getTime());
       setTimeout(() => this.randomMessage(), 1000);
@@ -142,7 +132,6 @@ export class ChatWidgetComponent implements OnInit {
     }
   }
 
-  // message received
   randomMessage() {
     this.service.getSenderId(this.username).subscribe(result => {
       if (Object.keys(result).length > 0) {
@@ -173,7 +162,7 @@ export class ChatWidgetComponent implements OnInit {
     });
   }
 
-  public toggleChat() {
+  toggleChat() {
 
     this.visible = !this.visible;
 
