@@ -1,22 +1,50 @@
-<div class="container-fluid">
-  <div class="d-flex justify-content-between align-items-center mt-3">
-    <h4>
-      <img src="assets/img/public/SmartPlan.png" alt="" style="width: 100px;border-radius: 100%">
-    </h4>
-    <div class="text-right">
-      <h4 class="mb-0">Welcome {{name}}! &nbsp;&nbsp;
-        <i (click)="logout()" class="fa fa-sign-out mouse-over"></i>
-      </h4>
-      <div class="d-flex flex-row justify-content-end mouse-over" data-target=".addressModel" data-toggle="modal">
-        <div class="text-right mr-2">
-          <p class="m-0">{{address}}</p>
-        </div>
-        <i class="fa fa-cog mt-1"></i>
-      </div>
-    </div>
-  </div>
-</div>
+<!--<div class="container-fluid">-->
+<!--  <div class="d-flex justify-content-between align-items-center mt-3">-->
+<!--    <h4>-->
+<!--      <img src="assets/img/public/SmartPlan.png" alt="" style="width: 100px;border-radius: 100%">-->
+<!--    </h4>-->
+<!--    <div class="text-right">-->
+<!--      <h4 class="mb-0">Welcome {{name}}! &nbsp;&nbsp;-->
+<!--        <i (click)="logout()" class="fa fa-sign-out mouse-over"></i>-->
+<!--      </h4>-->
+<!--      <div class="d-flex flex-row justify-content-end mouse-over" data-target=".addressModel" data-toggle="modal">-->
+<!--        <div class="text-right mr-2">-->
+<!--          <p class="m-0">{{address}}</p>-->
+<!--        </div>-->
+<!--        <i class="fa fa-cog mt-1"></i>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
+  <a class="navbar-brand" [routerLink]="'/dashboard'"> <img src="assets/img/public/SmartPlan.png" alt=""
+                                                            style="width: 35px;border-radius: 100%">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-right: 3vw">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a style="border: 2px solid!important;border-radius: 10px!important;" class="nav-link dropdown-toggle "
+           id="navbarDropdownMenuLink" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          <span class="customText">{{name}}</span>
+        </a>
+        <div class="dropdown-menu" style="width: 100%">
+          <a class="dropdown-item customDrop"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            My Account</a>
+          <a class="dropdown-item customDrop"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            My Cart</a>
+          <a class="dropdown-item customDrop" (click)="logout()"><i class="fa fa-times" aria-hidden="true"></i>
+            Sign Out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <!-- address -->
 <div aria-hidden="true" aria-labelledby="mySmallModalLabel" class="modal fade addressModel" role="dialog" tabindex="-1">
@@ -31,7 +59,8 @@
         </div>
         <div class="modal-body">
           <mat-form-field appearance="outline">
-            <textarea [(ngModel)]="address" matInput placeholder="Textarea" rows="5" style="color: black!important;"></textarea>
+            <textarea [(ngModel)]="address" matInput placeholder="Textarea" rows="5"
+                      style="color: black!important;"></textarea>
           </mat-form-field>
           <br>
           <div class="d-flex justify-content-end">
