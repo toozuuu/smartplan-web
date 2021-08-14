@@ -1,166 +1,177 @@
 button:focus,
 button.mat-icon-button.mat-button-base {
-    outline: none;
+  outline: none;
 }
 
 .button {
-    border-radius: 5px !important;
-    padding: 5px 25px !important;
-    border: none !important;
-    text-decoration: none !important;
-    cursor: pointer;
-    
-    &:hover,
-    &:focus,
-    &:active {
-        outline: none !important;
+  border-radius: 5px !important;
+  padding: 5px 25px !important;
+  border: none !important;
+  text-decoration: none !important;
+  cursor: pointer;
+
+  width: 225px;
+  margin: 16px auto;
+  display: block;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(
+      147.74deg, #60ce71, #1bbf8a 101.31%);
+  font-family: Montserrat-regular, sans-serif;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none !important;
+  }
+
+  &.primary-btn {
+    background: linear-gradient(
+        147.74deg, #60ce71, #1bbf8a 101.31%);
+    color: $white;
+    border: 2px solid $primary-color !important;
+  }
+
+  &.publish-btn {
+    background: $green !important;
+    color: $white;
+    border: 2px solid $green !important;
+  }
+
+  &.danger-btn {
+    background: $btn-red !important;
+    color: $white;
+    border: 2px solid $btn-red !important;
+  }
+
+  &.outline-btn {
+    background: transparent !important;
+    color: $secondary-blue;
+    border: 2px solid $secondary-blue !important;
+
+    &.white {
+      color: $white;
+      border: 2px solid $white !important;
     }
 
-    &.primary-btn {
-        background: $primary-color !important;
-        color: $white;
-        border: 2px solid $primary-color !important;
+    &.search {
+      color: $search_btn;
+      border: 1px solid $search_btn !important;
+
+      i {
+        padding-right: 5px;
+      }
     }
+  }
 
-    &.publish-btn {
-        background: $green !important;
-        color: $white;
-        border: 2px solid $green !important;
-    }
-
-    &.danger-btn {
-        background: $btn-red !important;
-        color: $white;
-        border: 2px solid $btn-red !important;
-    }
-
-    &.outline-btn {
-        background: transparent !important;
-        color: $secondary-blue;
-        border: 2px solid $secondary-blue !important;
-
-        &.white {
-            color: $white;
-            border: 2px solid $white !important;
-        }
-
-        &.search {
-            color: $search_btn;
-            border: 1px solid $search_btn !important;
-
-            i {
-                padding-right: 5px;
-            }
-        }
-    }
-
-    &.white-btn {
-        background-color: $white;
-        color: $primary-blue;
-    }
+  &.white-btn {
+    background-color: $white;
+    color: $primary-blue;
+  }
 }
 
 .secondrow {
-    padding-top: 50px;
+  padding-top: 50px;
 
-    .workflow-items {
-        text-align: center;
-        cursor: pointer;
+  .workflow-items {
+    text-align: center;
+    cursor: pointer;
 
-        img {
-            width: 80px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-
-        span {
-            font-size: 17px;
-            color: $font-color;
-        }
+    img {
+      width: 80px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      margin-bottom: 10px;
     }
+
+    span {
+      font-size: 17px;
+      color: $font-color;
+    }
+  }
 }
 
 .thirdrow {
-    margin-top: 50px;
+  margin-top: 50px;
 
-    .btn-panel {
-        background: #ffffff;
-        width: 140px;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
-        border: 1px solid #aab1b6;
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 10px;
+  .btn-panel {
+    background: linear-gradient(
+        147.74deg, #60ce71, #1bbf8a 101.31%);
+    width: 140px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    border: 1px solid #aab1b6;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
 
-        h6 {
-            padding-top: 10px;
-            padding-left: 15px;
-            margin-bottom: 0;
-            color: $font-color;
-            font-size: $font-size-default;
-            font-weight: $font-weight-normal;
-        }
-
-        .cust-row {
-            display: flex;
-            flex-direction: row;
-            margin: auto;
-
-            .img-btns {
-                padding: 5px;
-            }
-        }
+    h6 {
+      padding-top: 10px;
+      padding-left: 15px;
+      margin-bottom: 0;
+      color: $font-color;
+      font-size: $font-size-default;
+      font-weight: $font-weight-normal;
     }
+
+    .cust-row {
+      display: flex;
+      flex-direction: row;
+      margin: auto;
+
+      .img-btns {
+        padding: 5px;
+      }
+    }
+  }
 }
 
 // DMS
 .carousel {
-    .slide.slick-slide.ng-star-inserted.slick-active {
-        outline: none !important;
-    }
+  .slide.slick-slide.ng-star-inserted.slick-active {
+    outline: none !important;
+  }
 
-    .slick-prev {
-        left: -25px;
-        z-index: 2;
-    }
+  .slick-prev {
+    left: -25px;
+    z-index: 2;
+  }
 
-    .slick-next {
-        right: 0px;
-        z-index: 2;
-    }
+  .slick-next {
+    right: 0;
+    z-index: 2;
+  }
 
-    .slick-prev:before,
-    .slick-next:before {
-        box-shadow: -1px 0 6px rgba(0, 0, 0, 0.2);
-        font-size: 30px !important;
-        color: black !important;
-        background-color: $white;
-        line-height: 0.45 !important;
-        opacity: 1;
-        vertical-align: -50%;
-        text-align: center;
-    }
+  .slick-prev:before,
+  .slick-next:before {
+    box-shadow: -1px 0 6px rgba(0, 0, 0, 0.2);
+    font-size: 30px !important;
+    color: black !important;
+    background-color: $white;
+    line-height: 0.45 !important;
+    opacity: 1;
+    vertical-align: -50%;
+    text-align: center;
+  }
 
-    .slick-next:before {
-        border-radius: 100px 0 0 100px;
-        padding: 20px 10px 20px 20px;
-        content: "\276F";
-    }
+  .slick-next:before {
+    border-radius: 100px 0 0 100px;
+    padding: 20px 10px 20px 20px;
+    content: "\276F";
+  }
 
-    .slick-prev:before {
-        border-radius: 0 100px 100px 0;
-        padding: 20px 20px 20px 10px;
-        content: "\276E";
-    }
+  .slick-prev:before {
+    border-radius: 0 100px 100px 0;
+    padding: 20px 20px 20px 10px;
+    content: "\276E";
+  }
 
-    .button {
-        display: inline-block;
-        padding: 15px !important;
-        margin-right: 10px !important;
-        border-radius: 25px !important;
-        border: 1px solid $light_grey !important;
-        color: $font-color;
-    }
+  .button {
+    display: inline-block;
+    padding: 15px !important;
+    margin-right: 10px !important;
+    border-radius: 25px !important;
+    border: 1px solid $light_grey !important;
+    color: $font-color;
+  }
 }

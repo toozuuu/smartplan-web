@@ -41,7 +41,7 @@
                           </div>
                         </div>
                       </li>
-                      <li *ngIf="chatRoomList.length === 0" style="color: red;font-weight: bold;"
+                      <li *ngIf="chatRoomList?.length === 0" style="color: red;font-weight: bold;"
                           [ngClass]="{'active':activeChat===20}">
                         No messages!
                       </li>
