@@ -227,4 +227,8 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+
+  convertJSON(newMeal: any) {
+    return JSON.stringify(newMeal);
+  }
 }

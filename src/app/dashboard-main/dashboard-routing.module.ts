@@ -8,7 +8,8 @@ import {SelectPlanComponent} from './dashboard-components/select-plan/select-pla
 import {SelectFoodComponent} from './dashboard-components/select-food/select-food.component';
 import {DashboardComponent} from './dashboard-components/dashboard/dashboard.component';
 import {AuthGuard} from "../auth/auth-guard.service";
-import { CheckoutComponent } from './dashboard-components/checkout/checkout.component';
+import {CheckoutComponent} from './dashboard-components/checkout/checkout.component';
+import {ProductViewComponent} from "./dashboard-components/product-view/product-view.component";
 
 const routes: Routes = [
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
       {
         path: 'checkout',
         component: CheckoutComponent,
+      },
+      {
+        path: 'product-view',
+        component: ProductViewComponent,
       },
       {
         path: 'refresh-checkout',

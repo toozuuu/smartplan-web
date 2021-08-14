@@ -17,10 +17,10 @@
             <h6 class="mb-3">Current Meals</h6>
             <div class="meals">
               <div *ngFor="let newMeal of newMealsList;let i = index" class="card-div">
-                <div >
-                  <div class="checkbox-div" (click)="addToCart(newMeal)">
-                    <mat-checkbox [disableRipple]="true" class="checkbox-component"></mat-checkbox>
-                  </div>
+                <div [routerLink]="'/dashboard/product-view'" [queryParams]="{data:convertJSON(newMeal)}">
+<!--                  <div class="checkbox-div" (click)="addToCart(newMeal)">-->
+<!--                    <mat-checkbox [disableRipple]="true" class="checkbox-component"></mat-checkbox>-->
+<!--                  </div>-->
                   <img src="{{'http://localhost:8080/file/download/' + newMeal.image}}" alt="">
                   <div class="price">
                     <div class="d-flex justify-content-between">
@@ -38,11 +38,11 @@
             <h6 class="mb-3">New Options</h6>
             <div class="meals">
               <div *ngFor="let newMeal of newMealsList;let i = index" class="card-div">
-                <div>
-                  <div class="checkbox-div" (click)="addToCart(newMeal)">
-                    <mat-checkbox  [disableRipple]="true" class="checkbox-component">
-                    </mat-checkbox>
-                  </div>
+                <div [routerLink]="'/dashboard/product-view'">
+<!--                  <div class="checkbox-div" (click)="addToCart(newMeal)">-->
+<!--                    <mat-checkbox  [disableRipple]="true" class="checkbox-component">-->
+<!--                    </mat-checkbox>-->
+<!--                  </div>-->
                   <img src="{{'http://localhost:8080/file/download/' + newMeal.image}}" alt="">
                   <div class="price">
                     <div class="d-flex justify-content-between">

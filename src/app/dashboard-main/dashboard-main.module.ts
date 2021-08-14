@@ -37,6 +37,7 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import {ChatModule} from "./chat";
 import { HeaderComponent } from './dashboard-components/header/header.component';
+import { ProductViewComponent } from './dashboard-components/product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { HeaderComponent } from './dashboard-components/header/header.component'
     DashboardComponent,
     CheckoutComponent,
     HeaderComponent,
+    ProductViewComponent,
   ],
     imports: [
         CommonModule,
