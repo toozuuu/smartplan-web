@@ -38,7 +38,7 @@
             <h6 class="mb-3">New Options</h6>
             <div class="meals">
               <div *ngFor="let newMeal of newMealsList;let i = index" class="card-div">
-                <div [routerLink]="'/dashboard/product-view'">
+                <div [routerLink]="'/dashboard/product-view'" [queryParams]="{data:convertJSON(newMeal)}">
 <!--                  <div class="checkbox-div" (click)="addToCart(newMeal)">-->
 <!--                    <mat-checkbox  [disableRipple]="true" class="checkbox-component">-->
 <!--                    </mat-checkbox>-->

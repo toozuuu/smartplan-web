@@ -5,7 +5,7 @@
     <div class="col-md-6 col-sm-12" style="height: 70vh;">
       <div class="row">
         <div class="col-12">
-          <img src="{{'http://localhost:8080/file/download/' + productDetails.image}}" alt="" width="100%;"
+          <img src="{{'http://localhost:8080/file/download/' + productDetails?.image}}" alt="" width="100%;"
                style="height: auto">
         </div>
 
@@ -16,26 +16,49 @@
       <h1 style="
        color: black;
        font-weight: bold;
-       font-size: 25px;">{{productDetails.mealName}}</h1>
+       font-size: 25px;">{{productDetails?.mealName}}</h1>
       <br>
       <br>
       <h2 style="
-       color: white;
-       font-weight: bold;
-       font-size: 20px;">Start Time</h2>
+       color: black;
+       font-size: 20px;">LKR {{productDetails?.price}}</h2>
       <br>
       <p class="card-text">
+        {{productDetails?.mealType}}
+      </p>
 
-      </p>
+      <div style="width:100%;max-height: 100vh ; height: auto; overflow-y: auto;">
+        <table class="table">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ingredients Name</th>
+            <th scope="col">Unit Type</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Carbs</th>
+            <th scope="col">Fat</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let ing of productDetails?.mealIngredientsCollection;let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{ing.ingredientsName}}</td>
+            <td>{{ing.unit}}</td>
+            <td>{{ing.protein}}</td>
+            <td>{{ing.carbs}}</td>
+            <td>{{ing.fat}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
       <br>
-      <p style="color: white">
-        NOKIA 8 restarts randomly so many times. But when it is out on charging, it doesn't restart.
-        And the problem happens more often when the battery is below 60%. But even at 95% the problem persists,
-        less though Don't know what's the i...
-      </p>
+      <br>
 
       <div class="col-12">
-        <button style="width: 150px;font-size: 20px;float: right" type="button" class="btn btn-warning">BID</button>
+        <button style="width: 200px;font-size: 20px;float: right" type="button" class="btn btn-warning" (click)="addToCart()">
+          <i class="fa fa-cart-plus" aria-hidden="true"></i>
+          Add to Cart
+        </button>
       </div>
     </div>
 
@@ -45,3 +68,5 @@
 
 </div>
 
+<app-chat-config></app-chat-config>
+<app-chat-widget></app-chat-widget>
