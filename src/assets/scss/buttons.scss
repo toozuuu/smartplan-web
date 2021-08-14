@@ -26,8 +26,7 @@ button.mat-icon-button.mat-button-base {
   }
 
   &.primary-btn {
-    background: linear-gradient(
-        147.74deg, #60ce71, #1bbf8a 101.31%);
+    background: $primary-color !important;
     color: $white;
     border: 2px solid $primary-color !important;
   }
@@ -95,8 +94,7 @@ button.mat-icon-button.mat-button-base {
   margin-top: 50px;
 
   .btn-panel {
-    background: linear-gradient(
-        147.74deg, #60ce71, #1bbf8a 101.31%);
+    background: #ffffff;
     width: 140px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border-radius: 4px;

@@ -157,9 +157,15 @@ export class MealsComponent implements OnInit {
   }
 
   onSelect(event) {
-    if (this.files.length < 1) {
-      this.uploadImages(event.addedFiles);
-      this.files.push(...event.addedFiles);
+    if (this.files.length <= 3 && event.addedFiles.length !== 0) {
+      const ext = event.addedFiles[0].name.split('.').pop();
+      if (ext === 'jpeg' || ext === 'png' || ext === 'jpg') {
+        this.uploadImages(event.addedFiles);
+        this.files.push(...event.addedFiles);
+        if (event.addedFiles[0].size / 1024 / 1024 > 5) {
+          this.files.splice(-1, 1);
+        }
+      }
     }
   }
 
@@ -188,6 +194,8 @@ export class MealsComponent implements OnInit {
       last(),
       catchError((error: HttpErrorResponse) => {
         Swal.close();
+        //Remove last image from files array
+        this.files.splice(-1, 1);
         return of('upload failed.');
       })
     ).subscribe(

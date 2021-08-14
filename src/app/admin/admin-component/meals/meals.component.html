@@ -1,257 +1,275 @@
 <div class="row">
-    <div class="col-12">
-        <div class="d-flex flex-row justify-content-between">
-            <div>
-                <h4 class="font-weight-bold black">
-                    <i class="fa fa-cutlery mr-2" aria-hidden="true"></i> Meals
-                </h4>
-            </div>
-            <div class="d-flex">
-                <button class="button primary-btn ml-2" data-toggle="modal" data-target=".meals" (click)="clearForm()">Add New Meal</button>
-            </div>
-        </div>
-        <div style="width:100%; max-height: 80vh; overflow-y: auto;">
-            <mat-form-field class="matsearch">
-                <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
-            </mat-form-field>
-
-            <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">
-
-                <ng-container matColumnDef="id">
-                    <th *matHeaderCellDef class="center-table tbl td" mat-header-cell mat-sort-header>
-                        Id
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.id}}
-                    </td>
-                </ng-container>
-
-                <ng-container matColumnDef="image">
-                    <th *matHeaderCellDef class="center-table tbl td" mat-header-cell mat-sort-header>
-                        Image
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        <div style="width: 50px;">
-                            <img alt="" src="{{'http://localhost:8080/file/download/' + row.image}}" style="border-radius: 10px;width: 50px; height: 50px;object-fit: cover;" />
-                        </div>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="name">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-                        Name
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.name}}
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="category">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-                        Category
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.category}}
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="price">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-                        Price
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.price}}
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="ingredients">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-                        Ingredients
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        {{row.ingredients}}
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="action">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        <button (click)="deleteMeal(row.id)" class="btn btn-danger" type="button">
-              <em class="fa fa-trash"></em></button>
-                    </td>
-                </ng-container>
-                <ng-container matColumnDef="action1">
-                    <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-
-                    </th>
-                    <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-                        <button (click)="editMeal(row,true)" style="cursor: pointer" data-target=".meals" data-toggle="modal" class="btn btn-primary" type="button">
-              <em class="fa fa-pencil"></em></button>
-                    </td>
-                </ng-container>
-                <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-                <tr *matRowDef="let row; columns: displayedColumns" mat-row>
-                </tr>
-            </table>
-
-            <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-
-        </div>
+  <div class="col-12">
+    <div class="d-flex flex-row justify-content-between">
+      <div>
+        <h4 class="font-weight-bold black">
+          <i class="fa fa-cutlery mr-2" aria-hidden="true"></i> Meals
+        </h4>
+      </div>
+      <div class="d-flex">
+        <button class="button primary-btn ml-2" data-toggle="modal" data-target=".meals" (click)="clearForm()">Add New
+          Meal
+        </button>
+      </div>
     </div>
+    <div style="width:100%; max-height: 80vh; overflow-y: auto;">
+      <mat-form-field class="matsearch">
+        <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
+      </mat-form-field>
+
+      <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">
+
+        <ng-container matColumnDef="id">
+          <th *matHeaderCellDef class="center-table tbl td" mat-header-cell mat-sort-header>
+            Id
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.id}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="image">
+          <th *matHeaderCellDef class="center-table tbl td" mat-header-cell mat-sort-header>
+            Image
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            <div style="width: 50px;">
+              <img alt="" src="{{'http://localhost:8080/file/download/' + row.image}}"
+                   style="border-radius: 10px;width: 50px; height: 50px;object-fit: cover;"/>
+            </div>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Name
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.name}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="category">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Category
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.category}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Price
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.price}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="ingredients">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Ingredients
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.ingredients}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            <button (click)="deleteMeal(row.id)" class="btn btn-danger" type="button">
+              <em class="fa fa-trash"></em></button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="action1">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            <button (click)="editMeal(row,true)" style="cursor: pointer" data-target=".meals" data-toggle="modal"
+                    class="btn btn-primary" type="button">
+              <em class="fa fa-pencil"></em></button>
+          </td>
+        </ng-container>
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns" mat-row>
+        </tr>
+      </table>
+
+      <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+    </div>
+  </div>
 </div>
 
 
 <!-- model -->
-<div aria-hidden="true" data-backdrop="static" aria-labelledby="myLargeModalLabel" class="modal fade meals" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg" style="max-width: 1350px!important;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title dark-gray" id="exampleModalLabel1" *ngIf="!isUpdateMeal">Add New Meal</h5>
-                <h5 class="modal-title dark-gray" id="exampleModalLabel2" *ngIf="isUpdateMeal">Update Meal</h5>
-                <button (click)="clearIngId()" aria-label="Close" class="close" data-dismiss="modal" type="button" id="closeModal">
+<div aria-hidden="true" data-backdrop="static" aria-labelledby="myLargeModalLabel" class="modal fade meals"
+     role="dialog" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 1350px!important;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title dark-gray" id="exampleModalLabel1" *ngIf="!isUpdateMeal">Add New Meal</h5>
+        <h5 class="modal-title dark-gray" id="exampleModalLabel2" *ngIf="isUpdateMeal">Update Meal</h5>
+        <button (click)="clearIngId()" aria-label="Close" class="close" data-dismiss="modal" type="button"
+                id="closeModal">
           <span aria-hidden="true">&times;</span>
         </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submitMeal()" [formGroup]="addMealForm">
+          <div class="row">
+            <div class="col-md-3">
+              <span>~ Max File size : 5MB</span>
+              <ngx-dropzone (change)="onSelect($event)" [accept]="'image/*'" [multiple]="false">
+                <ngx-dropzone-label>
+                  <i aria-hidden="true" class="fa fa-4x fa-cloud-upload"></i>
+                  <p>Drag & Drop Meal Image <br> Here To Upload</p>
+                  <small>or select image file to upload</small>
+                </ngx-dropzone-label>
+                <ngx-dropzone-image-preview (removed)="onRemove(f)" *ngFor="let f of files" [file]="f"
+                                            [removable]="true" ngProjectAs="ngx-dropzone-preview">
+                </ngx-dropzone-image-preview>
+              </ngx-dropzone>
+
+              <div style="width: 150px;" *ngIf="isUpdateMeal">
+                <img alt="" src="{{'http://localhost:8080/file/download/' + image}}"
+                     style="border-radius: 10px;width: 150px; height: 150px;object-fit: cover;"/>
+              </div>
+              <div *ngIf="requiredImages" style="text-align: center" class="inputError">Meal image is required.</div>
+
             </div>
-            <div class="modal-body">
-                <form (ngSubmit)="submitMeal()" [formGroup]="addMealForm">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <ngx-dropzone (change)="onSelect($event)" [accept]="'image/*'" [multiple]="false">
-                                <ngx-dropzone-label>
-                                    <i aria-hidden="true" class="fa fa-4x fa-cloud-upload"></i>
-                                    <p>Drag & Drop Your File<small>(s)</small> <br> Here To Upload</p>
-                                    <small>or select file to upload</small>
-                                </ngx-dropzone-label>
-                                <ngx-dropzone-image-preview (removed)="onRemove(f)" *ngFor="let f of files" [file]="f" [removable]="true" ngProjectAs="ngx-dropzone-preview">
-                                </ngx-dropzone-image-preview>
-                                <div class="imgadd"><em class="fa fa-plus"></em></div>
-                            </ngx-dropzone>
-
-                            <div style="width: 150px;" *ngIf="isUpdateMeal">
-                                <img alt="" src="{{'http://localhost:8080/file/download/' + image}}" style="border-radius: 10px;width: 150px; height: 150px;object-fit: cover;" />
-                            </div>
-                          <div *ngIf="requiredImages" style="text-align: center" class="inputError">Meal image is required.</div>
-
-                        </div>
-                        <div class="col-md-9">
-                            <div class="row admin">
-                                <div class="col-md-4">
-                                    <mat-label>Name</mat-label>
-                                    <mat-form-field appearance="outline">
-                                        <input [(ngModel)]="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" formControlName="name" id="_name" matInput>
-                                        <div *ngIf="submitted && f.name.errors" class="inputError">
-                                            <div *ngIf="f.name.errors.required">Meal name is required.</div>
-                                        </div>
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-4">
-                                    <mat-label>Category</mat-label>
-                                    <mat-form-field appearance="outline">
-                                        <mat-select [(value)]="selectedCategory" [ngClass]="{ 'is-invalid': submitted && f.category.errors }" formControlName="category">
-                                            <mat-option *ngFor="let category of categoryList" [value]="category.name">
-                                                <span>{{category.name}}</span>
-                                            </mat-option>
-                                        </mat-select>
-                                        <div *ngIf="submitted && f.category.errors" class="inputError">
-                                            <div *ngIf="f.category.errors.required">Meal Category is required.</div>
-                                        </div>
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-4">
-                                    <mat-label>Price</mat-label>
-                                    <mat-form-field appearance="outline">
-                                        <input [(ngModel)]="price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" formControlName="price" id="_price" matInput min="1" type="number">
-                                        <div *ngIf="submitted && f.price.errors" class="inputError">
-                                            <div *ngIf="f.price.errors.required">Meal price is required.</div>
-                                        </div>
-                                    </mat-form-field>
-                                </div>
-                                <hr>
-                                <div  class="col-md-12" *ngIf="selectedCategory">
-                                    <br>
-                                    <div [formGroup]="addForm">
-                                        <div class="form-group">
-                                            <table>
-                                                <thead>
-                                                    <tr>
-                                                        <th id="i_name">Ingredients Name</th>
-                                                        <th id="i_unit">Ingredients Unit</th>
-                                                        <th id="i_protein">Ingredients Protein</th>
-                                                        <th id="i_carbs">Ingredients Carbs</th>
-                                                        <th id="i_fat">Ingredients Fat</th>
-                                                        <th id="i_qty">Ingredients Quantity</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr *ngFor="let row of addForm.get('rows')?.controls;let index = index;">
-                                                        <td>
-                                                            <mat-form-field *ngIf="selectedCategory === 'Per Workout'" appearance="outline">
-                                                                <mat-select [formControl]="row.get('ingredientsName')">
-                                                                    <mat-option *ngFor="let pre of preWorkoutFoods" [value]="pre.name">
-                                                                        {{pre.name}}
-                                                                    </mat-option>
-                                                                </mat-select>
-                                                            </mat-form-field>
-
-                                                            <mat-form-field *ngIf="selectedCategory === 'Post Workout'" appearance="outline">
-                                                                <mat-select [formControl]="row.get('ingredientsName')">
-                                                                    <mat-option *ngFor="let post of postWorkoutFoods" [value]="post.name">
-                                                                        {{post.name}}
-                                                                    </mat-option>
-                                                                </mat-select>
-                                                            </mat-form-field>
-
-                                                        </td>
-                                                        <td>
-                                                            <input placeholder="Unit Type" [formControl]="row.get('unit')" class="form-control" (keypress)="alphaOnly($event)">
-                                                        </td>
-                                                        <td>
-                                                            <input [formControl]="row.get('protein')" [value]="this.rows.value[index]['protein'] * this.rows.value[index]['quantity']"
-                                                                   class="form-control" min="0" type="number">
-                                                        </td>
-                                                        <td>
-                                                            <input [formControl]="row.get('carbs')" [value]="this.rows.value[index]['carbs'] * this.rows.value[index]['quantity']"
-                                                                   class="form-control" min="0" type="number">
-                                                        </td>
-                                                        <td>
-                                                          <input [formControl]="row.get('fat')" [value]="this.rows.value[index]['fat'] * this.rows.value[index]['quantity']"
-                                                                 class="form-control"
-                                                                 min="0" type="number">
-                                                        </td>
-                                                        <td>
-                                                          <input [formControl]="row.get('quantity')"
-                                                                 [value]="1" class="form-control" min="0" type="number">
-                                                        </td>
-                                                        <td>
-                                                            <button (click)="onRemoveRow(index)" class="btn btn-danger" type="button">
-                                <em class="fa fa-trash"></em></button>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <br>
-                                                        <button (click)="onAddRow()" *ngIf="addForm.get('rows')" class="btn btn-primary" style="font-size: 12px" type="button">Add Ingredient(s)
-                            </button>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
-                                        </div>
-                                    </div>
-
-                                </div>
-                              <div *ngIf="requiredIngredients" style="text-align: center" class="inputError">Ingredients details is required.</div>
-
-                            </div>
-                        </div>
+            <div class="col-md-9">
+              <div class="row admin">
+                <div class="col-md-4">
+                  <mat-label>Name</mat-label>
+                  <mat-form-field appearance="outline">
+                    <input [(ngModel)]="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                           formControlName="name" id="_name" matInput>
+                    <div *ngIf="submitted && f.name.errors" class="inputError">
+                      <div *ngIf="f.name.errors.required">Meal name is required.</div>
                     </div>
-                    <br>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-label>Category</mat-label>
+                  <mat-form-field appearance="outline">
+                    <mat-select [(value)]="selectedCategory"
+                                [ngClass]="{ 'is-invalid': submitted && f.category.errors }" formControlName="category">
+                      <mat-option *ngFor="let category of categoryList" [value]="category.name">
+                        <span>{{category.name}}</span>
+                      </mat-option>
+                    </mat-select>
+                    <div *ngIf="submitted && f.category.errors" class="inputError">
+                      <div *ngIf="f.category.errors.required">Meal Category is required.</div>
+                    </div>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-label>Price</mat-label>
+                  <mat-form-field appearance="outline">
+                    <input [(ngModel)]="price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
+                           formControlName="price" id="_price" matInput min="1" type="number">
+                    <div *ngIf="submitted && f.price.errors" class="inputError">
+                      <div *ngIf="f.price.errors.required">Meal price is required.</div>
+                    </div>
+                  </mat-form-field>
+                </div>
+                <hr>
+                <div class="col-md-12" *ngIf="selectedCategory">
+                  <br>
+                  <div [formGroup]="addForm">
+                    <div class="form-group">
+                      <table>
+                        <thead>
+                        <tr>
+                          <th id="i_name">Ingredients Name</th>
+                          <th id="i_unit">Ingredients Unit</th>
+                          <th id="i_protein">Ingredients Protein</th>
+                          <th id="i_carbs">Ingredients Carbs</th>
+                          <th id="i_fat">Ingredients Fat</th>
+                          <th id="i_qty">Ingredients Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let row of addForm.get('rows')?.controls;let index = index;">
+                          <td>
+                            <mat-form-field *ngIf="selectedCategory === 'Per Workout'" appearance="outline">
+                              <mat-select [formControl]="row.get('ingredientsName')">
+                                <mat-option *ngFor="let pre of preWorkoutFoods" [value]="pre.name">
+                                  {{pre.name}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
 
-                    <div class="w-100 d-flex justify-content-end">
-                        <button class="button primary-btn" type="submit">
+                            <mat-form-field *ngIf="selectedCategory === 'Post Workout'" appearance="outline">
+                              <mat-select [formControl]="row.get('ingredientsName')">
+                                <mat-option *ngFor="let post of postWorkoutFoods" [value]="post.name">
+                                  {{post.name}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+
+                          </td>
+                          <td>
+                            <input placeholder="Unit Type" [formControl]="row.get('unit')" class="form-control"
+                                   (keypress)="alphaOnly($event)">
+                          </td>
+                          <td>
+                            <input [formControl]="row.get('protein')"
+                                   [value]="this.rows.value[index]['protein'] * this.rows.value[index]['quantity']"
+                                   class="form-control" min="0" type="number">
+                          </td>
+                          <td>
+                            <input [formControl]="row.get('carbs')"
+                                   [value]="this.rows.value[index]['carbs'] * this.rows.value[index]['quantity']"
+                                   class="form-control" min="0" type="number">
+                          </td>
+                          <td>
+                            <input [formControl]="row.get('fat')"
+                                   [value]="this.rows.value[index]['fat'] * this.rows.value[index]['quantity']"
+                                   class="form-control"
+                                   min="0" type="number">
+                          </td>
+                          <td>
+                            <input [formControl]="row.get('quantity')"
+                                   [value]="1" class="form-control" min="0" type="number">
+                          </td>
+                          <td>
+                            <button (click)="onRemoveRow(index)" class="btn btn-danger" type="button">
+                              <em class="fa fa-trash"></em></button>
+                          </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                          <br>
+                          <button (click)="onAddRow()" *ngIf="addForm.get('rows')" class="btn btn-primary"
+                                  style="font-size: 12px;background: linear-gradient(147.74deg,#60ce71,#1bbf8a 101.31%)!important;" type="button">Add Ingredient(s)
+                          </button>
+                        </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+                <div *ngIf="requiredIngredients" style="text-align: center" class="inputError">Ingredients details is
+                  required.
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="w-100 d-flex justify-content-end">
+            <button class="button primary-btn" type="submit">
               <span *ngIf="!isUpdateMeal">Save</span>
               <span *ngIf="isUpdateMeal">Update</span>
             </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
