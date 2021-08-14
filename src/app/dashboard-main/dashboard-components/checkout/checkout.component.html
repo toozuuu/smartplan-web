@@ -1,154 +1,166 @@
+<app-header></app-header>
+
 <div class="main checkout">
-    <div class="d-flex flex-column">
-        <div class="container-fluid mt-4">
-            <a style="cursor: pointer" class="backto" (click)="goBack()">
-                <h5>Back to My Account</h5>
-            </a>
-        </div>
-        <div class="container-fluid">
-            <div class="d-flex checkout-content w-100 mb-4">
-                <div class="product-details">
-                    <div class="target">
-                        <div class="daily-target">
-                            <div class="top">
-                                <p>Daily Target</p>
-                            </div>
-                            <div class="bottom">
-                                <p>{{dailyReq | number:'1.0-0'}} kcal</p>
-                            </div>
-                        </div>
-                        <div class="daily-target">
-                            <div class="top gray-dark-2 ">
-                                <p class="white">Order Total</p>
-                            </div>
-                            <div class="bottom gray-light-2">
-                                <p class="white">{{orderTotal | number:'1.0-0'}} kcal</p>
-                            </div>
-                        </div>
-                        <div class="daily-target">
-                            <div class="top">
-                                <p>Don't forget to eat</p>
-                            </div>
-                            <div class="bottom">
-                                <p>{{forgetTotal | number:'1.0-0'}} kcal</p>
-                            </div>
-                        </div>
+  <div class="d-flex flex-column">
+    <div class="container-fluid mt-4">
+      <a style="cursor: pointer" class="backto" (click)="goBack()">
+        <h5>Back to My Account</h5>
+      </a>
+    </div>
+    <div class="container-fluid">
+      <div class="d-flex checkout-content w-100 mb-4">
+        <div class="product-details">
+          <div class="target">
+            <div class="daily-target">
+              <div class="top">
+                <p>Daily Target</p>
+              </div>
+              <div class="bottom">
+                <p>{{dailyReq | number:'1.0-0'}} kcal</p>
+              </div>
+            </div>
+            <div class="daily-target">
+              <div class="top ">
+                <p>Order Total</p>
+              </div>
+              <div class="bottom">
+                <p>{{orderTotal | number:'1.0-0'}} kcal</p>
+              </div>
+            </div>
+            <div class="daily-target">
+              <div class="top">
+                <p>Don't forget to eat</p>
+              </div>
+              <div class="bottom">
+                <p>{{forgetTotal | number:'1.0-0'}} kcal</p>
+              </div>
+            </div>
+          </div>
+          <div class="products">
+            <div *ngFor="let item of selectedItems;let i = index" class="product">
+              <span [id]="'protein'+i" hidden>{{manageProtein(item['mealId']?.mealIngredientsCollection)}}</span>
+              <div class="delete">
+                <em (click)="deleteSelectedItem(item['id'])" class="material-icons black"> delete</em>
+              </div>
+              <div class="pr-4">
+                <h4>{{i + 1}}</h4>
+              </div>
+              <div class="card-div">
+                <img alt="" src="{{'http://localhost:8080/file/download/' + item['mealId'].image}}"
+                     style="height: 100%;object-fit: cover!important;">
+                <span [id]="'mealId'+i" style="display: none">{{item['mealId'].id}}</span>
+                <div class="price">
+                  <div class="d-flex justify-content-between">
+                    <p class="white">{{item['mealId'].mealName}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="price-ditails">
+                <div class="d-flex price">
+                  <div class="d-flex flex-row ml-3 mr-3">
+                    <mat-form-field appearance="outline" class="mb-3 width-100">
+                      <input [id]="'qty'+i" matInput min="1" name="QTY" placeholder="QTY" type="number"
+                             value="{{item['quantity']}}">
+                      <a [id]="'qtyTemp'+i" hidden></a>
+                    </mat-form-field>
+                    <div class="number">
+                      <a (click)="qtyUp('qtyUp',i,item['mealId'].price,item['id'])" [id]="'qtyUp'+i"
+                         href="javascript:void(0)">+</a>
+                      <a (click)="qtyDown('qtyDown',i,item['mealId'].price,item['id'])" [id]="'qtyDown'+i"
+                         href="javascript:void(0)">-</a>
                     </div>
-                    <div class="products">
-                        <div *ngFor="let item of selectedItems;let i = index" class="product">
-                            <span [id]="'protein'+i" hidden>{{manageProtein(item['mealId'].mealIngredientsCollection)}}</span>
-                            <div class="delete">
-                                <em (click)="deleteSelectedItem(item['id'])" class="material-icons black"> delete</em>
-                            </div>
-                            <div class="pr-4">
-                                <h4>{{i + 1}}</h4>
-                            </div>
-                            <div class="card-div">
-                                <img alt="" src="{{'http://localhost:8080/file/download/' + item['mealId'].image}}" style="height: 100%;">
-                                <span [id]="'mealId'+i" style="display: none">{{item['mealId'].id}}</span>
-                                <div class="price">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="white">{{item['mealId'].mealName}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="price-ditails">
-                                <div class="d-flex price">
-                                    <div class="d-flex flex-row ml-3 mr-3">
-                                        <mat-form-field appearance="outline" class="mb-3 width-100">
-                                            <input [id]="'qty'+i" matInput min="1" name="QTY" placeholder="QTY" type="number" value="{{item['quantity']}}">
-                                            <a [id]="'qtyTemp'+i" hidden></a>
-                                        </mat-form-field>
-                                        <div class="number">
-                                            <a (click)="qtyUp('qtyUp',i,item['mealId'].price,item['id'])" [id]="'qtyUp'+i" href="javascript:void(0)">+</a>
-                                            <a (click)="qtyDown('qtyDown',i,item['mealId'].price,item['id'])" [id]="'qtyDown'+i" href="javascript:void(0)">-</a>
-                                        </div>
-                                    </div>
-                                    <div class="pr-4">
-                                        <h6>LKR {{item['mealId'].price| number:'1.0-0'}}</h6>
-                                    </div>
-                                </div>
-                                <div class="text-right">
-                                    <h6>Subtotal <br> LKR
-                                        <span [id]="'showTotal'+i">
+                  </div>
+                  <div class="pr-4">
+                    <h6>LKR {{item['mealId'].price| number:'1.0-0'}}</h6>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <h6>Subtotal <br> LKR
+                    <span [id]="'showTotal'+i">
                                     {{item['mealId'].price * item['quantity']| number:'1.0-0'}}
                                   </span>
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-right mt-2 mb-4">
-                        <h5>Total LKR
-                            <span [id]="'total'">
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-right mt-2 mb-4">
+            <h5>Total LKR
+              <span [id]="'total'">
                               {{total| number:'1.0-0'}}
                             </span>
-                        </h5>
-                    </div>
-                </div>
-                <div class="order-box">
-                    <div class="text-center">
-                        <h4 class="white">Order Information</h4>
-                    </div>
-                    <mat-card-content>
-                        <section class="mb-3">
-                            <mat-radio-group>
-                                <h6 class="white">Select Delivery Address</h6>
-                                <div class="d-flex flex-row justify-content-between flex-wrap address">
-                                    <div class="d-flex flex-row mb-3">
-                                        <mat-radio-button value="1" [checked]="isDefaultAddress"></mat-radio-button>
-                                        <div class="white">
-                                            <p>{{address}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex flex-row">
-                                        <mat-radio-button value="2" [checked]="!isDefaultAddress"></mat-radio-button>
-                                        <mat-form-field appearance="outline">
-                                            <textarea [(ngModel)]="shippingAddress" matInput placeholder="Enter your address" rows="3"></textarea>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                            </mat-radio-group>
-                        </section>
-                    </mat-card-content>
-                    <hr>
-                    <mat-card-content>
-                        <section class="mt-3 mb-3">
-                            <h6 class="white">Your order need</h6>
-                            <mat-radio-group class="d-flex flex-wrap">
-                                <mat-radio-button value="1" (click)="shippingOrderNeed(1)" [checked]="isASAP">As soon as possible
-                                </mat-radio-button>
-                                <mat-radio-button class="ml-3" value="2" (click)="shippingOrderNeed(2)" [checked]="!isASAP">Later
-                                </mat-radio-button>
-                            </mat-radio-group>
-                            <div class="d-flex flex-row justify-content-between">
-                                <mat-form-field *ngIf="selectedOrderType === 2" appearance="outline">
-                                    <input [(ngModel)]="selectedDate" [autoApply]="true" [singleDatePicker]="true" matInput name="date 2" ngxDaterangepickerMd placeholder="Choose a date">
-                                    <mat-datepicker-toggle matSuffix></mat-datepicker-toggle>
-                                </mat-form-field>
-                                <mat-form-field *ngIf="selectedOrderType ===2" appearance="outline">
-                                    <input [(ngModel)]="selectedTime" [ngxTimepicker]="picker" matInput placeholder="Choose Time">
-                                    <i class="material-icons time-pi" matSuffix>access_time</i>
-                                    <ngx-material-timepicker #picker></ngx-material-timepicker>
-                                </mat-form-field>
-                            </div>
-                        </section>
-                    </mat-card-content>
-                    <hr>
-                    <p>
-                        (If you want to add any comment e.g. about allergies of delivery instructions, this is the right place)
-                    </p>
-                    <div class="mb-3">
-                        <a>Add a message to your order!</a>
-                        <mat-form-field appearance="outline">
-                            <textarea [(ngModel)]="comment" matInput placeholder="Any Comment" rows="5"></textarea>
-                        </mat-form-field>
-                    </div>
-                    <div class="text-right">
-                        <button (click)="checkout()" class="button primary-btn">CHECKOUT</button>
-                    </div>
-                </div>
-            </div>
+            </h5>
+          </div>
         </div>
+        <div class="order-box">
+          <div class="text-center">
+            <h4 class="white">Order Information</h4>
+          </div>
+          <mat-card-content>
+            <section class="mb-3">
+              <mat-radio-group>
+                <h6 class="white">Select Delivery Address</h6>
+                <div class="d-flex flex-row justify-content-between flex-wrap address">
+                  <div class="d-flex flex-row mb-3">
+                    <mat-radio-button value="1" [checked]="isDefaultAddress"></mat-radio-button>
+                    <div class="white">
+                      <p>{{address}}</p>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row">
+                    <mat-radio-button value="2" [checked]="!isDefaultAddress"></mat-radio-button>
+                    <mat-form-field appearance="outline">
+                      <textarea [(ngModel)]="shippingAddress" matInput placeholder="Enter your address"
+                                rows="3"></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </mat-radio-group>
+            </section>
+          </mat-card-content>
+          <hr>
+          <mat-card-content>
+            <section class="mt-3 mb-3">
+              <h6 class="white">Your order need</h6>
+              <mat-radio-group class="d-flex flex-wrap">
+                <mat-radio-button value="1" (click)="shippingOrderNeed(1)" [checked]="isASAP">As soon as possible
+                </mat-radio-button>
+                <mat-radio-button class="ml-3" value="2" (click)="shippingOrderNeed(2)" [checked]="!isASAP">Later
+                </mat-radio-button>
+              </mat-radio-group>
+              <div class="d-flex flex-row justify-content-between">
+                <mat-form-field *ngIf="selectedOrderType === 2" appearance="outline">
+                  <input [(ngModel)]="selectedDate" [autoApply]="true" [singleDatePicker]="true" matInput name="date 2"
+                         ngxDaterangepickerMd placeholder="Choose a date">
+                  <mat-datepicker-toggle matSuffix></mat-datepicker-toggle>
+                </mat-form-field>
+                <mat-form-field *ngIf="selectedOrderType ===2" appearance="outline">
+                  <input [(ngModel)]="selectedTime" [ngxTimepicker]="picker" matInput placeholder="Choose Time">
+                  <i class="material-icons time-pi" matSuffix>access_time</i>
+                  <ngx-material-timepicker #picker></ngx-material-timepicker>
+                </mat-form-field>
+              </div>
+            </section>
+          </mat-card-content>
+          <hr>
+          <p>
+            (If you want to add any comment e.g. about allergies of delivery instructions, this is the right place)
+          </p>
+          <div class="mb-3">
+            <a>Add a message to your order!</a>
+            <mat-form-field appearance="outline">
+              <textarea [(ngModel)]="comment" matInput placeholder="Any Comment" rows="5"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="text-right">
+            <button (click)="checkout()" class="button primary-btn">Proceed</button>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
+
+<app-chat-config></app-chat-config>
+<app-chat-widget></app-chat-widget>
+<app-footer></app-footer>

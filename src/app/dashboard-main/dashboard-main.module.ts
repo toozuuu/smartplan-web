@@ -38,6 +38,8 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import {ChatModule} from "./chat";
 import { HeaderComponent } from './dashboard-components/header/header.component';
 import { ProductViewComponent } from './dashboard-components/product-view/product-view.component';
+import { CartComponent } from './dashboard-components/cart/cart.component';
+import { FooterComponent } from './dashboard-components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { ProductViewComponent } from './dashboard-components/product-view/produc
     CheckoutComponent,
     HeaderComponent,
     ProductViewComponent,
+    CartComponent,
+    FooterComponent,
   ],
     imports: [
         CommonModule,

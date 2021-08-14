@@ -221,25 +221,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
   }
 
   goBack() {
-    Swal.fire({
-      title: 'Back to My Account',
-      icon: 'warning',
-      text: 'If you go back to my account, your cart items will be automatically removed!',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'OK'
-    }).then((result) => {
-      if (result.value) {
-        this.router.navigate(['/dashboard']);
-
-        if (this.selectedItems.length > 0) {
-          for (let temp of this.selectedItems) {
-            this.deleteSelectedItem(temp['id']);
-          }
-        }
-      }
-    });
+    this.router.navigate(['/dashboard']);
   }
 
   manageProtein(protein: any) {
