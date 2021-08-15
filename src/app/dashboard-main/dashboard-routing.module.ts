@@ -11,6 +11,7 @@ import {AuthGuard} from "../auth/auth-guard.service";
 import {CheckoutComponent} from './dashboard-components/checkout/checkout.component';
 import {ProductViewComponent} from "./dashboard-components/product-view/product-view.component";
 import {CartComponent} from "./dashboard-components/cart/cart.component";
+import {OrdersComponent} from "./dashboard-components/orders/orders.component";
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
       {
         path: 'cart',
         component: CartComponent,
+      },
+      {
+        path: 'orders',
+        component: OrdersComponent,
       },
       {
         path: 'refresh-checkout',

@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="card" style="margin-top: 5vh;margin-left: 2vw;margin-right: 2vw;margin-bottom: 3vh!important;">
+    <div style="font-size: 30px;
+    color: black;
+    font-weight: bold;
+    margin-left: 3vw;
+    margin-top: 3vh;">My Orders ({{orderCount}})
+    </div>
+
+    <div class="card-body">
+      <div *ngIf="orderCount > 0"
+           style="width:100%;max-height: 100vh ; height: auto; overflow-y: auto;margin-top: 5vh;">
+        <table class="table">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Meal Name</th>
+            <th scope="col">Meal Type</th>
+            <th scope="col">Price ($)</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let order of orderDetailList; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td><img src="{{'http://localhost:8080/file/download/' + order?.mealId.image}}" alt=""
+                     style="height: 70px;border-radius: 10px;">&nbsp;{{order?.mealId.mealName}}</td>
+            <td>{{order?.mealId.mealType}}</td>
+            <td>{{order?.price}}</td>
+            <td>{{order?.quantity}}</td>
+            <td>{{convertDate(order?.orderDate)}}</td>
+            <td>{{order?.status}}</td>
+
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div *ngIf="orderCount === 0" class="emptyClass">
+        <img src="assets/img/public/emptyCart.png" alt="" style="width: 300px;border-radius: 10px;">
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<app-chat-config></app-chat-config>
+<app-chat-widget></app-chat-widget>
+
+<app-footer></app-footer>

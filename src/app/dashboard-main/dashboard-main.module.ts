@@ -40,6 +40,7 @@ import { HeaderComponent } from './dashboard-components/header/header.component'
 import { ProductViewComponent } from './dashboard-components/product-view/product-view.component';
 import { CartComponent } from './dashboard-components/cart/cart.component';
 import { FooterComponent } from './dashboard-components/footer/footer.component';
+import { OrdersComponent } from './dashboard-components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { FooterComponent } from './dashboard-components/footer/footer.component'
     ProductViewComponent,
     CartComponent,
     FooterComponent,
+    OrdersComponent,
   ],
     imports: [
         CommonModule,

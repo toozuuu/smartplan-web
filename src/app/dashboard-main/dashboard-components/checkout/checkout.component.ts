@@ -180,7 +180,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
           showConfirmButton: false,
           timer: 2500
         }).then(() => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/orders']);
         });
       }
 
