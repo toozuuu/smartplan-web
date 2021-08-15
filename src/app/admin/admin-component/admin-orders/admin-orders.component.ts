@@ -45,6 +45,7 @@ export class AdminOrdersComponent implements OnInit {
       for (let order of arr) {
         arrTemp.push({
           'orderId': orderId,
+          'orderDetailsId': order.id,
           'username': username,
           'name': order?.mealId.mealName,
           'orderDate': this.convertDate(order?.orderDate),
@@ -96,12 +97,12 @@ export class AdminOrdersComponent implements OnInit {
   }
 
   updateStatus(status) {
-    // this.userService.updateUserStatus({
-    //   'email': this.selectedOrderDetails.email,
-    //   'status': status
-    // }).subscribe(() => {
-    //   this.loadOrders();
-    // });
+    this.userService.purchaseDetailUpdateStatus({
+      'id': this.selectedOrderDetails.orderDetailsId,
+      'status': status
+    }).subscribe(() => {
+      this.loadOrders();
+    });
   }
 
 }

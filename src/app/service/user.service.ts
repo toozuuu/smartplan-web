@@ -58,6 +58,10 @@ export class UserService {
     return this.http.post<any>(this.PROXY + '/purchase/save', body);
   }
 
+  purchaseDetailUpdateStatus(body): Observable<any> {
+    return this.http.post<any>(this.PROXY + '/purchase/updateOrderStatus', body);
+  }
+
   purchaseDetailsByUsername(username): Observable<any> {
     return this.http.get<any>(this.PROXY + '/purchase/getOrdersByUser/' + username);
   }
