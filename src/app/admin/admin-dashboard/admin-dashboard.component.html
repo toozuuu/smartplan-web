@@ -1,128 +1,131 @@
-<div class="d-flex bg-white">
-    <div class="side-bar">
-      <div class="brand">
-        <h1 class="white">Smart Plan</h1>
+<!--<div class="d-flex bg-white">-->
+
+  <div class="row">
+    <div class="col-sm-12 col-md-2">
+      <div class="side-bar">
+        <div class="brand">
+          <h1 class="white">Smart Plan</h1>
+        </div>
+
+        <div class="navigation" (click)="clickMeals()">
+          <ul>
+            <li>
+              <a href="javascript:void(0)">
+                <i aria-hidden="true" class="fa fa-cutlery"></i> Meals
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="navigation" (click)="clickOrders()">
+          <ul>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-folder-open" aria-hidden="true"></i>
+                Orders
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="navigation" (click)="clickChat()">
+          <ul>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-commenting" aria-hidden="true"></i>
+                Chat List
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="navigation" (click)="clickUsers()">
+          <ul>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                Users
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="navigation" (click)="clickSettings()">
+          <ul>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+                Settings
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </div>
-
-
-      <div class="navigation" (click)="clickMeals()">
-        <ul>
-          <li>
-            <a href="javascript:void(0)">
-              <i aria-hidden="true" class="fa fa-cutlery"></i> Meals
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="navigation" (click)="clickOrders()">
-        <ul>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-folder-open" aria-hidden="true"></i>
-              Orders
-            </a>
-          </li>
-        </ul>
-      </div>
-
-
-      <div class="navigation" (click)="clickChat()">
-        <ul>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-commenting" aria-hidden="true"></i>
-              Chat List
-            </a>
-          </li>
-        </ul>
-      </div>
-
-
-      <div class="navigation" (click)="clickUsers()">
-        <ul>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-users" aria-hidden="true"></i>
-              Users
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="navigation" (click)="clickSettings()">
-        <ul>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-cog" aria-hidden="true"></i>
-              Settings
-            </a>
-          </li>
-        </ul>
-      </div>
-
-
     </div>
+    <div class="col-sm-12 col-md-10">
 
-    <div class="w-100" *ngIf="isMeals">
+      <div class="w-100" *ngIf="isMeals">
         <div class="header">
-            <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
-                <h6>Admin Panel</h6>
-              <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
-            </div>
+          <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
+            <h6>Admin Panel</h6>
+            <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
+          </div>
         </div>
         <div class="container-fluid mt-4">
-            <app-meals></app-meals>
+          <app-meals></app-meals>
         </div>
-    </div>
-
-  <div class="w-100" *ngIf="isOrders">
-    <div class="header">
-      <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
-        <h6>Admin Panel</h6>
-        <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
       </div>
-    </div>
-    <div class="container-fluid mt-4">
-      <app-admin-orders></app-admin-orders>
+
+      <div class="w-100" *ngIf="isOrders">
+        <div class="header">
+          <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
+            <h6>Admin Panel</h6>
+            <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
+          </div>
+        </div>
+        <div class="container-fluid mt-4">
+          <app-admin-orders></app-admin-orders>
+        </div>
+      </div>
+
+      <div class="w-100" *ngIf="isUsers">
+        <div class="header">
+          <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
+            <h6>Admin Panel</h6>
+            <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
+          </div>
+        </div>
+        <div class="container-fluid mt-4">
+          <app-users></app-users>
+        </div>
+      </div>
+
+      <div class="w-100" *ngIf="isSetting">
+        <div class="header">
+          <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
+            <h6>Admin Panel</h6>
+            <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
+          </div>
+        </div>
+        <div class="container-fluid mt-4">
+          <app-settings></app-settings>
+        </div>
+      </div>
+
+      <div class="w-100" *ngIf="isChat">
+        <div class="header">
+          <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
+            <h6>Admin Panel</h6>
+            <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
+          </div>
+        </div>
+        <div class="container-fluid mt-4">
+          <app-chatbox></app-chatbox>
+        </div>
+      </div>
     </div>
   </div>
 
 
-  <div class="w-100" *ngIf="isUsers">
-    <div class="header">
-      <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
-        <h6>Admin Panel</h6>
-        <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
-      </div>
-    </div>
-    <div class="container-fluid mt-4">
-      <app-users></app-users>
-    </div>
-  </div>
-
-  <div class="w-100" *ngIf="isSetting">
-    <div class="header">
-      <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
-        <h6>Admin Panel</h6>
-        <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
-      </div>
-    </div>
-    <div class="container-fluid mt-4">
-      <app-settings></app-settings>
-    </div>
-  </div>
-
-  <div class="w-100" *ngIf="isChat">
-    <div class="header">
-      <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
-        <h6>Admin Panel</h6>
-        <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
-      </div>
-    </div>
-    <div class="container-fluid mt-4">
-      <app-chatbox></app-chatbox>
-    </div>
-  </div>
-
-</div>
+<!--</div>-->

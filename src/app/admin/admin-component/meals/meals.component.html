@@ -12,9 +12,9 @@
         </button>
       </div>
     </div>
-    <div style="width:100%; max-height: 80vh; overflow-y: auto;">
+    <div style="width:100%; max-height: 80vh; overflow-x: auto;">
       <mat-form-field class="matsearch">
-        <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
+        <input class="matsearch" (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
       </mat-form-field>
 
       <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">

@@ -10,7 +10,7 @@
     </div>
     <div style="width:100%; max-height: 80vh; overflow-y: auto;">
       <mat-form-field class="matsearch">
-        <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
+        <input class="matsearch" (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
       </mat-form-field>
 
       <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">
@@ -129,11 +129,11 @@
         <span>Qty : {{selectedOrderDetails?.qty}}</span>
       </div>
       <div class="modal-footer" style="justify-content: center">
-        <button [disabled]="selectedOrderDetails?.status === 'ACTIVE'" type="button" class="btn btn-success"
+        <button type="button" class="btn btn-success"
                 data-dismiss="modal"
-                (click)="updateStatus('COMPLETED')">Complete
+                (click)="updateStatus('DELIVERED')">Complete
         </button>
-        <button [disabled]="selectedOrderDetails?.status === 'REJECTED'" type="button" class="btn btn-danger"
+        <button type="button" class="btn btn-danger"
                 data-dismiss="modal" (click)="updateStatus('REJECTED')">Reject
         </button>
       </div>
