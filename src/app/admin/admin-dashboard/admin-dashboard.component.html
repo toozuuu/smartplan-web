@@ -15,6 +15,17 @@
         </ul>
       </div>
 
+      <div class="navigation" (click)="clickOrders()">
+        <ul>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="fa fa-folder-open" aria-hidden="true"></i>
+              Orders
+            </a>
+          </li>
+        </ul>
+      </div>
+
 
       <div class="navigation" (click)="clickChat()">
         <ul>
@@ -64,6 +75,19 @@
             <app-meals></app-meals>
         </div>
     </div>
+
+  <div class="w-100" *ngIf="isOrders">
+    <div class="header">
+      <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
+        <h6>Admin Panel</h6>
+        <i style="cursor: pointer" (click)="logout()" class="fa fa-sign-out mouse-over"></i>
+      </div>
+    </div>
+    <div class="container-fluid mt-4">
+      <app-admin-orders></app-admin-orders>
+    </div>
+  </div>
+
 
   <div class="w-100" *ngIf="isUsers">
     <div class="header">

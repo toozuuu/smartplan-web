@@ -1,0 +1,142 @@
+<div class="row">
+  <div class="col-12">
+    <div class="d-flex flex-row justify-content-between">
+      <div>
+        <h4 class="font-weight-bold black">
+          <i class="fa fa-folder-open" aria-hidden="true"></i>
+          Orders
+        </h4>
+      </div>
+    </div>
+    <div style="width:100%; max-height: 80vh; overflow-y: auto;">
+      <mat-form-field class="matsearch">
+        <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Search">
+      </mat-form-field>
+
+      <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">
+
+        <ng-container matColumnDef="username">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Username
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.username}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="orderDate">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Order Date
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.orderDate}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Meal Name
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            <img src="{{'http://localhost:8080/file/download/' + row?.image}}" alt=""
+                 style="height: 70px;border-radius: 10px;"><br>
+            {{row.name}}
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Meal Type
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.type}}
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="qty">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Qty
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.qty}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Price ($)
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.price}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Address
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.address}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Status
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
+            {{row.status}}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
+            <button (click)="editUser(row)" style="cursor: pointer" data-target="#editUserStatus"
+                    data-toggle="modal" class="btn btn-primary" type="button">
+              <em class="fa fa-pencil"></em></button>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns" mat-row>
+        </tr>
+      </table>
+
+      <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="editUserStatus" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="color:#000;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{selectedOrderDetails?.username}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span>   <img src="{{'http://localhost:8080/file/download/' + selectedOrderDetails?.image}}" alt=""
+                      style="height: 250px;border-radius: 10px;"> </span><br>
+        <span>Meal Name : {{selectedOrderDetails?.name}}</span><br>
+        <span>Delivery Address : {{selectedOrderDetails?.address}}</span><br>
+        <span>Price : {{selectedOrderDetails?.price}}</span><br>
+        <span>Qty : {{selectedOrderDetails?.qty}}</span>
+      </div>
+      <div class="modal-footer" style="justify-content: center">
+        <button [disabled]="selectedOrderDetails?.status === 'ACTIVE'" type="button" class="btn btn-success"
+                data-dismiss="modal"
+                (click)="updateStatus('COMPLETED')">Complete
+        </button>
+        <button [disabled]="selectedOrderDetails?.status === 'REJECTED'" type="button" class="btn btn-danger"
+                data-dismiss="modal" (click)="updateStatus('REJECTED')">Reject
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

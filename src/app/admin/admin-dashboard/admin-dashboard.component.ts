@@ -12,6 +12,7 @@ export class AdminDashboardComponent implements OnInit {
   isUsers: any = false;
   isChat: any = false;
   isSetting: any = false;
+  isOrders: any = false;
 
   constructor(private router: Router) {
   }
@@ -43,6 +44,7 @@ export class AdminDashboardComponent implements OnInit {
     this.isUsers = false;
     this.isSetting = false;
     this.isChat = false;
+    this.isOrders = false;
   }
 
   clickUsers() {
@@ -50,6 +52,7 @@ export class AdminDashboardComponent implements OnInit {
     this.isUsers = true;
     this.isSetting = false;
     this.isChat = false;
+    this.isOrders = false;
   }
 
   clickSettings() {
@@ -57,6 +60,7 @@ export class AdminDashboardComponent implements OnInit {
     this.isUsers = false;
     this.isSetting = true;
     this.isChat = false;
+    this.isOrders = false;
   }
 
   clickChat() {
@@ -64,5 +68,14 @@ export class AdminDashboardComponent implements OnInit {
     this.isUsers = false;
     this.isSetting = false;
     this.isChat = true;
+    this.isOrders = false;
+  }
+
+  clickOrders() {
+    this.isMeals = false;
+    this.isUsers = false;
+    this.isSetting = false;
+    this.isChat = false;
+    this.isOrders = true;
   }
 }
