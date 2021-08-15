@@ -130,10 +130,10 @@
                                             [removable]="true" ngProjectAs="ngx-dropzone-preview">
                 </ngx-dropzone-image-preview>
               </ngx-dropzone>
-
+              <br>
               <div style="width: 150px;" *ngIf="isUpdateMeal">
                 <img alt="" src="{{'http://localhost:8080/file/download/' + image}}"
-                     style="border-radius: 10px;width: 150px; height: 150px;object-fit: cover;"/>
+                     style="border-radius: 10px;width: 250px; height: 250px;object-fit: cover;"/>
               </div>
               <div *ngIf="requiredImages" style="text-align: center" class="inputError">Meal image is required.</div>
 
