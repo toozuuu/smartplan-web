@@ -18,9 +18,6 @@
             <div class="meals">
               <div *ngFor="let newMeal of newMealsList;let i = index" class="card-div">
                 <div [routerLink]="'/dashboard/product-view'" [queryParams]="{data:convertJSON(newMeal)}">
-<!--                  <div class="checkbox-div" (click)="addToCart(newMeal)">-->
-<!--                    <mat-checkbox [disableRipple]="true" class="checkbox-component"></mat-checkbox>-->
-<!--                  </div>-->
                   <img src="{{'http://localhost:8080/file/download/' + newMeal.image}}" alt="">
                   <div class="price">
                     <div class="d-flex justify-content-between">
@@ -39,10 +36,6 @@
             <div class="meals">
               <div *ngFor="let newMeal of newMealsList;let i = index" class="card-div">
                 <div [routerLink]="'/dashboard/product-view'" [queryParams]="{data:convertJSON(newMeal)}">
-<!--                  <div class="checkbox-div" (click)="addToCart(newMeal)">-->
-<!--                    <mat-checkbox  [disableRipple]="true" class="checkbox-component">-->
-<!--                    </mat-checkbox>-->
-<!--                  </div>-->
                   <img src="{{'http://localhost:8080/file/download/' + newMeal.image}}" alt="">
                   <div class="price">
                     <div class="d-flex justify-content-between">
@@ -55,9 +48,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="d-flex justify-content-center">
-          <a class="button primary-btn mt-25" href="javascript:void(0)" (click)="orderNow()"> Order Now</a>
         </div>
       </div>
       <div class="history ml-3">

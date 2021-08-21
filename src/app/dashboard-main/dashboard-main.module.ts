@@ -41,6 +41,7 @@ import { ProductViewComponent } from './dashboard-components/product-view/produc
 import { CartComponent } from './dashboard-components/cart/cart.component';
 import { FooterComponent } from './dashboard-components/footer/footer.component';
 import { OrdersComponent } from './dashboard-components/orders/orders.component';
+import {MatBadgeModule} from "@angular/material/badge";
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { OrdersComponent } from './dashboard-components/orders/orders.component'
         FormsModule,
         MatCardModule,
         ChatModule,
+        MatBadgeModule,
     ]
 })
 export class DashboardMainModule { }

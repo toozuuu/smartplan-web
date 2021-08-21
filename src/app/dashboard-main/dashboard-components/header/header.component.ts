@@ -12,6 +12,8 @@ export class HeaderComponent {
   name: any;
   address: any;
   addressId: any;
+  email: any;
+  itemCount: number = 0;
 
   constructor(private userService: UserService,
               private router: Router) {
@@ -19,6 +21,14 @@ export class HeaderComponent {
     this.address = localStorage.getItem('$address_adrdess');
     this.address = localStorage.getItem('$address_adrdess');
     this.addressId = localStorage.getItem('$address_id');
+    this.email = localStorage.getItem('$email');
+    this.loadCartItems();
+  }
+
+  loadCartItems() {
+    this.userService.loadCart(this.email).subscribe(result => {
+      this.itemCount = result.cartDTOList.length;
+    });
   }
 
   logout() {
