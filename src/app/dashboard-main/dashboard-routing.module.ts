@@ -12,6 +12,7 @@ import {CheckoutComponent} from './dashboard-components/checkout/checkout.compon
 import {ProductViewComponent} from "./dashboard-components/product-view/product-view.component";
 import {CartComponent} from "./dashboard-components/cart/cart.component";
 import {OrdersComponent} from "./dashboard-components/orders/orders.component";
+import {ProfileComponent} from "./dashboard-components/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -58,6 +59,10 @@ const routes: Routes = [
       {
         path: 'orders',
         component: OrdersComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       },
       {
         path: 'refresh-checkout',

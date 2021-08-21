@@ -42,6 +42,7 @@ import { CartComponent } from './dashboard-components/cart/cart.component';
 import { FooterComponent } from './dashboard-components/footer/footer.component';
 import { OrdersComponent } from './dashboard-components/orders/orders.component';
 import {MatBadgeModule} from "@angular/material/badge";
+import { ProfileComponent } from './dashboard-components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import {MatBadgeModule} from "@angular/material/badge";
     CartComponent,
     FooterComponent,
     OrdersComponent,
+    ProfileComponent,
   ],
     imports: [
         CommonModule,
