@@ -26,15 +26,11 @@ button.mat-icon-button.mat-button-base {
   }
 
   &.primary-btn {
-    background: $primary-color !important;
     color: $white;
-    border: 2px solid $primary-color !important;
   }
 
   &.publish-btn {
-    background: $green !important;
     color: $white;
-    border: 2px solid $green !important;
   }
 
   &.danger-btn {

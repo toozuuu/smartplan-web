@@ -12,10 +12,10 @@ import {UserService} from '../../../service/user.service';
 })
 export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['name', 'gender', 'consulter', 'email', 'age', 'status', 'action'];
-  @ViewChild('paginator', {static: true}) paginator: MatPaginator;
 
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild('paginator', {static: true}) paginator: MatPaginator;
 
   constructor(private userService: UserService) {
   }
