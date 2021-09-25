@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('protein-workout', result['caloriePlanList'][0]['protein']);
           localStorage.setItem('non-workout', result['caloriePlanList'][1]['mealsPerDay']);
           localStorage.setItem('protein-non-workout', result['caloriePlanList'][1]['protein']);
-          localStorage.setItem('$address_adrdess', result['address']['adrdess']);
+          localStorage.setItem('$address_address', result['address']['address']);
           let dailyTarget1 = parseFloat(result['caloriePlanList'][0]['protein']) / parseFloat(result['caloriePlanList'][0]['mealsPerDay']);
           let dailyTarget2 = parseFloat(result['caloriePlanList'][1]['protein']) / parseFloat(result['caloriePlanList'][1]['mealsPerDay']);
           let dailyTarget = dailyTarget1 + dailyTarget2;

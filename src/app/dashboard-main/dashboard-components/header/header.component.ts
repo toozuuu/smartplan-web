@@ -18,8 +18,8 @@ export class HeaderComponent {
   constructor(private userService: UserService,
               private router: Router) {
     this.name = localStorage.getItem('$name');
-    this.address = localStorage.getItem('$address_adrdess');
-    this.address = localStorage.getItem('$address_adrdess');
+    this.address = localStorage.getItem('$address_address');
+    this.address = localStorage.getItem('$address_address');
     this.addressId = localStorage.getItem('$address_id');
     this.email = localStorage.getItem('$email');
     this.loadCartItems();
@@ -53,12 +53,12 @@ export class HeaderComponent {
   updateAddress() {
     let addressBody = {
       'id': this.addressId,
-      'adrdess': this.address
+      'address': this.address
     }
     this.userService.updateAddress(addressBody).subscribe(result => {
-      if (this.address !== result['adrdess'] && result['adrdess'] !== undefined) {
-        this.address = result['adrdess'];
-        localStorage.setItem('$address_adrdess', this.address);
+      if (this.address !== result['address'] && result['address'] !== undefined) {
+        this.address = result['address'];
+        localStorage.setItem('$address_address', this.address);
       }
       Swal.fire({
         position: 'center',
@@ -70,3 +70,4 @@ export class HeaderComponent {
     });
   }
 }
+

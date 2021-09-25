@@ -39,7 +39,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
 
     this.dailyReq = localStorage.getItem('$dailyReq');
 
-    this.address = localStorage.getItem('$address_adrdess');
+    this.address = localStorage.getItem('$address_address');
   }
 
   loadCart() {

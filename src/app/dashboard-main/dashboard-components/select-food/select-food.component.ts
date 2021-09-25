@@ -444,7 +444,7 @@ export class SelectFoodComponent implements OnInit {
           }
         ],
         "address": {
-          "adrdess": sessionStorage.getItem('$address_adrdess')
+          "address": sessionStorage.getItem('$address_address')
         }
       };
 

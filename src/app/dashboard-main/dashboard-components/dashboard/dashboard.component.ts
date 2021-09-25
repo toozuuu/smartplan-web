@@ -121,7 +121,7 @@ export class DashboardComponent implements OnInit {
     this.email = localStorage.getItem('$email');
     this.gender = localStorage.getItem('$gender');
     this.dailyReqOld = localStorage.getItem('$dailyReq');
-    this.address = localStorage.getItem('$address_adrdess');
+    this.address = localStorage.getItem('$address_address');
     this.addressId = localStorage.getItem('$address_id');
     this.numOfDays = parseInt(localStorage.getItem('numOfDays'));
   }

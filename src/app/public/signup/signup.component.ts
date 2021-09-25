@@ -57,7 +57,7 @@ export class SignupComponent implements OnInit {
     sessionStorage.setItem('$consulter', this.consulter);
     sessionStorage.setItem('$name', this.name);
     sessionStorage.setItem('$password', this.password);
-    sessionStorage.setItem('$address_adrdess', this.address);
+    sessionStorage.setItem('$address_address', this.address);
 
     this.router.navigate(['/dashboard/gender']);
 
