@@ -25,12 +25,12 @@ export class MealsComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'image', 'name', 'category', 'price', 'ingredients', 'action', 'action1'];
   @ViewChild('paginator', {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   dataSource: MatTableDataSource<any>;
 
   imageArray = [];
 
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
 
   categoryList = [
