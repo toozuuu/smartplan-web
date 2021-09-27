@@ -97,4 +97,9 @@ export class UserService {
   fetchAllOrders(): Observable<any> {
     return this.http.get<any>(this.PROXY + '/purchase/getOrders')
   }
+
+  fetchAllUnitTypes():Observable<any>{
+    return this.http.get<any>(this.PROXY + '/purchase/getOrders')
+
+  }
 }

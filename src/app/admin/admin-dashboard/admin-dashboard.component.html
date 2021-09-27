@@ -5,12 +5,12 @@
         <h1 class="white">Smart Plan</h1>
       </div>
 
-      <div class="navigation" (click)="clickSettings()">
+      <div class="navigation" (click)="clickUnitTypes()">
         <ul>
           <li>
             <a href="javascript:void(0)">
-              <i class="fa fa-cog" aria-hidden="true"></i>
-              Settings
+              <i class="fa fa-circle-o" aria-hidden="true"></i>
+              Unit Types
             </a>
           </li>
         </ul>
@@ -111,18 +111,17 @@
       </div>
     </div>
 
-    <div class="w-100" *ngIf="isSetting">
+    <div class="w-100" *ngIf="isUnitType">
       <div class="header">
         <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
           <h6>Admin Panel</h6>
-          <i style="cursor: pointer" (click)="logout()" class="fa fa-cog"></i>
+          <i style="cursor: pointer" (click)="logout()" class="fa fa-circle-o"></i>
         </div>
       </div>
       <div class="container-fluid mt-4">
-        <app-settings></app-settings>
+        <app-unit-type></app-unit-type>
       </div>
     </div>
-
   </div>
 </div>
 

@@ -3,7 +3,6 @@ import { Routes,RouterModule } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { MealsComponent } from './admin-component/meals/meals.component';
 import {UsersComponent} from './admin-component/users/users.component';
-import {SettingsComponent} from "./admin-component/settings/settings.component";
 import {ChatboxComponent} from "./admin-component/chatbox/chatbox.component";
 import {AdminOrdersComponent} from "./admin-component/admin-orders/admin-orders.component";
 const routes: Routes = [
@@ -16,19 +15,23 @@ const routes: Routes = [
         component: MealsComponent
       },
       {
-        path: 'user',
-        component: UsersComponent
+        path: 'meal',
+        component: MealsComponent
       },
       {
-        path: 'setting',
-        component: SettingsComponent
+        path: 'unit-type',
+        component: MealsComponent
+      },
+      {
+        path: 'user',
+        component: UsersComponent
       },
       {
         path: 'chat',
         component: ChatboxComponent
       },
       {
-        path: 'orders',
+        path: 'order',
         component: AdminOrdersComponent
       }
     ]

@@ -11,8 +11,8 @@ export class AdminDashboardComponent implements OnInit {
   isMeals: any = true;
   isUsers: any = false;
   isChat: any = false;
-  isSetting: any = false;
   isOrders: any = false;
+  isUnitType: any = false;
 
   constructor(private router: Router) {
   }
@@ -42,40 +42,53 @@ export class AdminDashboardComponent implements OnInit {
   clickMeals() {
     this.isMeals = true;
     this.isUsers = false;
-    this.isSetting = false;
     this.isChat = false;
     this.isOrders = false;
+    this.isUnitType = false;
+
   }
 
   clickUsers() {
     this.isMeals = false;
     this.isUsers = true;
-    this.isSetting = false;
     this.isChat = false;
     this.isOrders = false;
+    this.isUnitType = false;
+
   }
 
   clickSettings() {
     this.isMeals = false;
     this.isUsers = false;
-    this.isSetting = true;
     this.isChat = false;
     this.isOrders = false;
+    this.isUnitType = false;
+
   }
 
   clickChat() {
     this.isMeals = false;
     this.isUsers = false;
-    this.isSetting = false;
     this.isChat = true;
     this.isOrders = false;
+    this.isUnitType = false;
+
   }
 
   clickOrders() {
     this.isMeals = false;
     this.isUsers = false;
-    this.isSetting = false;
     this.isChat = false;
     this.isOrders = true;
+    this.isUnitType = false;
+
+  }
+
+  clickUnitTypes() {
+    this.isMeals = false;
+    this.isUsers = false;
+    this.isChat = false;
+    this.isOrders = false;
+    this.isUnitType = true;
   }
 }

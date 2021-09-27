@@ -30,7 +30,7 @@ import {NgxDropzoneModule} from 'ngx-dropzone';
 import { UsersComponent } from './admin-component/users/users.component';
 import { ChatboxComponent } from './admin-component/chatbox/chatbox.component';
 import { AdminOrdersComponent } from './admin-component/admin-orders/admin-orders.component';
-import { SettingsComponent } from './admin-component/settings/settings.component';
+import { UnitTypeComponent } from './admin-component/unit-type/unit-type.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { SettingsComponent } from './admin-component/settings/settings.component
   UsersComponent,
   ChatboxComponent,
   AdminOrdersComponent,
-  SettingsComponent],
+  UnitTypeComponent],
     imports: [
         CommonModule,
         MatButtonModule,
