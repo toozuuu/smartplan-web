@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 })
 export class UnitTypeComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'description', 'action'];
+  displayedColumns: string[] = ['id', 'description', 'action','action1'];
   @ViewChild('paginator', {static: true}) paginator: MatPaginator;
 
   dataSource: MatTableDataSource<any>;
@@ -29,9 +29,9 @@ export class UnitTypeComponent implements OnInit {
     this.loading();
     this.dataSource = new MatTableDataSource();
     this.userService.fetchAllUnitTypes().subscribe(result => {
-      Swal.close();
       this.dataSource = new MatTableDataSource(result);
       this.dataSource.paginator = this.paginator;
+      Swal.close();
     });
   }
 
@@ -53,11 +53,34 @@ export class UnitTypeComponent implements OnInit {
     });
   }
 
-  selectedUnitType:any;
+  description: any;
+  id: any;
 
   editUnitType(data) {
-    this.selectedUnitType = data;
+    this.id = data.id;
+    this.description = data.description;
   }
 
 
+  saveOrUpdate(status) {
+    this.loading();
+    if (status === 'UPDATE') {
+      this.userService.updateUnitType({'id': this.id, 'description': this.description}).subscribe(isUpdate => {
+        if (isUpdate['success']) {
+          Swal.close();
+          this.description = undefined;
+          this.id = undefined;
+          this.loadUnitTypes();
+        }
+      });
+    }
+  }
+
+  removeUnitType(id) {
+    this.loading();
+    this.userService.removeUnitType(id).subscribe(result=>{
+      Swal.close();
+      this.loadUnitTypes();
+    });
+  }
 }

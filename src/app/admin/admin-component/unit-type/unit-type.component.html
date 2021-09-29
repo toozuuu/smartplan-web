@@ -36,10 +36,20 @@
           <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
 
           </th>
-          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="text-align: center!important;">
             <button (click)="editUnitType(row)" style="cursor: pointer" data-target="#editUnitTypeModal"
                     data-toggle="modal" class="btn btn-primary" type="button">
               <em class="fa fa-pencil"></em></button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action1">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell>
+            <button (click)="removeUnitType(row.id)" style="cursor: pointer" class="btn btn-danger" type="button">
+              <em class="fa fa-trash"></em></button>
           </td>
         </ng-container>
 
@@ -55,33 +65,34 @@
 </div>
 
 
-<!--&lt;!&ndash; Modal &ndash;&gt;-->
-<!--<div class="modal fade" id="editUnitTypeModal" tabindex="-1" role="dialog" aria-hidden="true">-->
-<!--  <div class="modal-dialog modal-dialog-centered" role="document">-->
-<!--    <div class="modal-content" style="color:#000;">-->
-<!--      <div class="modal-header">-->
-<!--        <h5 class="modal-title" id="exampleModalLongTitle">{{selectedOrderDetails?.username}}</h5>-->
-<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--          <span aria-hidden="true">&times;</span>-->
-<!--        </button>-->
-<!--      </div>-->
-<!--      <div class="modal-body">-->
-<!--        <span>   <img src="{{'http://localhost:8080/file/download/' + selectedOrderDetails?.image}}" alt=""-->
-<!--                      style="height: 250px;border-radius: 10px;"> </span><br>-->
-<!--        <span>Meal Name : {{selectedOrderDetails?.name}}</span><br>-->
-<!--        <span>Delivery Address : {{selectedOrderDetails?.address}}</span><br>-->
-<!--        <span>Price : {{selectedOrderDetails?.price}}</span><br>-->
-<!--        <span>Qty : {{selectedOrderDetails?.qty}}</span>-->
-<!--      </div>-->
-<!--      <div class="modal-footer" style="justify-content: center">-->
-<!--        <button type="button" class="btn btn-success"-->
-<!--                data-dismiss="modal"-->
-<!--                (click)="updateStatus('DELIVERED')">Complete-->
-<!--        </button>-->
-<!--        <button type="button" class="btn btn-danger"-->
-<!--                data-dismiss="modal" (click)="updateStatus('REJECTED')">Reject-->
-<!--        </button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<!-- Modal -->
+<div class="modal fade" id="editUnitTypeModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content" style="color:#000;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="example-form">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea style="color: black!important;" matInput [(ngModel)]="description"
+                      [ngModelOptions]="{standalone: true}"> </textarea>
+          </mat-form-field>
+        </form>
+      </div>
+      <div class="modal-footer" style="justify-content: center">
+        <button type="button" class="btn btn-success"
+                style="font-size: 16px;background: linear-gradient(147.74deg,#9e9e9e,#757575 101.31%)!important;"
+                data-dismiss="modal">Close
+        </button>
+        <button type="button" class="btn btn-success"
+                style="font-size: 16px;background: linear-gradient(147.74deg,#60ce71,#1bbf8a 101.31%)!important;"
+                data-dismiss="modal" (click)="saveOrUpdate('UPDATE')">Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
