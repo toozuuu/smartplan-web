@@ -106,6 +106,10 @@ export class UserService {
     return this.http.post<any>(this.PROXY + '/unitType/update',body)
   }
 
+  saveUnitType(body):Observable<any>{
+    return this.http.post<any>(this.PROXY + '/unitType/save',body)
+  }
+
   removeUnitType(id):Observable<any>{
     return this.http.delete<any>(this.PROXY + '/unitType/delete/'+id)
   }

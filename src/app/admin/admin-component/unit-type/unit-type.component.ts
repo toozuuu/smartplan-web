@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 })
 export class UnitTypeComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'description', 'action','action1'];
+  displayedColumns: string[] = ['id', 'description', 'action', 'action1'];
   @ViewChild('paginator', {static: true}) paginator: MatPaginator;
 
   dataSource: MatTableDataSource<any>;
@@ -73,14 +73,28 @@ export class UnitTypeComponent implements OnInit {
           this.loadUnitTypes();
         }
       });
+    } else {
+      this.userService.saveUnitType({'description': this.description}).subscribe(isSave => {
+        if (isSave['success']) {
+          Swal.close();
+          this.description = undefined;
+          this.id = undefined;
+          this.loadUnitTypes();
+        }
+      });
     }
   }
 
   removeUnitType(id) {
     this.loading();
-    this.userService.removeUnitType(id).subscribe(result=>{
+    this.userService.removeUnitType(id).subscribe(() => {
       Swal.close();
       this.loadUnitTypes();
     });
+  }
+
+  clearForm() {
+    this.description = undefined;
+    this.id = undefined;
   }
 }

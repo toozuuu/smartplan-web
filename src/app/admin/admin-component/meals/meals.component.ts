@@ -32,7 +32,6 @@ export class MealsComponent implements OnInit {
   imageArray = [];
 
 
-
   categoryList = [
     {
       'id': 1, 'name': 'Per Workout'
@@ -97,6 +96,8 @@ export class MealsComponent implements OnInit {
   selectMealId: any;
   image: string;
 
+  unitTypes: any;
+
   constructor(private _formBuilder: FormBuilder,
               private userService: UserService,
               private http: HttpClient) {
@@ -112,6 +113,13 @@ export class MealsComponent implements OnInit {
   ngOnInit() {
     this.addForm.addControl('rows', this.rows);
     this.loadMeals();
+    this.loadUnitTypes();
+  }
+
+  loadUnitTypes() {
+    this.userService.fetchAllUnitTypes().subscribe(result => {
+      this.unitTypes = result;
+    });
   }
 
   loadMeals() {
@@ -178,7 +186,7 @@ export class MealsComponent implements OnInit {
     headers = headers.append('Access-Control-Allow-Origin', '*');
     headers = headers.append('Set-Cookie', 'HttpOnly;Secure;SameSite=Strict');
 
-    let req = new HttpRequest('POST', environment.proxy+'/file/upload/', formData, {
+    let req = new HttpRequest('POST', environment.proxy + '/file/upload/', formData, {
       headers: headers,
       reportProgress: true,
     });
@@ -268,7 +276,6 @@ export class MealsComponent implements OnInit {
 
     this.requiredIngredients = false;
 
-    this.loading();
 
     if (this.isUpdateMeal) {
       let body = {
@@ -279,6 +286,7 @@ export class MealsComponent implements OnInit {
         'image': this.image,
         'mealIngredientsCollection': this.rows.value
       };
+      this.loading();
 
       this.userService.updateMeal(body).subscribe(() => {
         if (this._removeIng.length > 0) {
@@ -324,6 +332,7 @@ export class MealsComponent implements OnInit {
         'image': imageURL,
         'mealIngredientsCollection': this.rows.value
       };
+      this.loading();
 
       this.userService.saveMeal(body).subscribe(() => {
         Swal.close();
@@ -376,7 +385,7 @@ export class MealsComponent implements OnInit {
 
   deleteMeal(id: any) {
     this.loading();
-    this.userService.deleteMeal(id).subscribe(isDelete => {
+    this.userService.deleteMeal(id).subscribe(() => {
       Swal.close();
       this.loadMeals()
     }, () => {
@@ -436,7 +445,7 @@ export class MealsComponent implements OnInit {
 
   alphaOnly(event) {
     const inputValue = event.charCode;
-    if(!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)){
+    if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) {
       event.preventDefault();
     }
   }
