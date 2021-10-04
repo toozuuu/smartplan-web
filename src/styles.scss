@@ -25,8 +25,8 @@
 }
 
 body{
-  height: 100%!important;
   .main {
+    height:100vh!important;
     background-size: cover;
     //background: $white url('src/assets/img/public/main.png') no-repeat center;
     display: flex;
