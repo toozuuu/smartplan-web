@@ -121,7 +121,7 @@
             <div class="col-md-12">
               <div class="row admin">
                 <div class="col-md-12">
-                  <mat-label>Name</mat-label>
+                  <mat-label>Name<sub style="color: red;font-size: 10px">*</sub></mat-label>
                   <mat-form-field appearance="fill">
                     <textarea [(ngModel)]="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
                               formControlName="name" id="_name" matInput></textarea>
@@ -131,7 +131,7 @@
                   </mat-form-field>
                 </div>
                 <div class="col-md-12">
-                  <mat-label>Category</mat-label>
+                  <mat-label>Category<sub style="color: red;font-size: 10px">*</sub></mat-label>
                   <mat-form-field appearance="fill">
                     <mat-select [(ngModel)]="selectedCategory"
                                 [ngClass]="{ 'is-invalid': submitted && f.category.errors }" formControlName="category">
@@ -145,7 +145,7 @@
                   </mat-form-field>
                 </div>
                 <div class="col-md-12">
-                  <mat-label>Price($)</mat-label>
+                  <mat-label>Price($)<sub style="color: red;font-size: 10px">*</sub></mat-label>
                   <mat-form-field appearance="fill">
                     <input [(ngModel)]="price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
                            formControlName="price" id="_price" matInput min="1" type="number">
@@ -162,12 +162,12 @@
                       <table>
                         <thead *ngIf="this.rows.value.length >0">
                         <tr>
-                          <th id="i_name">Ingredients Name</th>
-                          <th id="i_unit">Ingredients Unit</th>
-                          <th id="i_protein">Ingredients Protein</th>
-                          <th id="i_carbs">Ingredients Carbs</th>
-                          <th id="i_fat">Ingredients Fat</th>
-                          <th id="i_qty">Ingredients Quantity</th>
+                          <th id="i_name">Ingredients Name<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_unit">Ingredients Unit<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_protein">Ingredients Protein<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_carbs">Ingredients Carbs<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_fat">Ingredients Fat<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_qty">Ingredients Quantity<sub style="color: red;font-size: 10px">*</sub></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -236,7 +236,7 @@
                 <ngx-dropzone-label>
                   <i aria-hidden="true" class="fa fa-4x fa-cloud-upload"></i>
                   <p>Drag & Drop Meal Image <br> Here To Upload</p>
-                  <small>or select image file to upload</small>
+                  <small>or select image file to upload<sub style="color: red;font-size: 10px">*</sub></small>
                 </ngx-dropzone-label>
                 <ngx-dropzone-image-preview (removed)="onRemove(f)" *ngFor="let f of files" [file]="f"
                                             [removable]="true" ngProjectAs="ngx-dropzone-preview">

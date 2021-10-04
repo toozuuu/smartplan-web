@@ -119,9 +119,20 @@
 #chat-box .chat h3 {
   color: #bbb;
 }
-#chat-box .chat .entete {
+#chat-box .chat .entete1 .entete2{
   margin-top: 5px;
 }
+
+.entete1{
+  margin-left: 20px;
+  font-size: 0.875rem ;
+}
+
+.entete2{
+  margin-right: 20px;
+  font-size: 0.875rem ;
+}
+
 #chat-box .chat .message {
   padding: 7px 20px;
   color: #fff;
@@ -133,6 +144,8 @@
 }
 #chat-box .chat .me {
   text-align: right;
+  margin-right: 20px;
+  margin-top: 5px;
 }
 #chat-box .chat .you .message {
   background: #1758ff;
@@ -141,6 +154,8 @@
   box-shadow: 10px 10px 25px rgba(112, 124, 151, 0.05),
   15px 15px 35px rgba(112, 124, 151, 0.05);
   border-radius: 10px;
+  margin-left: 20px;
+  margin-top: 5px;
 }
 #chat-box .chat .me .message {
   background: #ffffff;
@@ -176,20 +191,7 @@
   text-transform: uppercase;
   color: #707c97;
 }
-/* #chat-box .chat .triangle {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 10px 10px 10px;
-  }
-  #chat-box .chat .you .triangle {
-    border-color: transparent transparent #58b666 transparent;
-    margin-left: 15px;
-  }
-  #chat-box .chat .me .triangle {
-    border-color: transparent transparent #6fbced transparent;
-    margin-left: 375px;
-  } */
+
 #chat-box .main-msg-chatbox {
   position: relative;
   padding: 20px 0;

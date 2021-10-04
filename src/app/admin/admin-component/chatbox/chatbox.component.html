@@ -18,7 +18,8 @@
                              alt="">
 
                         <span class="p-ab red-box notifications">
-                                        <p>{{room.newMessageCount}}</p>
+                                      {{room.newMessageCount}}
+
                                       </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
@@ -56,34 +57,34 @@
            style="margin-left: 10px;background-color: #122143;color: white;border: 1px solid">
         <p style="margin: 10px">{{sender}}</p>
         <div class="chat1">
-          <ul style="overflow: scroll;" class="chat">
+          <div style="overflow: scroll;margin-top: 10px" class="chat">
 
             <div *ngFor="let msg of chatMessagesList ; let i = index">
-              <li class="you" *ngIf="msg.receiver==='ADMIN'">
+              <div class="you" *ngIf="msg.receiver==='ADMIN'">
                 <div class="message">
                   {{msg.content}}
                 </div>
-                <div class="entete">
-                  <p>{{ msg.time | date:'medium' }}</p>
+                <div class="entete1">
+                  {{ msg.time | date:'medium' }}
                 </div>
-              </li>
-              <li class="me" *ngIf="msg.receiver!=='ADMIN'">
+              </div>
+              <div class="me" *ngIf="msg.receiver!=='ADMIN'">
                 <div class="message">
                   <p>
                     {{msg.content}}
                   </p>
                 </div>
-                <div class="entete">
-                  <p>{{ msg.time | date:'medium' }}</p>
+                <div class="entete2">
+                  {{ msg.time | date:'medium' }}
                 </div>
-              </li>
+              </div>
             </div>
-          </ul>
+          </div>
         </div>
-        <footer style="margin-left: 10px;background-color: #3F51B5;color: white;">
+        <footer style="margin-left: 10px;background-color: #122143;color: black;">
           <div class="d-flex align-items-center">
                                                     <textarea placeholder="Type your message" [(ngModel)]="message"
-                                                              style="color: black;"
+                                                              style="color: black;!important;"
                                                     ></textarea>
             <a (click)="sendMessageClick()" class="greytxt" style="margin: 15px;color: white;cursor: pointer"><span
               class="material-icons"> send </span></a>

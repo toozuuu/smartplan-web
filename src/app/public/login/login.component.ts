@@ -51,10 +51,12 @@ export class LoginComponent implements OnInit {
   onSubmitLogin() {
     localStorage.removeItem('REMEMBER_USER');
     localStorage.removeItem('REMEMBER_ADMIN');
+
     this.submittedLoginForm = true;
     if (this.signInForm.invalid) {
       return;
     }
+
     this.loading();
 
     let body = {
@@ -62,7 +64,7 @@ export class LoginComponent implements OnInit {
       'password': this.password
     };
 
-    if (this.email.trim() === 'admin@kplan.com' && this.password.trim() === 'admin@123#') {
+    if (this.email.trim() === 'admin@smartplan.com' && this.password.trim() === 'admin@123#') {
       if (this.isRememberMe) {
         localStorage.setItem('REMEMBER_ADMIN', 'TRUE');
       }
