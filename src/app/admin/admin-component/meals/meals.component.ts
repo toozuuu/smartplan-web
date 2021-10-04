@@ -41,54 +41,6 @@ export class MealsComponent implements OnInit {
     }
   ];
 
-  preWorkoutFoods = [
-    {
-      'id': 1, 'name': 'Oats'
-    },
-    {
-      'id': 2, 'name': 'Brown Rice'
-    },
-    {
-      'id': 3, 'name': 'White Basmati Rice'
-    },
-    {
-      'id': 4, 'name': 'Sweet Potato'
-    },
-    {
-      'id': 5, 'name': 'White Potatoes'
-    },
-    {
-      'id': 6, 'name': 'Whole Wheat Pasta'
-    },
-    {
-      'id': 7, 'name': 'White Penne Pasta'
-    }
-  ];
-
-  postWorkoutFoods = [
-    {
-      'id': 8, 'name': 'Whole Large Free Range Egg'
-    },
-    {
-      'id': 9, 'name': 'Free Range Egg Whites'
-    },
-    {
-      'id': 10, 'name': 'Free Range Chicken Breast'
-    },
-    {
-      'id': 11, 'name': 'Pork Loin Steaks'
-    },
-    {
-      'id': 12, 'name': 'Lean Ground Beef'
-    },
-    {
-      'id': 13, 'name': 'Fresh Salmon Fillet'
-    },
-    {
-      'id': 14, 'name': 'Whey Protein Isolate Powder'
-    }
-  ];
-
   selectedCategory: any;
   addForm: FormGroup;
   rows: FormArray;
@@ -166,7 +118,7 @@ export class MealsComponent implements OnInit {
 
   onSelect(event) {
     if (this.files.length <= 3 && event.addedFiles.length !== 0) {
-      const ext = event.addedFiles[0].name.split('.').pop();
+      const ext = event.addedFiles[0].name.split('.').pop().toLowerCase();
       if (ext === 'jpeg' || ext === 'png' || ext === 'jpg') {
         this.uploadImages(event.addedFiles);
         this.files.push(...event.addedFiles);
@@ -200,7 +152,7 @@ export class MealsComponent implements OnInit {
         }
       }),
       last(),
-      catchError((error: HttpErrorResponse) => {
+      catchError(() => {
         Swal.close();
         //Remove last image from files array
         this.files.splice(-1, 1);
@@ -443,10 +395,4 @@ export class MealsComponent implements OnInit {
     this.clearIngId();
   }
 
-  alphaOnly(event) {
-    const inputValue = event.charCode;
-    if (!(inputValue >= 65 && inputValue <= 120) && (inputValue != 32 && inputValue != 0)) {
-      event.preventDefault();
-    }
-  }
 }

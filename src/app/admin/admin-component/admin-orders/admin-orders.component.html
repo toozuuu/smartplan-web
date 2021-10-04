@@ -62,10 +62,10 @@
 
         <ng-container matColumnDef="price">
           <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
-            Price ($)
+            Price
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
-            {{row.price}}
+            $&nbsp;{{row.price| number:'2.2-2'}}
           </td>
         </ng-container>
 
@@ -125,7 +125,7 @@
                       style="height: 250px;border-radius: 10px;"> </span><br>
         <span>Meal Name : {{selectedOrderDetails?.name}}</span><br>
         <span>Delivery Address : {{selectedOrderDetails?.address}}</span><br>
-        <span>Price : {{selectedOrderDetails?.price}}</span><br>
+        <span>Price : $&nbsp;{{selectedOrderDetails?.price| number:'2.2-2'}}</span><br>
         <span>Qty : {{selectedOrderDetails?.qty}}</span>
       </div>
       <div class="modal-footer" style="justify-content: center">

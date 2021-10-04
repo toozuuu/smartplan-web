@@ -60,7 +60,7 @@
             Price
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
-            {{row.price}}
+            $&nbsp;{{row.price| number:'2.2-2'}}
           </td>
         </ng-container>
         <ng-container matColumnDef="ingredients">
@@ -133,7 +133,7 @@
                 <div class="col-md-12">
                   <mat-label>Category</mat-label>
                   <mat-form-field appearance="fill">
-                    <mat-select [(value)]="selectedCategory"
+                    <mat-select [(ngModel)]="selectedCategory"
                                 [ngClass]="{ 'is-invalid': submitted && f.category.errors }" formControlName="category">
                       <mat-option *ngFor="let category of categoryList" [value]="category.name">
                         <span>{{category.name}}</span>
@@ -251,10 +251,10 @@
 
             </div>
           </div>
-          <button *ngIf="!isUpdateMeal" class="button primary-btn mealBtn" type="button">
+          <button *ngIf="!isUpdateMeal" class="button primary-btn mealBtn">
             Save
           </button>
-          <button *ngIf="isUpdateMeal" class="button primary-btn mealBtn" type="button">
+          <button *ngIf="isUpdateMeal" class="button primary-btn mealBtn">
             Update
           </button>
         </form>
