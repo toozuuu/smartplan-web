@@ -20,6 +20,15 @@
 
       <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">
 
+        <ng-container matColumnDef="orderId">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Order Id
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.orderId}}
+          </td>
+        </ng-container>
+
         <ng-container matColumnDef="username">
           <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
             Username
@@ -128,6 +137,7 @@
       <div class="modal-body">
         <span>   <img src="{{'http://localhost:8080/file/download/' + selectedOrderDetails?.image}}" alt=""
                       style="height: 250px;border-radius: 10px;"> </span><br>
+        <span>Order Id : {{selectedOrderDetails?.orderId}}</span><br>
         <span>Meal Name : {{selectedOrderDetails?.name}}</span><br>
         <span>Delivery Address : {{selectedOrderDetails?.address}}</span><br>
         <span>Price : $&nbsp;{{selectedOrderDetails?.price| number:'2.2-2'}}</span><br>

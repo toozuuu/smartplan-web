@@ -110,7 +110,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
       'quantity': parseInt(inputField)
     };
 
-    this.userService.updateCart(body).subscribe(result => {
+    this.userService.updateCart(body).subscribe(() => {
       this.loadCart();
     });
   }
@@ -159,6 +159,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
       }
 
     }
+
     let body = {
       'email': this.email,
       'purchaseDetails': purchaseDetails

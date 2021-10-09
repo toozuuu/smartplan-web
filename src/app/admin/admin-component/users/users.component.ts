@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import Swal from 'sweetalert2';
 import {UserService} from '../../../service/user.service';
+import {ReportService} from "../../../service/report.service";
 
 @Component({
   selector: 'app-users',
@@ -17,7 +18,8 @@ export class UsersComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild('paginator', {static: true}) paginator: MatPaginator;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private reportService:ReportService) {
   }
 
   ngOnInit() {
@@ -81,4 +83,7 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  downloadExcel() {
+    this.reportService.downloadUserReport();
+  }
 }

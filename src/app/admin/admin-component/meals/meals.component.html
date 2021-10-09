@@ -7,8 +7,9 @@
         </h4>
       </div>
       <div class="d-flex">
-        <button class="button primary-btn ml-2" (click)="downloadExcel()"> Export Table to .XLS &nbsp;<i class="fa fa-file"
-                                                                               aria-hidden="true"></i>
+        <button class="button primary-btn ml-2" (click)="downloadExcel()"> Export Table to .XLS &nbsp;<i
+          class="fa fa-file"
+          aria-hidden="true"></i>
         </button>
         <button class="button primary-btn ml-2" data-toggle="modal" data-target=".meals" (click)="clearForm()">Add New
           Meal
@@ -180,9 +181,9 @@
                                    class="form-control" type="text">
                           </td>
                           <td>
-                            <select [formControl]="row.get('unit')" class="form-control" id="cars"
-                                    *ngFor="let type of unitTypes">
-                              <option value="{{type.description}}">{{type.description}}</option>
+                            <select [formControl]="row.get('unit')" class="form-control" id="cars">
+                              <option *ngFor="let type of unitTypes"
+                                      value="{{type.description}}">{{type.description}}</option>
                             </select>
                           </td>
                           <td>

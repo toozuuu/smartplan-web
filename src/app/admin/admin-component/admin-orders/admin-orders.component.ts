@@ -13,7 +13,7 @@ import {ReportService} from "../../../service/report.service";
 })
 export class AdminOrdersComponent implements OnInit {
 
-  displayedColumns: string[] = ['username', 'orderDate', 'name', 'type', 'qty', 'price', 'address', 'status', 'action'];
+  displayedColumns: string[] = ['orderId', 'username', 'orderDate', 'name', 'type', 'qty', 'price', 'address', 'status', 'action'];
   @ViewChild('paginator', {static: true}) paginator: MatPaginator;
 
   dataSource: MatTableDataSource<any>;
@@ -31,7 +31,6 @@ export class AdminOrdersComponent implements OnInit {
     this.loading();
     this.dataSource = new MatTableDataSource();
     this.userService.fetchAllOrders().subscribe(orderDetails => {
-      let arr = [];
       let arrTemp = [];
       let username;
       let orderId;
@@ -39,25 +38,21 @@ export class AdminOrdersComponent implements OnInit {
       for (let order of orderDetails) {
         username = order.email;
         orderId = order.purchaseId;
-        for (let temp of order.purchaseDetails) {
-          arr.push(temp);
+        for (let val of order.purchaseDetails) {
+          arrTemp.push({
+            'orderId': orderId,
+            'orderDetailsId': val.id,
+            'username': username,
+            'name': val?.mealId.mealName,
+            'orderDate': this.convertDate(val?.orderDate),
+            'type': val?.mealId.mealType,
+            'qty': val?.quantity,
+            'price': val?.price,
+            'address': val?.shippingAddress,
+            'image': val?.mealId.image,
+            'status': val.status
+          });
         }
-      }
-
-      for (let order of arr) {
-        arrTemp.push({
-          'orderId': orderId,
-          'orderDetailsId': order.id,
-          'username': username,
-          'name': order?.mealId.mealName,
-          'orderDate': this.convertDate(order?.orderDate),
-          'type': order?.mealId.mealType,
-          'qty': order?.quantity,
-          'price': order?.price,
-          'address': order?.shippingAddress,
-          'image': order?.mealId.image,
-          'status': order.status
-        });
       }
 
       Swal.close();
