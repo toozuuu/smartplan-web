@@ -28,6 +28,8 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
   isDefaultAddress: boolean = true;
   isASAP: boolean = true;
 
+  todayDate = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
   constructor(private userService: UserService,
               private cdRef: ChangeDetectorRef,
               private router: Router) {
@@ -53,21 +55,21 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
       this.total = result['totalPrice'];
 
 
-        let temp = 0;
+      let temp = 0;
 
-        for (let item of result['cartDTOList']) {
-          for (let y of item['mealId'].mealIngredientsCollection) {
-            temp = temp + y.protein * item.quantity;
-          }
+      for (let item of result['cartDTOList']) {
+        for (let y of item['mealId'].mealIngredientsCollection) {
+          temp = temp + y.protein * item.quantity;
         }
+      }
 
-        this.orderTotal = temp;
+      this.orderTotal = temp;
 
-        if (this.dailyReq > this.orderTotal) {
-          this.forgetTotal = this.dailyReq - this.orderTotal;
-        } else {
-          this.forgetTotal = this.dailyReq;
-        }
+      if (this.dailyReq > this.orderTotal) {
+        this.forgetTotal = this.dailyReq - this.orderTotal;
+      } else {
+        this.forgetTotal = this.dailyReq;
+      }
 
     });
   }
@@ -141,9 +143,9 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
     let x = this.selectedItems.length;
     for (let i = 0; i < x; i++) {
       if (document.getElementById('showTotal' + i) !== null) {
-        let subTotal = (<HTMLInputElement> document.getElementById('showTotal' + i));
-        let inputField = (<HTMLInputElement> document.getElementById('qty' + i));
-        let mealId = (<HTMLInputElement> document.getElementById('mealId' + i));
+        let subTotal = (<HTMLInputElement>document.getElementById('showTotal' + i));
+        let inputField = (<HTMLInputElement>document.getElementById('qty' + i));
+        let mealId = (<HTMLInputElement>document.getElementById('mealId' + i));
         purchaseDetails.push({
           'price': parseFloat(subTotal.textContent),
           'quantity': parseFloat(inputField.value),
@@ -165,29 +167,40 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
       'purchaseDetails': purchaseDetails
     };
 
-    this.userService.purchaseSave(body).subscribe(result => {
-      Swal.close();
+    if (this.dailyReq >= this.orderTotal) {
+      this.userService.purchaseSave(body).subscribe(result => {
+        Swal.close();
 
-      if (result['success']) {
-        if (this.selectedItems.length > 0) {
-          for (let temp of this.selectedItems) {
-            this.deleteSelectedItem(temp['id']);
+        if (result['success']) {
+          if (this.selectedItems.length > 0) {
+            for (let temp of this.selectedItems) {
+              this.deleteSelectedItem(temp['id']);
+            }
           }
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Your order has been placed. Check your email for details.',
+            showConfirmButton: false,
+            timer: 2500
+          }).then(() => {
+            this.router.navigate(['/dashboard/orders']);
+          });
         }
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Your booking has been confirmed. Check your email for details',
-          showConfirmButton: false,
-          timer: 2500
-        }).then(() => {
-          this.router.navigate(['/dashboard/orders']);
-        });
-      }
 
-    }, () => {
+      }, () => {
+        Swal.close();
+      });
+    } else {
       Swal.close();
-    });
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'Please maintaining daily required food calories.!',
+        footer: 'Your daily calories limit is ' + this.dailyReq + ' kcal. But your order items\' total calories is ' + this.orderTotal + ' kcal.'
+      })
+    }
+
   }
 
   convertDate(created: any) {

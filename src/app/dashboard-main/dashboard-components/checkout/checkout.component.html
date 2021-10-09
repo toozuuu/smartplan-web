@@ -110,7 +110,7 @@
                   <div class="d-flex flex-row">
                     <mat-radio-button value="2" [checked]="!isDefaultAddress"></mat-radio-button>
                     <mat-form-field appearance="outline">
-                      <textarea [(ngModel)]="shippingAddress" matInput placeholder="Enter your address"
+                      <textarea style="color: white!important;" [(ngModel)]="shippingAddress" matInput placeholder="Enter your address"
                                 rows="3"></textarea>
                     </mat-form-field>
                   </div>
@@ -130,7 +130,7 @@
               </mat-radio-group>
               <div class="d-flex flex-row justify-content-between">
                 <mat-form-field *ngIf="selectedOrderType === 2" appearance="outline">
-                  <input [(ngModel)]="selectedDate" [autoApply]="true" [singleDatePicker]="true" matInput name="date 2"
+                  <input min="{{todayDate}}" [(ngModel)]="selectedDate" [autoApply]="true" [singleDatePicker]="true" matInput name="date 2"
                          ngxDaterangepickerMd placeholder="Choose a date">
                   <mat-datepicker-toggle matSuffix></mat-datepicker-toggle>
                 </mat-form-field>
@@ -149,7 +149,7 @@
           <div class="mb-3">
             <a>Add a message to your order!</a>
             <mat-form-field appearance="outline">
-              <textarea [(ngModel)]="comment" matInput placeholder="Any Comment" rows="5"></textarea>
+              <textarea style="color: white!important;" [(ngModel)]="comment" matInput placeholder="Any Comment" rows="5"></textarea>
             </mat-form-field>
           </div>
           <div class="text-right">
