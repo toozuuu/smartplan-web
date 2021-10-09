@@ -50,20 +50,18 @@
   </div>
 
   <div class="card" *ngIf="itemCount > 0" style="margin-left: 2vw;margin-right: 2vw;margin-bottom: 5vh">
-    <div class="card-body" style="text-align: right;margin-right: 5vw">
+    <div class="card-body" style="text-align: right;margin-right: 5vw;color: black;font-weight: bold;font-size: 20px">
       Total Price : $ {{cartDetails?.totalPrice}}
     </div>
 
     <div class="col-12">
-      <button style="width: 200px;font-size: 20px;float: right;margin: 13px 3vw 13px 13px;" type="button" class="btn btn-warning"
-              (click)="checkout()">
+      <button class="button primary-btn ml-2" (click)="checkout()" style="float: right;margin-right: 5vw">
         <i class="fa fa-credit-card" aria-hidden="true"></i>
         Check Out
       </button>
     </div>
   </div>
 </div>
-
 
 
 <app-chat-config></app-chat-config>

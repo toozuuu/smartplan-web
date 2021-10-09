@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../service/user.service";
 import {Router} from "@angular/router";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-cart',
@@ -35,9 +36,22 @@ export class CartComponent implements OnInit {
   }
 
   deleteItem(id) {
-    this.userService.deleteCartItem(id).subscribe(() => {
-      this.loadCartItems();
+    Swal.fire({
+      title: 'Delete Item',
+      icon: 'warning',
+      text: 'Are you sure you want to delete this item?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Delete'
+    }).then((result) => {
+      if (result.value) {
+        this.userService.deleteCartItem(id).subscribe(() => {
+          this.loadCartItems();
+        });
+      }
     });
+
   }
 
   checkout() {
