@@ -9,6 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {PublicModule} from './public/public.module';
 import {HttpClientModule} from "@angular/common/http";
 import {AdminModule} from './admin/admin.module';
+import {BackButtonDisableModule} from "angular-disable-browser-back-button";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {AdminModule} from './admin/admin.module';
     DashboardMainModule,
     AdminModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    BackButtonDisableModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -144,8 +144,8 @@ export class SelectFoodComponent implements OnInit {
       if (param['isDashboard']) {
         this.isDashboard = true;
         this.userId = localStorage.getItem('$id');
-        sessionStorage.setItem('$age',localStorage.getItem('$age'));
-      }else{
+        sessionStorage.setItem('$age', localStorage.getItem('$age'));
+      } else {
         this.isDashboard = false;
       }
     });
@@ -202,6 +202,7 @@ export class SelectFoodComponent implements OnInit {
     }
 
   }
+
   selectPerWorkOutFoodsList = [];
   selectPostWorkoutFoodsList = [];
   selectHighProteinFoodsList = [];
@@ -280,38 +281,38 @@ export class SelectFoodComponent implements OnInit {
 
     let body;
 
-    if(this.isDashboard){
-       body = {
-         "id": this.userId,
-         "age": sessionStorage.getItem('$age'),
-         "weight": sessionStorage.getItem('weight'),
-         "goalType": sessionStorage.getItem('$goalType'),
-         "goalTime": sessionStorage.getItem('$goalTime'),
-         "height": sessionStorage.getItem('height'),
-         "bodyFat": sessionStorage.getItem('bodyFat'),
-         "fatFreeMass": sessionStorage.getItem('fatFreeMass'),
-         "estimatedBmr": sessionStorage.getItem('estimatedBmr'),
-         "activityLevel": sessionStorage.getItem('activityLevel'),
-         "caloriesToAdd": sessionStorage.getItem('caloriesToAdd'),
-         "dailyReq": sessionStorage.getItem('dailyReq'),
-         "dailyReqNon": sessionStorage.getItem('dailyReqNon'),
-         "macronutrientFoodList": macronutrientFoodList,
-         "caloriePlanList": [
-           {
-             'protein': sessionStorage.getItem('protein_workout'),
-             'carbs': sessionStorage.getItem('carbs_workout'),
-             'fat': sessionStorage.getItem('fat_workout'),
-             'mealsPerDay': sessionStorage.getItem('meals_per_day_workout'),
-             'type': 'workout'
-           },
-           {
-             'protein': sessionStorage.getItem('protein_non_workout'),
-             'carbs': sessionStorage.getItem('carbs_non_workout'),
-             'fat': sessionStorage.getItem('fat_non_workout'),
-             'mealsPerDay': sessionStorage.getItem('meals_per_day_non_workout'),
-             'type': 'non-workout'
-           }
-         ]
+    if (this.isDashboard) {
+      body = {
+        "id": this.userId,
+        "age": sessionStorage.getItem('$age'),
+        "weight": sessionStorage.getItem('weight'),
+        "goalType": sessionStorage.getItem('$goalType'),
+        "goalTime": sessionStorage.getItem('$goalTime'),
+        "height": sessionStorage.getItem('height'),
+        "bodyFat": sessionStorage.getItem('bodyFat'),
+        "fatFreeMass": sessionStorage.getItem('fatFreeMass'),
+        "estimatedBmr": sessionStorage.getItem('estimatedBmr'),
+        "activityLevel": sessionStorage.getItem('activityLevel'),
+        "caloriesToAdd": sessionStorage.getItem('caloriesToAdd'),
+        "dailyReq": sessionStorage.getItem('dailyReq'),
+        "dailyReqNon": sessionStorage.getItem('dailyReqNon'),
+        "macronutrientFoodList": macronutrientFoodList,
+        "caloriePlanList": [
+          {
+            'protein': sessionStorage.getItem('protein_workout'),
+            'carbs': sessionStorage.getItem('carbs_workout'),
+            'fat': sessionStorage.getItem('fat_workout'),
+            'mealsPerDay': sessionStorage.getItem('meals_per_day_workout'),
+            'type': 'workout'
+          },
+          {
+            'protein': sessionStorage.getItem('protein_non_workout'),
+            'carbs': sessionStorage.getItem('carbs_non_workout'),
+            'fat': sessionStorage.getItem('fat_non_workout'),
+            'mealsPerDay': sessionStorage.getItem('meals_per_day_non_workout'),
+            'type': 'non-workout'
+          }
+        ]
       };
 
       this.userService.updateUserPlan(body).subscribe(result => {
@@ -319,18 +320,20 @@ export class SelectFoodComponent implements OnInit {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Your account has been updated!',
+            title: 'Your account has been updated! Please log in again.',
             showConfirmButton: false,
             timer: 2000
           }).then(() => {
-            this.router.navigate(['/dashboard']);
+            localStorage.clear();
+            sessionStorage.clear();
+            this.router.navigate(['/']);
           })
         }
       }, () => {
         Swal.close();
       });
-    }else{
-       body = {
+    } else {
+      body = {
         "name": sessionStorage.getItem('$name'),
         "email": sessionStorage.getItem('$email'),
         "password": sessionStorage.getItem('$password'),

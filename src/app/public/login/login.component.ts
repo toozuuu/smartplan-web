@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private userService: UserService) {
+    window.onbeforeunload = function() { return "Your work will be lost."; };
 
     let rememberAdmin = localStorage.getItem('REMEMBER_ADMIN');
     let rememberUser = localStorage.getItem('REMEMBER_USER');

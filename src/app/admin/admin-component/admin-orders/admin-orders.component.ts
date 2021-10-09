@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
-import {MatSort} from "@angular/material/sort";
 import {UserService} from "../../../service/user.service";
 import Swal from "sweetalert2";
 import {ReportService} from "../../../service/report.service";
@@ -14,10 +13,9 @@ import {ReportService} from "../../../service/report.service";
 export class AdminOrdersComponent implements OnInit {
 
   displayedColumns: string[] = ['orderId', 'username', 'orderDate', 'name', 'type', 'qty', 'price', 'address', 'status', 'action'];
-  @ViewChild('paginator', {static: true}) paginator: MatPaginator;
-
   dataSource: MatTableDataSource<any>;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+  @ViewChild('paginator', {static: true}) paginator: MatPaginator;
 
   constructor(private userService: UserService,
               private reportService: ReportService) {

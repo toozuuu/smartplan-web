@@ -1,7 +1,8 @@
 <app-header></app-header>
 
 <div class="container-fluid">
-  <div class="card" style="margin-top: 5vh;margin-left: 2vw;margin-right: 2vw;margin-bottom: 5vh!important;height: 100vh">
+  <div class="card"
+       style="margin-top: 5vh;margin-left: 2vw;margin-right: 2vw;margin-bottom: 5vh!important;height: 100vh">
     <div style="font-size: 30px;
     color: black;
     font-weight: bold;
@@ -15,7 +16,7 @@
         <table class="table">
           <thead class="thead-dark">
           <tr>
-            <th scope="col"></th>
+            <th scope="col">Order Id</th>
             <th scope="col">Meal Name</th>
             <th scope="col">Meal Type</th>
             <th scope="col">Price ($)</th>
@@ -26,7 +27,7 @@
           </thead>
           <tbody>
           <tr *ngFor="let order of orderDetailList; let i = index">
-            <th scope="row">{{i + 1}}</th>
+            <td>{{order?.purchaseDetailsId}}</td>
             <td><img src="{{'http://localhost:8080/file/download/' + order?.mealId.image}}" alt=""
                      style="height: 70px;border-radius: 10px;">&nbsp;{{order?.mealId.mealName}}</td>
             <td>{{order?.mealId.mealType}}</td>
