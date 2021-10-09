@@ -4,6 +4,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {UserService} from "../../../service/user.service";
 import Swal from "sweetalert2";
+import {ReportService} from "../../../service/report.service";
 
 @Component({
   selector: 'app-admin-orders',
@@ -18,7 +19,8 @@ export class AdminOrdersComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private reportService: ReportService) {
   }
 
   ngOnInit() {
@@ -105,4 +107,7 @@ export class AdminOrdersComponent implements OnInit {
     });
   }
 
+  downloadExcel() {
+    this.reportService.downloadOrderReport();
+  }
 }

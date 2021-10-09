@@ -23,4 +23,14 @@ export class ReportService {
         alert('Sorry file not available!');
       });
   }
+
+  downloadOrderReport(): any {
+    return this.http.get(this.PROXY + '/purchase/generateExcel/report', {responseType: 'blob'})
+      .subscribe(res => {
+        const blob = new Blob([res], {type: res.type});
+        saveAs(blob, 'orders.xls');
+      }, () => {
+        alert('Sorry file not available!');
+      });
+  }
 }
