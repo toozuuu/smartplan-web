@@ -47,7 +47,7 @@ export class UserService {
   }
 
   fetchAllMeals(): Observable<any> {
-    return this.http.get<any>(this.PROXY + '/meal/allNew');
+    return this.http.get<any>(this.PROXY + '/meal/all');
   }
 
   fetchAllUsers(): Observable<any> {

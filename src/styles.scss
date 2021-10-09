@@ -1,14 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-
 // variables
 @import "assets/scss/variables/fonts";
 @import "assets/scss/variables/colors";
 
 // main styles
 @import "assets/scss/main-style.scss";
-
-
 
 // components
 @import "assets/scss/buttons.scss";
@@ -24,9 +21,9 @@
   user-select: none;
 }
 
-body{
+body {
   .main {
-    height:100vh!important;
+    height: 100vh !important;
     background-size: cover;
     //background: $white url('src/assets/img/public/main.png') no-repeat center;
     display: flex;
@@ -66,6 +63,10 @@ a:visited {
   transition: all 0.35s linear;
 }
 
-.matsearch{
-  color: black!important;
+.matsearch {
+  color: black !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+  color: black !important;
 }

@@ -64,7 +64,7 @@
           <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
             Price
           </th>
-          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
             $&nbsp;{{row.price| number:'2.2-2'}}
           </td>
         </ng-container>
@@ -73,7 +73,7 @@
           <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
             Address
           </th>
-          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
             {{row.address}}
           </td>
         </ng-container>
@@ -103,7 +103,7 @@
         </tr>
       </table>
 
-      <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      <mat-paginator #paginator [pageSizeOptions]="[15]"></mat-paginator>
 
     </div>
   </div>

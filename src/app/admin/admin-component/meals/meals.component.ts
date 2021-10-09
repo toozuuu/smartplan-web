@@ -2,13 +2,14 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpClient, HttpErrorResponse, HttpEventType, HttpHeaders, HttpRequest} from "@angular/common/http";
+import {HttpClient, HttpEventType, HttpHeaders, HttpRequest} from "@angular/common/http";
 import {UserService} from "../../../service/user.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {catchError, last, map} from "rxjs/operators";
 import {of} from "rxjs";
 import Swal from "sweetalert2";
 import {environment} from "../../../../environments/environment";
+import {ReportService} from "../../../service/report.service";
 
 @Component({
   selector: 'app-meals',
@@ -52,6 +53,7 @@ export class MealsComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder,
               private userService: UserService,
+              private reportService: ReportService,
               private http: HttpClient) {
     this.reactiveForm();
     this.addForm = this._formBuilder.group({
@@ -395,4 +397,7 @@ export class MealsComponent implements OnInit {
     this.clearIngId();
   }
 
+  downloadExcel() {
+    this.reportService.downloadMealReport();
+  };
 }

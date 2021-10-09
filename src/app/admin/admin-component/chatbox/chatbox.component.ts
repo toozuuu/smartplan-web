@@ -16,8 +16,6 @@ export class ChatboxComponent implements OnInit {
   chatRoomList: any;
   chatMessagesList: any;
   chatName: any;
-  displayedChatName: any;
-  displayedImageUrl: any;
   message: any;
   selectedChatRoomId: any;
   selectedUserLastMsgTime: any;
