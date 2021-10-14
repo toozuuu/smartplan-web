@@ -22,7 +22,7 @@ export class ProductViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.productDetails = JSON.parse(params.data);
+      this.productDetails = JSON.parse(decodeURIComponent(params['data']));
     });
   }
 

@@ -30,7 +30,7 @@
             </td>
             <td>{{item?.mealId.mealName}}</td>
             <td>{{item?.mealId.mealType}}</td>
-            <td>{{item?.mealId.price}}</td>
+            <td>{{item?.mealId.price | number:'2.2-2'}}</td>
             <td>
               <button (click)="deleteItem(item.id)" class="btn btn-danger" type="button">
                 <em class="fa fa-trash"></em></button>
@@ -51,7 +51,7 @@
 
   <div class="card" *ngIf="itemCount > 0" style="margin-left: 2vw;margin-right: 2vw;margin-bottom: 5vh">
     <div class="card-body" style="text-align: right;margin-right: 5vw;color: black;font-weight: bold;font-size: 20px">
-      Total Price : $ {{cartDetails?.totalPrice}}
+      Total Price : $ {{cartDetails?.totalPrice | number:'2.2-2'}}
     </div>
 
     <div class="col-12">

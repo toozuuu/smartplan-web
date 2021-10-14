@@ -1,72 +1,113 @@
 <app-header></app-header>
 
-<div class="container">
-  <div class="row" style="height: 70vh;margin-top: 5vh">
-    <div class="col-md-6 col-sm-12" style="height: 70vh;">
-      <div class="row">
-        <div class="col-12">
-          <img src="{{'http://localhost:8080/file/download/' + productDetails?.image}}" alt="" width="100%;"
-               style="height: auto">
+<div class="main-container">
+  <div class="container product-view">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="pl-content w-full-col">
+          <div class="inner-panel">
+
+            <div class="container">
+              <div class="row">
+                <div class="col-12" style="margin-top: 5vh">
+                  <button type="button" class="btn btn-success singleViewBackBtn" [routerLink]="'/dashboard'">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="col-md-4">
+                  <div class="image-container">
+                    <div class="zoom-popup">
+                      <!--                      Zoom Image-->
+                    </div>
+
+                    <div class="view-product">
+                      <div class="image-box">
+                        <img style="cursor: pointer" data-toggle="modal" data-target="#openImage"
+                             class="demo-trigger" id="main-image"
+                             src="{{'http://localhost:8080/file/download/' + productDetails?.image}}" alt=""/>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-8 right-side">
+                  <div class="row">
+                    <div class="col-md-8 board-right">
+
+                      <div class="product-info-container">
+                        <div class="purchase-info">
+
+                        </div>
+                        <div class="product-title">
+                          {{productDetails?.mealName}}
+                          <div class="date">
+                            <div class="title">
+                              {{productDetails?.mealType}}
+                            </div>
+                          </div>
+                          <div class="price">
+                            <div class="s">
+                              Price:
+                              <span>$ {{productDetails?.price | number:'2.2-2'}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="price-actions">
+
+                      <div style="width:100%;max-height: 100vh ; height: auto; overflow-y: auto;">
+                        <table class="table">
+                          <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Ingredients Name</th>
+                            <th scope="col">Unit Type</th>
+                            <th scope="col">Protein</th>
+                            <th scope="col">Carbs</th>
+                            <th scope="col">Fat</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let ing of productDetails?.mealIngredientsCollection;let i = index">
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{ing.ingredientsName}}</td>
+                            <td>{{ing.unit}}</td>
+                            <td>{{ing.protein}}</td>
+                            <td>{{ing.carbs}}</td>
+                            <td>{{ing.fat}}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+
+                      <div class="row mg-20" style="margin-bottom: 10vh">
+                        <div class="col-12">
+                          <button class="darkbtn2" style="color: white" (click)="addToCart()">
+                            <i class="fa fa-cart-plus icontbtn"></i>
+                            Add to Cart
+                          </button>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="cp-spinner cp-morph"></div>
+            </div>
+          </div>
+          <div class="clear">&nbsp;</div>
         </div>
-
-      </div>
-
-    </div>
-    <div class="col-md-6 col-sm-12" style="height: 70vh">
-      <h1 style="
-       color: black;
-       font-weight: bold;
-       font-size: 25px;">{{productDetails?.mealName}}</h1>
-      <br>
-      <br>
-      <h2 style="
-       color: black;
-       font-size: 20px;">$ {{productDetails?.price}}</h2>
-      <br>
-      <p class="card-text">
-        {{productDetails?.mealType}}
-      </p>
-
-      <div style="width:100%;max-height: 100vh ; height: auto; overflow-y: auto;">
-        <table class="table">
-          <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Ingredients Name</th>
-            <th scope="col">Unit Type</th>
-            <th scope="col">Protein</th>
-            <th scope="col">Carbs</th>
-            <th scope="col">Fat</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let ing of productDetails?.mealIngredientsCollection;let i = index">
-            <th scope="row">{{i + 1}}</th>
-            <td>{{ing.ingredientsName}}</td>
-            <td>{{ing.unit}}</td>
-            <td>{{ing.protein}}</td>
-            <td>{{ing.carbs}}</td>
-            <td>{{ing.fat}}</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-      <br>
-      <br>
-
-      <div class="col-12">
-        <button style="width: 200px;font-size: 20px;float: right" type="button" class="btn btn-warning" (click)="addToCart()">
-          <i class="fa fa-cart-plus" aria-hidden="true"></i>
-          Add to Cart
-        </button>
       </div>
     </div>
-
-
   </div>
 
-
 </div>
+
 
 <app-chat-config></app-chat-config>
 <app-chat-widget></app-chat-widget>

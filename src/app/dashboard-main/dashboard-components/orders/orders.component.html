@@ -31,7 +31,7 @@
             <td><img src="{{'http://localhost:8080/file/download/' + order?.mealId.image}}" alt=""
                      style="height: 70px;border-radius: 10px;">&nbsp;{{order?.mealId.mealName}}</td>
             <td>{{order?.mealId.mealType}}</td>
-            <td>{{order?.price}}</td>
+            <td>{{order?.price| number:'2.2-2'}}</td>
             <td>{{order?.quantity}}</td>
             <td>{{convertDate(order?.orderDate)}}</td>
             <td>{{order?.status}}</td>
