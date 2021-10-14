@@ -36,7 +36,7 @@
   </div>
   <button class="Chat-window" (click)="toggleChat()">
     <span [@fadeIn] *ngIf="visible"><img src="assets/img/dashboard/Chat.png" alt=""></span>
-    <span [@fadeIn] *ngIf="!visible">✕</span>
+    <span [@fadeIn] *ngIf="!visible" style="color: white!important;">✕</span>
     <div *ngIf="notificationCount>0" class="p-ab red-box notifications">
       <p>{{notificationCount}}</p>
     </div>

@@ -124,6 +124,7 @@ export class DashboardComponent implements OnInit {
     this.address = localStorage.getItem('$address_address');
     this.addressId = localStorage.getItem('$address_id');
     this.numOfDays = parseInt(localStorage.getItem('numOfDays'));
+    this.numOfDays = 50;
   }
 
   ngOnInit() {
