@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../service/user.service";
 import Swal from "sweetalert2";
+import {InteractionService} from "../../../service/interaction.service";
 
 @Component({
   selector: 'app-product-view',
@@ -14,6 +15,7 @@ export class ProductViewComponent implements OnInit {
   email: any;
 
   constructor(private router: Router,
+              private interaction:InteractionService,
               private route: ActivatedRoute,
               private userService: UserService
   ) {
@@ -44,6 +46,7 @@ export class ProductViewComponent implements OnInit {
           timer: 1500
         })
       }
+      this.interaction.callToUpdateCart(true);
     });
   }
 }

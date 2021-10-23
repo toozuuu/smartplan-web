@@ -1,14 +1,15 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import Swal from "sweetalert2";
 import {UserService} from "../../../service/user.service";
 import {Router} from "@angular/router";
+import {InteractionService} from "../../../service/interaction.service";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   name: any;
   address: any;
   addressId: any;
@@ -16,6 +17,7 @@ export class HeaderComponent {
   itemCount: number = 0;
 
   constructor(private userService: UserService,
+              private interaction:InteractionService,
               private router: Router) {
     this.name = localStorage.getItem('$name');
     this.address = localStorage.getItem('$address_address');
@@ -67,6 +69,14 @@ export class HeaderComponent {
         showConfirmButton: false,
         timer: 1500
       })
+    });
+  }
+
+  ngOnInit(): void {
+    this.interaction._updateCart.subscribe(isUpdated => {
+      if (isUpdated) {
+        this.loadCartItems();
+      }
     });
   }
 }

@@ -62,7 +62,7 @@
       <div class="history ml-3">
         <h6 class="mb-3">Order History</h6>
         <div>
-          <div class="dates">
+          <div class="dates" [routerLink]="'/dashboard/orders'" style="cursor: pointer">
             <p *ngFor="let order of orderDetailList">{{convertDate(order.created)}}</p>
           </div>
           <div class="daily-target mt-2">

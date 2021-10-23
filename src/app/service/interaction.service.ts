@@ -6,13 +6,19 @@ import {Subject} from 'rxjs';
 })
 export class InteractionService {
 
-  private _updateCheckOut = new Subject<boolean>();
+  _updateCheckOut = new Subject<boolean>();
+
+  _updateCart = new Subject<boolean>();
 
   constructor() {
   }
 
   passSelectedData(message: any) {
     this._updateCheckOut.next(message);
+  }
+
+  callToUpdateCart(message: any) {
+    this._updateCart.next(message);
   }
 
 }

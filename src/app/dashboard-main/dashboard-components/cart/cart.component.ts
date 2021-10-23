@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../service/user.service";
 import {Router} from "@angular/router";
 import Swal from "sweetalert2";
+import {InteractionService} from "../../../service/interaction.service";
 
 @Component({
   selector: 'app-cart',
@@ -25,6 +26,8 @@ export class CartComponent implements OnInit {
     :
     void {
     this.loadCartItems();
+
+
   }
 
 

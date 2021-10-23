@@ -1,6 +1,12 @@
 <div class="main height">
   <div class="container">
+    <div class="col-12" style="margin-top: 5vh" *ngIf="isUpdate">
+      <button type="button" class="btn btn-success singleViewBackBtn" [routerLink]="'/dashboard'">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      </button>
+    </div>
     <div class="text-center">
+
       <h3 class="white">Select your Goal and Time plan</h3>
       <div class="d-flex flex-row justify-content-center gender align-content-center">
         <div *ngIf="gender === 'male'">
