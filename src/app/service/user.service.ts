@@ -66,6 +66,10 @@ export class UserService {
     return this.http.get<any>(this.PROXY + '/purchase/getOrdersByUser/' + username);
   }
 
+  purchaseDetailsCountByUsername(username, status): Observable<any> {
+    return this.http.get<any>(this.PROXY + '/purchase/getCount/' + username + '/' + status);
+  }
+
   saveMeal(body): Observable<any> {
     return this.http.post<any>(this.PROXY + '/meal/save', body);
   }
@@ -98,19 +102,19 @@ export class UserService {
     return this.http.get<any>(this.PROXY + '/purchase/getOrders')
   }
 
-  fetchAllUnitTypes():Observable<any>{
+  fetchAllUnitTypes(): Observable<any> {
     return this.http.get<any>(this.PROXY + '/unitType/all')
   }
 
-  updateUnitType(body):Observable<any>{
-    return this.http.post<any>(this.PROXY + '/unitType/update',body)
+  updateUnitType(body): Observable<any> {
+    return this.http.post<any>(this.PROXY + '/unitType/update', body)
   }
 
-  saveUnitType(body):Observable<any>{
-    return this.http.post<any>(this.PROXY + '/unitType/save',body)
+  saveUnitType(body): Observable<any> {
+    return this.http.post<any>(this.PROXY + '/unitType/save', body)
   }
 
-  removeUnitType(id):Observable<any>{
-    return this.http.delete<any>(this.PROXY + '/unitType/delete/'+id)
+  removeUnitType(id): Observable<any> {
+    return this.http.delete<any>(this.PROXY + '/unitType/delete/' + id)
   }
 }
