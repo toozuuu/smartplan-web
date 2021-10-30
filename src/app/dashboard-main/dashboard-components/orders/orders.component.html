@@ -2,9 +2,9 @@
 
 <div class="container-fluid">
   <div class="card"
-       style="margin-top: 5vh;margin-left: 2vw;margin-right: 2vw;margin-bottom: 5vh!important;height: 100vh">
+       style="margin-top: 5vh;margin-left: 2vw;margin-right: 2vw;margin-bottom: 5vh!important;height: 100vh;background: #414d69">
     <div style="font-size: 30px;
-    color: black;
+    color: white;
     font-weight: bold;
     margin-left: 3vw;
     margin-top: 3vh;">My Orders ({{orderCount}})
@@ -26,7 +26,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let order of orderDetailList; let i = index">
+          <tr *ngFor="let order of orderDetailList; let i = index" style="color: white!important;">
             <td>{{order?.purchaseDetailsId}}</td>
             <td><img src="{{'http://localhost:8080/file/download/' + order?.mealId.image}}" alt=""
                      style="height: 70px;border-radius: 10px;">&nbsp;{{order?.mealId.mealName}}</td>

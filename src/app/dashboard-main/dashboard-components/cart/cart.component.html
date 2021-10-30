@@ -1,9 +1,9 @@
 <app-header></app-header>
 
 <div class="container-fluid">
-  <div class="card" style="margin: 5vh 2vw;">
+  <div class="card" style="margin: 5vh 2vw;background: #414d69">
     <div style="font-size: 30px;
-    color: black;
+    color: white;
     font-weight: bold;
     margin-left: 3vw;
     margin-top: 3vh;">My Cart ({{itemCount}})
@@ -23,7 +23,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let item of cartDetails?.cartDTOList; let i = index">
+          <tr *ngFor="let item of cartDetails?.cartDTOList; let i = index" style="color: white!important;">
             <th scope="row">{{i + 1}}</th>
             <td><img src="{{'http://localhost:8080/file/download/' + item?.mealId.image}}" alt=""
                      style="height: 70px;border-radius: 10px;">
@@ -49,13 +49,13 @@
     </div>
   </div>
 
-  <div class="card" *ngIf="itemCount > 0" style="margin-left: 2vw;margin-right: 2vw;margin-bottom: 5vh">
-    <div class="card-body" style="text-align: right;margin-right: 5vw;color: black;font-weight: bold;font-size: 20px">
+  <div class="card" *ngIf="itemCount > 0" style="margin-left: 2vw;margin-right: 2vw;margin-bottom: 5vh;background: #414d69">
+    <div class="card-body" style="text-align: right;margin-right: 5vw;color: white;font-weight: bold;font-size: 20px">
       Total Price : $ {{cartDetails?.totalPrice | number:'2.2-2'}}
     </div>
 
     <div class="col-12">
-      <button class="button primary-btn ml-2" (click)="checkout()" style="float: right;margin-right: 5vw">
+      <button class="button primary-btn ml-2" (click)="checkout()" style="float: right;margin-right: 5vw;color: white">
         <i class="fa fa-credit-card" aria-hidden="true"></i>
         Check Out
       </button>

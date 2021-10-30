@@ -30,7 +30,13 @@
       </div>
       <div class="col-lg-6">
         <div class="about-avatar">
-          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
+          <div *ngIf="gender === 'male'">
+            <img style="height: 45vh;margin-left: 10vw;" alt="" src="../../../../assets/img/dashboard/avatar_male.png">
+          </div>
+          <div *ngIf="gender === 'female'">
+            <img style="height: 45vh;margin-left: 10vw;" alt=""
+                 src="../../../../assets/img/dashboard/avatar_female.png">
+          </div>
         </div>
       </div>
     </div>
@@ -38,8 +44,8 @@
       <div class="row">
         <div class="col-6 col-lg-6">
           <div class="count-data text-center">
-            <p style="color: black">Daily Calories</p>
-            <h6 class="count h2">{{dailyReqOld | number:'1.0-0'}} kcal</h6>
+            <h6 style="color: black">Daily Calories</h6>
+            <p class="count h2">{{dailyReqOld | number:'1.0-0'}} kcal</p>
           </div>
         </div>
         <div class="col-6 col-lg-6">
