@@ -79,6 +79,7 @@ export class LoginComponent implements OnInit {
           Swal.close();
           localStorage.setItem('$USER', JSON.stringify(result));
           localStorage.setItem('$LOG', 'LOGGED');
+          localStorage.setItem('USER_ROLE', result['userRole']);
           localStorage.setItem('email', this.email);
           localStorage.setItem('numOfDays', result['numOfDays']);
           localStorage.setItem('password', this.password);

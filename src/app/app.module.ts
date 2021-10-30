@@ -10,6 +10,7 @@ import {PublicModule} from './public/public.module';
 import {HttpClientModule} from "@angular/common/http";
 import {AdminModule} from './admin/admin.module';
 import {BackButtonDisableModule} from "angular-disable-browser-back-button";
+import {BnNgIdleService} from "bn-ng-idle";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {BackButtonDisableModule} from "angular-disable-browser-back-button";
     HttpClientModule,
     BackButtonDisableModule.forRoot()
   ],
-  providers: [],
+  providers: [BnNgIdleService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
