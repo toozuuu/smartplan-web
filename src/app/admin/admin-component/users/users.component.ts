@@ -12,7 +12,7 @@ import {ReportService} from "../../../service/report.service";
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'gender', 'consulter', 'email', 'age', 'status', 'action'];
+  displayedColumns: string[] = ['name', 'gender', 'consulter', 'email', 'age','goal_days', 'status', 'action'];
 
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -40,6 +40,7 @@ export class UsersComponent implements OnInit {
           'consulter': user.consulter,
           'email': user.email,
           'status': user.status,
+          'goal_days': user.pendingGoalDays,
           'age': user.age
         });
       }

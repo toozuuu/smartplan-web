@@ -18,6 +18,14 @@ export class UserService {
     return this.http.post<any>(this.PROXY + '/cart/save', body);
   }
 
+  checkDailyGoal(email): Observable<any> {
+    return this.http.get<any>(this.PROXY + '/user/checkDailyStatus/'+email);
+  }
+
+  checkToDoDailyGoal(body): Observable<any> {
+    return this.http.post<any>(this.PROXY + '/user/daily/checkToDo',body);
+  }
+
   updateCart(body): Observable<any> {
     return this.http.post<any>(this.PROXY + '/cart/update', body);
   }

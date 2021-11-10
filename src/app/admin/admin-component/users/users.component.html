@@ -62,6 +62,15 @@
           </td>
         </ng-container>
 
+        <ng-container matColumnDef="goal_days">
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+            Pending days
+          </th>
+          <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
+            {{row.goal_days}}
+          </td>
+        </ng-container>
+
 
         <ng-container matColumnDef="status">
           <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>

@@ -24,7 +24,6 @@ export class AppComponent {
         if (login === 'LOGGED' && userRole === 'USER') {
           localStorage.clear();
           this.router.navigate(['/']);
-          console.log('session expired');
         }
       }
     });

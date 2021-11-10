@@ -3,6 +3,7 @@ import {Subject} from 'rxjs';
 import {fadeIn, fadeInOut} from '../animations';
 import Swal from 'sweetalert2';
 import {ChatService} from "../../../service/chat.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -29,7 +30,8 @@ export class ChatWidgetComponent implements OnInit {
   isLog: any;
 
 
-  constructor(private service: ChatService) {
+  constructor(private service: ChatService,
+              private router:Router) {
     this.username = localStorage.getItem('$email');
     setInterval(() => {
       this.randomMessage();
@@ -49,6 +51,9 @@ export class ChatWidgetComponent implements OnInit {
         title: 'Please Login First!',
         showConfirmButton: false,
         timer: 1500
+      }).then(()=>{
+        localStorage.clear();
+        this.router.navigate(['/']);
       });
     }
 
@@ -117,7 +122,6 @@ export class ChatWidgetComponent implements OnInit {
         'receiver': 'ADMIN',
       };
       this.service.chat(body).subscribe(() => {
-        //do_something();
       });
       this.addMessage(this.client, message.message, '', 'sent', new Date().getTime());
       setTimeout(() => this.randomMessage(), 1000);
@@ -128,6 +132,9 @@ export class ChatWidgetComponent implements OnInit {
         title: 'Please Login First!',
         showConfirmButton: false,
         timer: 1500
+      }).then(()=>{
+        localStorage.clear();
+        this.router.navigate(['/']);
       });
     }
   }

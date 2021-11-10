@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
 
   selectedMeals = [];
   orderDetailList: any;
+  dailyGoalStatus: any;
   weight: any;
   age: any;
   height: any;
@@ -138,6 +139,7 @@ export class DashboardComponent implements OnInit {
       this.newMealsList = newMeals;
     });
     this.fetchAllMyOrderDetails();
+    this.fetchDailyGoalDetails();
   }
 
 
@@ -173,6 +175,15 @@ export class DashboardComponent implements OnInit {
   fetchAllMyOrderDetails() {
     this.userService.purchaseDetailsByUsername(localStorage.getItem('$email')).subscribe(orderDetails => {
       this.orderDetailList = orderDetails;
+    });
+  }
+
+  goalCount:number = 0;
+
+  fetchDailyGoalDetails(){
+    this.userService.checkDailyGoal(localStorage.getItem('$email')).subscribe(dailyGoalStatus => {
+      this.dailyGoalStatus = dailyGoalStatus;
+      this.goalCount = dailyGoalStatus['goalDays'];
     });
   }
 
@@ -232,4 +243,22 @@ export class DashboardComponent implements OnInit {
     return encodeURIComponent(JSON.stringify(newMeal));
   }
 
+  completeDailyGoal() {
+    Swal.fire({
+      title: 'Daily Goal',
+      icon: 'warning',
+      text: 'Have you completed your daily goal?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirm'
+    }).then((result) => {
+      if (result.value) {
+        this.userService.checkToDoDailyGoal({'email':localStorage.getItem('$email')}).subscribe(()=>{
+          this.fetchAllMyOrderDetails();
+          this.fetchDailyGoalDetails();
+        });
+      }
+    });
+  }
 }

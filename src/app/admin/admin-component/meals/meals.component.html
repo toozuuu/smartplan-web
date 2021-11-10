@@ -164,14 +164,14 @@
                   <div [formGroup]="addForm">
                     <div class="form-group">
                       <table>
-                        <thead *ngIf="this.rows.value.length >0">
+                        <thead>
                         <tr>
-                          <th id="i_name">Ingredients Name<sub style="color: red;font-size: 10px">*</sub></th>
-                          <th id="i_unit">Ingredients Unit<sub style="color: red;font-size: 10px">*</sub></th>
-                          <th id="i_protein">Ingredients Protein<sub style="color: red;font-size: 10px">*</sub></th>
-                          <th id="i_carbs">Ingredients Carbs<sub style="color: red;font-size: 10px">*</sub></th>
-                          <th id="i_fat">Ingredients Fat<sub style="color: red;font-size: 10px">*</sub></th>
-                          <th id="i_qty">Ingredients Quantity<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_name" class="th-color">Ingredients Name<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_unit" class="th-color">Ingredients Unit<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_protein" class="th-color">Ingredients Protein<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_carbs" class="th-color">Ingredients Carbs<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_fat" class="th-color">Ingredients Fat<sub style="color: red;font-size: 10px">*</sub></th>
+                          <th id="i_qty" class="th-color">Ingredients Quantity<sub style="color: red;font-size: 10px">*</sub></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -250,6 +250,7 @@
               <div style="width: 150px;" *ngIf="isUpdateMeal">
                 <img alt="" src="{{'http://localhost:8080/file/download/' + image}}"
                      style="border-radius: 10px;width: 250px; height: 250px;object-fit: cover;"/>
+
               </div>
               <div *ngIf="requiredImages" style="text-align: center" class="inputError">Meal image is required.</div>
 
