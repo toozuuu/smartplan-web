@@ -66,6 +66,14 @@ export class UserService {
     return this.http.get<any>(this.PROXY + '/user/getAll');
   }
 
+  fetchAllAdminUser(): Observable<any> {
+    return this.http.get<any>(this.PROXY + '/user/getAdminDetails');
+  }
+
+  updateAdminDetails(body): Observable<any> {
+    return this.http.post<any>(this.PROXY + '/user/adminDetails/update',body);
+  }
+
   purchaseSave(body): Observable<any> {
     return this.http.post<any>(this.PROXY + '/purchase/save', body);
   }
