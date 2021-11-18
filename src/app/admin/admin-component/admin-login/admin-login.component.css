@@ -1,0 +1,121 @@
+body {
+  background-color: #122143;
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-box {
+  margin-top: 150px;
+  height: auto;
+  background: #122143;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.login-key {
+  height: 100px;
+  font-size: 80px;
+  line-height: 100px;
+  background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-title {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #ECF0F5;
+}
+
+.login-form {
+  margin-top: 25px;
+  text-align: left;
+}
+
+input[type=email] {
+  background-color: #122143;
+  border: none;
+  border-bottom: 2px solid #0DB8DE;
+  border-top: 0;
+  border-radius: 0;
+  font-weight: bold;
+  outline: 0;
+  margin-bottom: 20px;
+  color: #ECF0F5;
+}
+
+input[type=password] {
+  background-color: #122143;
+  border: none;
+  border-bottom: 2px solid #0DB8DE;
+  border-top: 0;
+  border-radius: 0;
+  font-weight: bold;
+  outline: 0;
+  margin-bottom: 20px;
+  color: #ECF0F5;
+}
+
+.form-group {
+  margin-bottom: 40px;
+  outline: 0;
+}
+
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom: 2px solid #0DB8DE;
+  outline: 0;
+  background-color: #122143;
+  color: #ECF0F5;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+.form-control-label {
+  font-size: 10px;
+  color: #6C6C6C;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.btn-outline-primary {
+  width: 225px;
+  margin: 16px auto;
+  display: block;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(147.74deg, #60ce71 0%, #1bbf8a 101.31%);
+  padding: 7px 0;
+  font-family: "Montserrat-regular", sans-serif;
+}
+
+.login-btm {
+  float: left;
+}
+
+.login-button {
+  padding-right: 0;
+  text-align: right;
+  margin-bottom: 25px;
+}
+
+.login-text {
+  text-align: left;
+  padding-left: 0;
+  color: #A2A4A4;
+}
+
+.loginbttm {
+  padding: 0;
+}

@@ -26,6 +26,17 @@
         </ul>
       </div>
 
+      <div class="navigation" (click)="clickUsers()">
+        <ul>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              Users
+            </a>
+          </li>
+        </ul>
+      </div>
+
       <div class="navigation" (click)="clickOrders()">
         <ul>
           <li>
@@ -48,12 +59,12 @@
         </ul>
       </div>
 
-      <div class="navigation" (click)="clickUsers()">
+      <div class="navigation" (click)="clickAdminSettings()">
         <ul>
           <li>
             <a href="javascript:void(0)">
-              <i class="fa fa-users" aria-hidden="true"></i>
-              Users
+              <i class="fa fa-cog" aria-hidden="true"></i>
+              Admin Settings
             </a>
           </li>
         </ul>
@@ -122,6 +133,19 @@
         <app-unit-type></app-unit-type>
       </div>
     </div>
+
+    <div class="w-100" *ngIf="adminSettings">
+      <div class="header">
+        <div class="container-fluid d-flex justify-content-end flex-row align-items-center">
+          <h6>Admin Panel</h6>
+          <i style="cursor: pointer" (click)="logout()" class="fa fa-cog"></i>
+        </div>
+      </div>
+      <div class="container-fluid mt-4">
+        <app-admin-setting></app-admin-setting>
+      </div>
+    </div>
+
   </div>
 </div>
 

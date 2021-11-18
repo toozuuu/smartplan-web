@@ -5,9 +5,15 @@ import { MealsComponent } from './admin-component/meals/meals.component';
 import {UsersComponent} from './admin-component/users/users.component';
 import {ChatboxComponent} from "./admin-component/chatbox/chatbox.component";
 import {AdminOrdersComponent} from "./admin-component/admin-orders/admin-orders.component";
+import {AdminSettingComponent} from "./admin-component/admin-setting/admin-setting.component";
+import {AdminLoginComponent} from "./admin-component/admin-login/admin-login.component";
 const routes: Routes = [
   {
-    path: 'admin',
+    path:'admin',
+    component:AdminLoginComponent
+  },
+  {
+    path: 'admin-dashboard',
     component: AdminDashboardComponent,
     children: [
       {
@@ -33,6 +39,10 @@ const routes: Routes = [
       {
         path: 'order',
         component: AdminOrdersComponent
+      },
+      {
+        path: 'settings',
+        component: AdminSettingComponent
       }
     ]
   },

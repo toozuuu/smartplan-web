@@ -11,6 +11,7 @@ export class AdminDashboardComponent implements OnInit {
   isMeals: any = true;
   isUsers: any = false;
   isChat: any = false;
+  adminSettings: any = false;
   isOrders: any = false;
   isUnitType: any = false;
 
@@ -33,7 +34,7 @@ export class AdminDashboardComponent implements OnInit {
       if (result.value) {
         localStorage.clear();
         sessionStorage.clear();
-        this.router.navigate(['/']);
+        this.router.navigate(['/admin']);
       }
     });
   }
@@ -45,7 +46,7 @@ export class AdminDashboardComponent implements OnInit {
     this.isChat = false;
     this.isOrders = false;
     this.isUnitType = false;
-
+    this.adminSettings = false;
   }
 
   clickUsers() {
@@ -54,16 +55,7 @@ export class AdminDashboardComponent implements OnInit {
     this.isChat = false;
     this.isOrders = false;
     this.isUnitType = false;
-
-  }
-
-  clickSettings() {
-    this.isMeals = false;
-    this.isUsers = false;
-    this.isChat = false;
-    this.isOrders = false;
-    this.isUnitType = false;
-
+    this.adminSettings = false;
   }
 
   clickChat() {
@@ -72,7 +64,16 @@ export class AdminDashboardComponent implements OnInit {
     this.isChat = true;
     this.isOrders = false;
     this.isUnitType = false;
+    this.adminSettings = false;
+  }
 
+  clickAdminSettings() {
+    this.isMeals = false;
+    this.isUsers = false;
+    this.isChat = false;
+    this.isOrders = false;
+    this.isUnitType = false;
+    this.adminSettings = true;
   }
 
   clickOrders() {
@@ -81,7 +82,7 @@ export class AdminDashboardComponent implements OnInit {
     this.isChat = false;
     this.isOrders = true;
     this.isUnitType = false;
-
+    this.adminSettings = false;
   }
 
   clickUnitTypes() {
@@ -90,5 +91,6 @@ export class AdminDashboardComponent implements OnInit {
     this.isChat = false;
     this.isOrders = false;
     this.isUnitType = true;
+    this.adminSettings = false;
   }
 }

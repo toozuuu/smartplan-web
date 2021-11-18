@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-2"></div>
+    <div class="col-lg-6 col-md-8 login-box">
+      <div class="col-lg-12 login-key">
+        <img src="assets/img/public/SmartPlan.png" alt="" style="width: 80px;border-radius: 100%">
+      </div>
+      <div class="col-lg-12 login-title">
+        ADMIN PANEL
+      </div>
+
+      <div class="col-lg-12 login-form">
+        <div class="col-lg-12 login-form">
+          <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onSubmitLogin()">
+            <div class="form-group">
+              <label class="form-control-label">USERNAME</label>
+              <div class="row">
+                <div class="col-11">
+                  <input matInput [ngClass]="{ 'is-invalid': submittedLoginForm && f1.loginUsername.errors }"
+                         formControlName="loginUsername" [(ngModel)]="loginUsername" type="email" name="username"
+                         class="form-control">
+                  <div *ngIf="submittedLoginForm && f1.loginUsername.errors" class="invalid-feedback">
+                    <div style="font-size: 12px;color: red" *ngIf="f1.loginUsername.errors.required">
+                      Name is required!.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="form-group">
+              <label class="form-control-label">PASSWORD</label>
+              <div class="row">
+                <div class="col-11">
+                  <input [(ngModel)]="loginPassword"
+                         [ngClass]="{ 'is-invalid': submittedLoginForm && f1.loginPassword.errors }"
+                         formControlName="loginPassword" matInput name="password"
+                         type="password" class="form-control">
+                  <div *ngIf="submittedLoginForm && f1.loginPassword.errors" class="invalid-feedback">
+                    <div style="font-size: 12px;color: red" *ngIf="f1.loginPassword.errors.required">
+                      Password is required!.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="col-lg-12 loginbttm">
+              <div class="col-12 login-btm login-button" style="text-align: center">
+                <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                <span style="color: lightgray;font-size: 14px;font-weight: bold">v {{version}}</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
