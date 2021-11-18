@@ -42,6 +42,10 @@ export class UserService {
     return this.http.post<any>(this.PROXY + '/user/login', body);
   }
 
+  adminLoginIn(body): Observable<any> {
+    return this.http.post<any>(this.PROXY + '/user/admin/login', body);
+  }
+
   loginUp(body): Observable<any> {
     return this.http.post<any>(this.PROXY + '/user/register', body);
   }

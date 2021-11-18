@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {UserService} from "../../../service/user.service";
 
 @Component({
   selector: 'app-admin-login',
@@ -16,13 +17,14 @@ export class AdminLoginComponent implements OnInit {
   version: string;
 
   constructor(private formBuilder: FormBuilder,
+              private userService: UserService,
               private router: Router
   ) {
     this.tenantValue = localStorage.getItem('TENANT_VALUE');
   }
 
   ngOnInit() {
-    this.version ='0.1V';
+    this.version = '0.1V';
     this.reactiveLoginForm();
   }
 
@@ -48,16 +50,19 @@ export class AdminLoginComponent implements OnInit {
   userLogin() {
     if (this.loginPassword !== undefined && this.loginUsername !== undefined) {
       localStorage.setItem('$LOG', 'LOGGED');
-      this.router.navigate(['/admin-dashboard']);
       let _loginBody = {
         'email': this.loginUsername,
         'password': this.loginPassword
       };
+      this.userService.adminLoginIn(_loginBody).subscribe(result => {
+        if(result['isLogged']){
+          this.router.navigate(['/admin-dashboard']);
+        }
+      });
 
     }
 
   }
-
 
 
 }
