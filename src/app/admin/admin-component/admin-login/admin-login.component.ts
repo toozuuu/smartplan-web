@@ -55,7 +55,7 @@ export class AdminLoginComponent implements OnInit {
         'password': this.loginPassword
       };
       this.userService.adminLoginIn(_loginBody).subscribe(result => {
-        if(result['isLogged']){
+        if(result['logged']){
           this.router.navigate(['/admin-dashboard']);
         }
       });
