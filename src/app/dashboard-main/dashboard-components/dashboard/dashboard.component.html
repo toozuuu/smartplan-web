@@ -12,9 +12,24 @@
         </div>
       </div>
       <div class="d-flex flex-column justify-content-center">
+        <div *ngIf="dailyGoalBanner">
+          <div class="alert alert-success" role="alert" *ngIf="this.dailyGoalStatus?.['clickedToday']">
+            You have completed your daily goal. <i class="fa fa-times" aria-hidden="true"
+                                                   style="float: right;font-size: 24px;cursor: pointer"
+                                                   (click)="changeGoalBanner(false)"></i>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="!this.dailyGoalStatus?.['clickedToday']">
+            You need to complete the daily goal. <i class="fa fa-times" aria-hidden="true"
+                                                    style="float: right;font-size: 24px;cursor: pointer"
+                                                    (click)="changeGoalBanner(false)"></i>
+          </div>
+        </div>
+
         <div class="mt-4">
-          <h6 class="gray-2 mb-0 pb-0" style="color: white;font-weight: bold">Time Line ( {{goalCount}} days remaining)</h6>
-          <mat-slider color="primary" class="w-100" max="365" disabled [(ngModel)]="numOfDays" min="1" thumbLabel tickInterval="1000">
+          <h6 class="gray-2 mb-0 pb-0" style="color: white;font-weight: bold">Time Line ( {{goalCount}} days
+            remaining)</h6>
+          <mat-slider color="primary" class="w-100" max="365" disabled [(ngModel)]="numOfDays" min="1" thumbLabel
+                      tickInterval="1000">
           </mat-slider>
         </div>
         <div class="d-flex flex-wrap">
@@ -78,7 +93,9 @@
           <br>
           <section>
             <div class="example-button-row">
-              <button mat-raised-button color="primary" (click)="completeDailyGoal()">Complete the daily goal</button>
+              <button mat-raised-button color="primary" (click)="completeDailyGoal()"
+                      [disabled]="this.dailyGoalStatus?.['clickedToday']">Complete the daily goal
+              </button>
             </div>
           </section>
         </div>
@@ -91,3 +108,24 @@
 <app-chat-config></app-chat-config>
 <app-chat-widget></app-chat-widget>
 <app-footer></app-footer>
+
+
+<button #goalExpiredModal type="button" class="btn btn-primary" data-toggle="modal" data-target="#goalExpiredModal"
+        hidden>
+</button>
+
+
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="goalExpiredModal" tabindex="-1" role="dialog"
+     aria-labelledby="goalExpiredModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 style="color: black!important;" class="modal-title" id="exampleModalLongTitle">Meal plan goal status</h5>
+      </div>
+      <div class="modal-body" style="color: black!important;">
+        Your meal plan goal has expired!
+        Please <a (click)="setupNewGoal()" href="javascript:void(0)" data-dismiss="modal">click here</a> to renew it.
+      </div>
+    </div>
+  </div>
+</div>

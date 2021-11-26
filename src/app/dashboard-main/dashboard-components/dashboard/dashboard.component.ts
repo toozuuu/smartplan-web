@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../../service/user.service";
 import Swal from "sweetalert2";
@@ -114,6 +114,8 @@ export class DashboardComponent implements OnInit {
   estimatedBmr: any;
   numOfDays: any;
 
+  @ViewChild('goalExpiredModal') goalExpiredModal;
+
   constructor(private router: Router,
               private interactionService: InteractionService,
               private userService: UserService) {
@@ -178,12 +180,16 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  goalCount:number = 0;
+  goalCount: number = 0;
+  dailyGoalBanner: boolean = true;
 
-  fetchDailyGoalDetails(){
+  fetchDailyGoalDetails() {
     this.userService.checkDailyGoal(localStorage.getItem('$email')).subscribe(dailyGoalStatus => {
       this.dailyGoalStatus = dailyGoalStatus;
       this.goalCount = dailyGoalStatus['goalDays'];
+      if (this.goalCount === 0) {
+        this.goalExpiredModal.nativeElement.click();
+      }
     });
   }
 
@@ -254,11 +260,15 @@ export class DashboardComponent implements OnInit {
       confirmButtonText: 'Confirm'
     }).then((result) => {
       if (result.value) {
-        this.userService.checkToDoDailyGoal({'email':localStorage.getItem('$email')}).subscribe(()=>{
+        this.userService.checkToDoDailyGoal({'email': localStorage.getItem('$email')}).subscribe(() => {
           this.fetchAllMyOrderDetails();
           this.fetchDailyGoalDetails();
         });
       }
     });
+  }
+
+  changeGoalBanner(b: boolean) {
+    this.dailyGoalBanner = b;
   }
 }
