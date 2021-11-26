@@ -137,11 +137,15 @@
       <div class="modal-body">
         <span>   <img src="{{'http://localhost:8080/file/download/' + selectedOrderDetails?.image}}" alt=""
                       style="height: 250px;border-radius: 10px;"> </span><br>
-        <span>Order Id : {{selectedOrderDetails?.orderId}}</span><br>
-        <span>Meal Name : {{selectedOrderDetails?.name}}</span><br>
-        <span>Delivery Address : {{selectedOrderDetails?.address}}</span><br>
-        <span>Price : $&nbsp;{{selectedOrderDetails?.price| number:'2.2-2'}}</span><br>
-        <span>Qty : {{selectedOrderDetails?.qty}}</span>
+        <span><strong>Order Id</strong> : {{selectedOrderDetails?.orderId}}</span><br><br>
+        <span><strong>Meal Name</strong> : {{selectedOrderDetails?.name}}</span><br><br>
+        <span><strong>Delivery Address</strong> : {{selectedOrderDetails?.address}}</span><br><br>
+        <span><strong>Price</strong> : $&nbsp;{{selectedOrderDetails?.price| number:'2.2-2'}}</span><br><br>
+        <span><strong>Qty</strong> : {{selectedOrderDetails?.qty}}</span><br><br>
+        <span><strong>Order Type</strong> : {{selectedOrderDetails?.orderType}}</span><br><br>
+        <span><strong>Comment</strong> : {{selectedOrderDetails?.comment}}</span><br><br>
+        <span><strong>Order Date</strong> : {{convertDate(selectedOrderDetails?.orderDate)}}</span><br><br>
+        <span><strong>Order Time</strong> : {{selectedOrderDetails?.orderTime}}</span>
       </div>
       <div class="modal-footer" style="justify-content: center">
         <button type="button" class="btn btn-success"
