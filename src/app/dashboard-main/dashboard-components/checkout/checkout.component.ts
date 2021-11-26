@@ -123,13 +123,13 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
     let _orderDate;
     if (this.selectedOrderType === 1) {
       _orderType = 'ASAP';
-      _orderDate = new Date();
+      _orderDate = this.convertDate(new Date());
     } else {
       _orderType = 'LATER';
       if (this.selectedDate === undefined || this.selectedTime === undefined) {
         return false;
       }
-      _orderDate = this.convertDate(this.selectedDate['endDate']);
+      _orderDate = this.convertDate(new Date(this.selectedDate['endDate']));
     }
 
     if (this.isDefaultAddress) {
