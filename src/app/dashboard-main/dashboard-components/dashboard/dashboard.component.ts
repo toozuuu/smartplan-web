@@ -187,7 +187,7 @@ export class DashboardComponent implements OnInit {
     this.userService.checkDailyGoal(localStorage.getItem('$email')).subscribe(dailyGoalStatus => {
       this.dailyGoalStatus = dailyGoalStatus;
       this.goalCount = dailyGoalStatus['goalDays'];
-      if (this.goalCount === 0) {
+      if (this.goalCount === 0 || this.dailyGoalStatus['status'] === 'EXPIRED') {
         this.goalExpiredModal.nativeElement.click();
       }
     });
