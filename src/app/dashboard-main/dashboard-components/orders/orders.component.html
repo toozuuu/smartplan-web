@@ -22,6 +22,7 @@
             <th scope="col">Quantity</th>
             <th scope="col">Order Date</th>
             <th scope="col">Status</th>
+            <th scope="col"></th>
           </tr>
           </thead>
           <tbody>
@@ -34,6 +35,10 @@
             <td>{{order?.quantity}}</td>
             <td>{{convertDate(order?.orderDate)}}</td>
             <td>{{order?.status}}</td>
+            <td>
+              <button [disabled]="order.status !== 'PENDING'" (click)="changeStatus(order.id)" class="btn btn-danger" type="button">
+                <em class="fa fa-pencil"></em></button>
+            </td>
 
           </tr>
           </tbody>

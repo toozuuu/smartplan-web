@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../service/user.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-orders',
@@ -38,4 +39,25 @@ export class OrdersComponent implements OnInit {
     return [mnth, day, date.getFullYear()].join('-');
   }
 
+  changeStatus(id) {
+    Swal.fire({
+      title: 'Order Delivery',
+      icon: 'warning',
+      text: 'Do you want to change your order status?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes'
+    }).then((result) => {
+      if (result.value) {
+        this.userService.purchaseDetailUpdateStatus({
+          'id': id,
+          'status': 'DELIVERED'
+        }).subscribe(() => {
+          this.fetchAllMyOrderDetails();
+        });
+      }
+    });
+
+  }
 }
