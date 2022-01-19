@@ -65,7 +65,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  width: 350px !important;
+  /*width: 350px !important;*/
   bottom: 50px;
   right: 80px;
 
