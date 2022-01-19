@@ -1,7 +1,8 @@
 @import "../../../assets/scss/variables/colors";
 
 .main {
-    .login-content {
+  height: 100vh !important;
+  .login-content {
         width: 20%;
 
         .login-box {
