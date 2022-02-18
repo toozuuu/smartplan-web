@@ -33,7 +33,7 @@
             <td>{{order?.mealId.mealType}}</td>
             <td>{{order?.price| number:'2.2-2'}}</td>
             <td>{{order?.quantity}}</td>
-            <td>{{convertDate(order?.orderDate)}}</td>
+            <td>{{order?.orderDate}}</td>
             <td>{{order?.status}}</td>
             <td>
               <button [disabled]="order.status !== 'PENDING'" (click)="changeStatus(order.id)" class="btn btn-danger" type="button">
