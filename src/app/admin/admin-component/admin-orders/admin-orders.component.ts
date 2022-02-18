@@ -42,7 +42,7 @@ export class AdminOrdersComponent implements OnInit {
             'orderDetailsId': val.id,
             'username': username,
             'name': val?.mealId.mealName,
-            'orderDate': this.convertDate(val?.orderDate),
+            'orderDate': val?.orderDate,
             'type': val?.mealId.mealType,
             'qty': val?.quantity,
             'orderType': val?.orderType,
