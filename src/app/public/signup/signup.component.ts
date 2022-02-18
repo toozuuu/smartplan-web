@@ -86,8 +86,7 @@ export class SignupComponent implements OnInit {
           position: 'center',
           icon: 'error',
           title: 'That email is taken. Try another!',
-          showConfirmButton: false,
-          timer: 2000
+          showConfirmButton: true
         })
         this.email = undefined;
         return false;
