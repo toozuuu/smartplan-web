@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../../service/user.service";
 import Swal from "sweetalert2";
+import * as moment from "moment";
 
 @Component({
   selector: 'app-orders',
@@ -33,10 +34,8 @@ export class OrdersComponent implements OnInit {
   }
 
   convertDate(created: any) {
-    let date = new Date(new Date(created)),
-      mnth = ('0' + (date.getMonth() + 1)).slice(-2),
-      day = ('0' + date.getDate()).slice(-2);
-    return [mnth, day, date.getFullYear()].join('-');
+    const now = new Date(created);
+    return moment(now).format('MM/DD/YYYY');
   }
 
   changeStatus(id) {
