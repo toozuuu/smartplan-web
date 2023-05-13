@@ -30,6 +30,8 @@ import {LoginComponent} from './login/login.component';
 import {SignupComponent} from './signup/signup.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {RouterModule} from '@angular/router';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import {RouterModule} from '@angular/router';
     NgxDropzoneModule,
     NgxMaterialTimepickerModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class PublicModule { }

@@ -43,6 +43,10 @@ import {FooterComponent} from './dashboard-components/footer/footer.component';
 import {OrdersComponent} from './dashboard-components/orders/orders.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {ProfileComponent} from './dashboard-components/profile/profile.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -61,35 +65,39 @@ import {ProfileComponent} from './dashboard-components/profile/profile.component
     OrdersComponent,
     ProfileComponent,
   ],
-    imports: [
-      CommonModule,
-      NgxDaterangepickerMd.forRoot(),
-      NgxMaterialTimepickerModule,
-      DashboardRoutingModule,
-      MatButtonModule,
-      MatFormFieldModule,
-      MatInputModule,
-      MatSelectModule,
-      MatSliderModule,
-      MatRadioModule,
-      MatSlideToggleModule,
-      MatCheckboxModule,
-      MatChipsModule,
-      MatTooltipModule,
-      MatDatepickerModule,
-      MatNativeDateModule,
-      MatTabsModule,
-      MatTableModule,
-      ReactiveFormsModule,
-      MatSortModule,
-      MatPaginatorModule,
-      MatMenuModule,
-      MatIconModule,
-      MatDialogModule,
-      FormsModule,
-      MatCardModule,
-      ChatModule,
-      MatBadgeModule,
-    ]
+  imports: [
+    CommonModule,
+    NgxDaterangepickerMd.forRoot(),
+    NgxMaterialTimepickerModule,
+    DashboardRoutingModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatRadioModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatTooltipModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTabsModule,
+    MatTableModule,
+    ReactiveFormsModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDialogModule,
+    FormsModule,
+    MatCardModule,
+    ChatModule,
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatRadioModule,
+  ]
 })
 export class DashboardMainModule { }
