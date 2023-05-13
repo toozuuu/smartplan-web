@@ -7,22 +7,22 @@
       <h4 class="gray-2 m-3 text-center font-weight-bold">Login</h4>
       <form [formGroup]="signInForm" class="login-form" (ngSubmit)="onSubmitLogin()" autocomplete="off">
         <mat-form-field appearance="outline" class="mb-3">
-          <input [(ngModel)]="email" [ngClass]="{ 'is-invalid': submittedLoginForm && f.email.errors }"
+          <input [ngClass]="{ 'is-invalid': submittedLoginForm && f['email'].errors }"
                  formControlName="email" matInput name="email" placeholder="Email" type="email" autocomplete="off">
           <i class="fa fa-envelope" matPrefix></i>
-          <div *ngIf="submittedLoginForm && f.email.errors">
-            <div style="font-size: 12px;color: red" *ngIf="f.email.errors.required">
+          <div *ngIf="submittedLoginForm && f['email'].errors">
+            <div style="font-size: 12px;color: red" *ngIf="f['email'].errors['required']">
               Email is required.
             </div>
           </div>
         </mat-form-field>
         <mat-form-field appearance="outline" class="mb-3">
-          <input [(ngModel)]="password" [ngClass]="{ 'is-invalid': submittedLoginForm && f.password.errors }"
+          <input [ngClass]="{ 'is-invalid': submittedLoginForm && f['password'].errors }"
                  formControlName="password" matInput name="password" placeholder="Password" type="password"
                  autocomplete="off">
           <i class="fa fa-key" matPrefix></i>
-          <div *ngIf="submittedLoginForm && f.password.errors">
-            <div style="font-size: 12px;color: red" *ngIf="f.password.errors.required">
+          <div *ngIf="submittedLoginForm && f['password'].errors">
+            <div style="font-size: 12px;color: red" *ngIf="f['password'].errors['required']">
               Password is required.
             </div>
           </div>

@@ -67,7 +67,7 @@ export class SignupComponent implements OnInit {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];
-      if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+      if (matchingControl.errors && !matchingControl.errors['mustMatch']) {
         return;
       }
       if (control.value !== matchingControl.value) {
@@ -89,7 +89,6 @@ export class SignupComponent implements OnInit {
           showConfirmButton: true
         })
         this.email = undefined;
-        return false;
       }
     });
   }

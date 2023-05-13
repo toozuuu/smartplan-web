@@ -69,15 +69,6 @@ export class AdminOrdersComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
-
-  convertDate(created: any) {
-    let date = new Date(new Date(created)),
-      mnth = ('0' + (date.getMonth() + 1)).slice(-2),
-      day = ('0' + date.getDate()).slice(-2);
-    return [mnth, day, date.getFullYear()].join('-');
-  }
-
   loading() {
     Swal.fire({
       title: 'Processing...',

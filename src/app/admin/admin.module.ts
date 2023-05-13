@@ -31,7 +31,7 @@ import {UsersComponent} from './admin-component/users/users.component';
 import {ChatboxComponent} from './admin-component/chatbox/chatbox.component';
 import {AdminOrdersComponent} from './admin-component/admin-orders/admin-orders.component';
 import {UnitTypeComponent} from './admin-component/unit-type/unit-type.component';
-import {AdminSettingComponent} from './admin-component/admin-setting/admin-setting.component';
+import {AdminSettingsComponent} from './admin-component/admin-settings/admin-settings.component';
 import {AdminLoginComponent} from "./admin-component/admin-login/admin-login.component";
 
 @NgModule({
@@ -43,7 +43,7 @@ import {AdminLoginComponent} from "./admin-component/admin-login/admin-login.com
     AdminOrdersComponent,
     UnitTypeComponent,
     AdminLoginComponent,
-    AdminSettingComponent],
+    AdminSettingsComponent],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -58,6 +58,7 @@ import {AdminLoginComponent} from "./admin-component/admin-login/admin-login.com
     MatTooltipModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ReactiveFormsModule,
     MatTabsModule,
     MatTableModule,
     MatSortModule,

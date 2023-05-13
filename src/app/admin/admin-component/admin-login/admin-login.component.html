@@ -16,11 +16,11 @@
               <label class="form-control-label">USERNAME</label>
               <div class="row">
                 <div class="col-11">
-                  <input matInput [ngClass]="{ 'is-invalid': submittedLoginForm && f1.loginUsername.errors }"
-                         formControlName="loginUsername" [(ngModel)]="loginUsername" type="email" name="username"
+                  <input matInput [ngClass]="{ 'is-invalid': submittedLoginForm && f1['loginUsername'].errors }"
+                         formControlName="loginUsername" type="email" name="username"
                          class="form-control">
-                  <div *ngIf="submittedLoginForm && f1.loginUsername.errors" class="invalid-feedback">
-                    <div style="font-size: 12px;color: red" *ngIf="f1.loginUsername.errors.required">
+                  <div *ngIf="submittedLoginForm && f1['loginUsername'].errors" class="invalid-feedback">
+                    <div style="font-size: 12px;color: red" *ngIf="f1['loginUsername'].errors['required']">
                       Email is required!.
                     </div>
                   </div>
@@ -33,12 +33,11 @@
               <label class="form-control-label">PASSWORD</label>
               <div class="row">
                 <div class="col-11">
-                  <input [(ngModel)]="loginPassword"
-                         [ngClass]="{ 'is-invalid': submittedLoginForm && f1.loginPassword.errors }"
+                  <input [ngClass]="{ 'is-invalid': submittedLoginForm && f1['loginPassword'].errors }"
                          formControlName="loginPassword" matInput name="password"
                          type="password" class="form-control">
-                  <div *ngIf="submittedLoginForm && f1.loginPassword.errors" class="invalid-feedback">
-                    <div style="font-size: 12px;color: red" *ngIf="f1.loginPassword.errors.required">
+                  <div *ngIf="submittedLoginForm && f1['loginPassword'].errors" class="invalid-feedback">
+                    <div style="font-size: 12px;color: red" *ngIf="f1['loginPassword'].errors['required']">
                       Password is required!.
                     </div>
                   </div>

@@ -4,10 +4,10 @@ import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-admin-setting',
-  templateUrl: './admin-setting.component.html',
-  styleUrls: ['./admin-setting.component.scss']
+  templateUrl: './admin-settings.component.html',
+  styleUrls: ['./admin-settings.component.scss']
 })
-export class AdminSettingComponent implements OnInit {
+export class AdminSettingsComponent implements OnInit {
 
   adminEmail: any;
   adminPassword: any;

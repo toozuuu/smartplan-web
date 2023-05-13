@@ -145,7 +145,7 @@ export class MealsComponent implements OnInit {
       reportProgress: true,
     });
     this.http.request(req).pipe(
-      map(event => {
+      map((event: any) => {
         switch (event.type) {
           case HttpEventType.UploadProgress:
             break;

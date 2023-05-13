@@ -117,6 +117,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
     });
   }
 
+  // @ts-ignore
   checkout() {
 
     let _orderType;
@@ -238,6 +239,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/dashboard']);
   }
 
+  // @ts-ignore
   manageProtein(protein: any) {
     let temp = 0;
     if (protein.length > 0) {

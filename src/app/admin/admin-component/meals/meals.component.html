@@ -127,10 +127,10 @@
                 <div class="col-md-12">
                   <mat-label>Name<sub style="color: red;font-size: 10px">*</sub></mat-label>
                   <mat-form-field appearance="fill">
-                    <textarea [(ngModel)]="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                    <textarea [(ngModel)]="name" [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
                               formControlName="name" id="_name" matInput></textarea>
-                    <div *ngIf="submitted && f.name.errors" class="inputError">
-                      <div *ngIf="f.name.errors.required">Meal name is required.</div>
+                    <div *ngIf="submitted && f['name'].errors" class="inputError">
+                      <div *ngIf="f['name'].errors['required']">Meal name is required.</div>
                     </div>
                   </mat-form-field>
                 </div>
@@ -138,23 +138,23 @@
                   <mat-label>Category<sub style="color: red;font-size: 10px">*</sub></mat-label>
                   <mat-form-field appearance="fill">
                     <mat-select [(ngModel)]="selectedCategory"
-                                [ngClass]="{ 'is-invalid': submitted && f.category.errors }" formControlName="category">
+                                [ngClass]="{ 'is-invalid': submitted && f['category'].errors }" formControlName="category">
                       <mat-option *ngFor="let category of categoryList" [value]="category.name">
                         <span>{{category.name}}</span>
                       </mat-option>
                     </mat-select>
-                    <div *ngIf="submitted && f.category.errors" class="inputError">
-                      <div *ngIf="f.category.errors.required">Meal Category is required.</div>
+                    <div *ngIf="submitted && f['category'].errors" class="inputError">
+                      <div *ngIf="f['category'].errors['required']">Meal Category is required.</div>
                     </div>
                   </mat-form-field>
                 </div>
                 <div class="col-md-12">
                   <mat-label>Price($)<sub style="color: red;font-size: 10px">*</sub></mat-label>
                   <mat-form-field appearance="fill">
-                    <input [(ngModel)]="price" [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
+                    <input [(ngModel)]="price" [ngClass]="{ 'is-invalid': submitted && f['price'].errors }"
                            formControlName="price" id="_price" matInput min="1" type="number">
-                    <div *ngIf="submitted && f.price.errors" class="inputError">
-                      <div *ngIf="f.price.errors.required">Meal price is required.</div>
+                    <div *ngIf="submitted && f['price'].errors" class="inputError">
+                      <div *ngIf="f['price'].errors['required']">Meal price is required.</div>
                     </div>
                   </mat-form-field>
                 </div>

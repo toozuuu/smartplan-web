@@ -5,7 +5,7 @@ import { MealsComponent } from './admin-component/meals/meals.component';
 import {UsersComponent} from './admin-component/users/users.component';
 import {ChatboxComponent} from "./admin-component/chatbox/chatbox.component";
 import {AdminOrdersComponent} from "./admin-component/admin-orders/admin-orders.component";
-import {AdminSettingComponent} from "./admin-component/admin-setting/admin-setting.component";
+import {AdminSettingsComponent} from "./admin-component/admin-settings/admin-settings.component";
 import {AdminLoginComponent} from "./admin-component/admin-login/admin-login.component";
 const routes: Routes = [
   {
@@ -42,7 +42,7 @@ const routes: Routes = [
       },
       {
         path: 'settings',
-        component: AdminSettingComponent
+        component: AdminSettingsComponent
       }
     ]
   },

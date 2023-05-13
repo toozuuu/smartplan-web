@@ -11,7 +11,6 @@ import {Observable} from "rxjs";
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-
   constructor(private _router: Router) {
 
   }

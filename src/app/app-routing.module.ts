@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './public/login/login.component';
 import {SignupComponent} from './public/signup/signup.component';
-import {ChatConfigComponent, ChatModule, ChatWidgetComponent} from "./dashboard-main/chat";
+import {ChatModule} from "./dashboard-main/chat";
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -11,9 +11,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
-        ChatModule],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    preloadingStrategy: PreloadAllModules
+  }),
+    ChatModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {
 }
