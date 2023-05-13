@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
 
@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })
-export class AdminDashboardComponent implements OnInit {
+export class AdminDashboardComponent {
   isMeals: any = true;
   isUsers: any = false;
   isChat: any = false;
@@ -16,9 +16,6 @@ export class AdminDashboardComponent implements OnInit {
   isUnitType: any = false;
 
   constructor(private router: Router) {
-  }
-
-  ngOnInit() {
   }
 
   logout() {

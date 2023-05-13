@@ -20,7 +20,7 @@
       <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">
 
         <ng-container matColumnDef="name">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Name
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
@@ -28,7 +28,7 @@
           </td>
         </ng-container>
         <ng-container matColumnDef="gender">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Gender
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
@@ -36,7 +36,7 @@
           </td>
         </ng-container>
         <ng-container matColumnDef="consulter">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Consulter
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
@@ -44,7 +44,7 @@
           </td>
         </ng-container>
         <ng-container matColumnDef="email">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Email
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
@@ -54,7 +54,7 @@
 
 
         <ng-container matColumnDef="age">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Age
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
@@ -63,7 +63,7 @@
         </ng-container>
 
         <ng-container matColumnDef="goal_days">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Pending days
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0%;">
@@ -73,7 +73,7 @@
 
 
         <ng-container matColumnDef="status">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Status
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
@@ -82,7 +82,7 @@
         </ng-container>
 
         <ng-container matColumnDef="action">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
 
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">

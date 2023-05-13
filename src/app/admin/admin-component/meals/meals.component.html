@@ -24,68 +24,68 @@
       <table [dataSource]="dataSource" class="table salestable" mat-table matSort style="width:100%">
 
         <ng-container matColumnDef="id">
-          <th *matHeaderCellDef class="center-table tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table tbl td" mat-header-cell>
             ID
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
-            {{row.id}}
+            {{row?.id}}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="image">
-          <th *matHeaderCellDef class="center-table tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table tbl td" mat-header-cell>
             Image
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
             <div style="width: 50px;">
-              <img alt="" src="{{'http://localhost:8080/file/download/' + row.image}}"
+              <img alt="" src="{{'http://localhost:8080/file/download/' + row?.image}}"
                    style="border-radius: 10px;width: 50px; height: 50px;object-fit: cover;"/>
             </div>
           </td>
         </ng-container>
         <ng-container matColumnDef="name">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Name
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
-            {{row.name}}
+            {{row?.name}}
           </td>
         </ng-container>
         <ng-container matColumnDef="category">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Category
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
-            {{row.category}}
+            {{row?.category}}
           </td>
         </ng-container>
         <ng-container matColumnDef="price">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Price
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
-            $&nbsp;{{row.price| number:'2.2-2'}}
+            $&nbsp;{{row?.price| number:'2.2-2'}}
           </td>
         </ng-container>
         <ng-container matColumnDef="ingredients">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
             Ingredients
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
-            {{row.ingredients}}
+            {{row?.ingredients}}
           </td>
         </ng-container>
         <ng-container matColumnDef="action">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
 
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
-            <button (click)="deleteMeal(row.id)" class="btn btn-danger" type="button">
+            <button (click)="deleteMeal(row?.id)" class="btn btn-danger" type="button">
               <em class="fa fa-trash"></em></button>
           </td>
         </ng-container>
         <ng-container matColumnDef="action1">
-          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell mat-sort-header>
+          <th *matHeaderCellDef class="center-table centertd tbl td" mat-header-cell>
 
           </th>
           <td *matCellDef="let row" class="center-table tbl" mat-cell style="padding-left: 0;">
@@ -139,7 +139,7 @@
                   <mat-form-field appearance="fill">
                     <mat-select [(ngModel)]="selectedCategory"
                                 [ngClass]="{ 'is-invalid': submitted && f['category'].errors }" formControlName="category">
-                      <mat-option *ngFor="let category of categoryList" [value]="category.name">
+                      <mat-option *ngFor="let category of categoryList" [value]="category?.name">
                         <span>{{category.name}}</span>
                       </mat-option>
                     </mat-select>

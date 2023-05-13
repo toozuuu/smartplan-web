@@ -2,28 +2,6 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DashboardLayoutComponent} from './dashboard-layout/dashboard-layout.component';
 import {DashboardRoutingModule} from './dashboard-routing.module';
-
-import {
-  MatButtonModule,
-  MatCheckboxModule,
-  MatChipsModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatPaginatorModule,
-  MatRadioModule,
-  MatSelectModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatSortModule,
-  MatTableModule,
-  MatTabsModule,
-  MatTooltipModule
-} from '@angular/material';
 import {SelectGenderComponent} from './dashboard-components/select-gender/select-gender.component';
 import {SelectAgeComponent} from './dashboard-components/select-age/select-age.component';
 import {SelectGoalComponent} from './dashboard-components/select-goal/select-goal.component';
@@ -43,10 +21,13 @@ import {FooterComponent} from './dashboard-components/footer/footer.component';
 import {OrdersComponent} from './dashboard-components/orders/orders.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {ProfileComponent} from './dashboard-components/profile/profile.component';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -70,34 +51,18 @@ import {MatRadioModule} from '@angular/material/radio';
     NgxDaterangepickerMd.forRoot(),
     NgxMaterialTimepickerModule,
     DashboardRoutingModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatSliderModule,
-    MatRadioModule,
-    MatSlideToggleModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatTooltipModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatTabsModule,
-    MatTableModule,
     ReactiveFormsModule,
-    MatSortModule,
-    MatPaginatorModule,
-    MatMenuModule,
-    MatIconModule,
-    MatDialogModule,
     FormsModule,
     MatCardModule,
     ChatModule,
     MatBadgeModule,
+    MatSliderModule,
+    MatButtonModule,
     MatFormFieldModule,
-    MatDatepickerModule,
     MatInputModule,
+    MatSelectModule,
     MatRadioModule,
+    MatDatepickerModule
   ]
 })
 export class DashboardMainModule { }

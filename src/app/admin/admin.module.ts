@@ -1,26 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {
-  MatButtonModule,
-  MatCheckboxModule,
-  MatChipsModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatPaginatorModule,
-  MatRadioModule,
-  MatSelectModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatSortModule,
-  MatTableModule,
-  MatTabsModule,
-  MatTooltipModule
-} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {AdminRoutingModule} from './admin-routing.module';
@@ -33,6 +12,10 @@ import {AdminOrdersComponent} from './admin-component/admin-orders/admin-orders.
 import {UnitTypeComponent} from './admin-component/unit-type/unit-type.component';
 import {AdminSettingsComponent} from './admin-component/admin-settings/admin-settings.component';
 import {AdminLoginComponent} from "./admin-component/admin-login/admin-login.component";
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -46,31 +29,16 @@ import {AdminLoginComponent} from "./admin-component/admin-login/admin-login.com
     AdminSettingsComponent],
   imports: [
     CommonModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatSliderModule,
-    MatRadioModule,
-    MatSlideToggleModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatTooltipModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
     ReactiveFormsModule,
-    MatTabsModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
-    MatMenuModule,
-    MatIconModule,
-    MatDialogModule,
     FormsModule,
     MatCardModule,
     AdminRoutingModule,
     NgxDropzoneModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSelectModule
   ]
 })
 export class AdminModule {
