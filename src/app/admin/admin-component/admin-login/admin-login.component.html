@@ -17,7 +17,7 @@
               <div class="row">
                 <div class="col-11">
                   <input matInput [ngClass]="{ 'is-invalid': submittedLoginForm && f1['loginUsername'].errors }"
-                         formControlName="loginUsername" type="email" name="username"
+                         formControlName="loginUsername" type="email" name="username" [(ngModel)]="loginUsername"
                          class="form-control">
                   <div *ngIf="submittedLoginForm && f1['loginUsername'].errors" class="invalid-feedback">
                     <div style="font-size: 12px;color: red" *ngIf="f1['loginUsername'].errors['required']">
@@ -34,7 +34,7 @@
               <div class="row">
                 <div class="col-11">
                   <input [ngClass]="{ 'is-invalid': submittedLoginForm && f1['loginPassword'].errors }"
-                         formControlName="loginPassword" matInput name="password"
+                         formControlName="loginPassword" matInput name="password" [(ngModel)]="loginPassword"
                          type="password" class="form-control">
                   <div *ngIf="submittedLoginForm && f1['loginPassword'].errors" class="invalid-feedback">
                     <div style="font-size: 12px;color: red" *ngIf="f1['loginPassword'].errors['required']">
