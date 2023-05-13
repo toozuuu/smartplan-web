@@ -32,40 +32,37 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import {RouterModule} from '@angular/router';
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    SignupComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    NgxDaterangepickerMd.forRoot(),
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatSliderModule,
-    MatRadioModule,
-    MatSlideToggleModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatTooltipModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatTabsModule,
-    MatTableModule,
-    MatSortModule,
-    MatDialogModule,
-    MatMenuModule,
-    MatPaginatorModule,
-    SlickCarouselModule,
-    NgxDropzoneModule,
-    NgxMaterialTimepickerModule,
-    ReactiveFormsModule,
-    RouterModule
-  ],
-  entryComponents: [
-
-  ]
+    declarations: [
+        LoginComponent,
+        SignupComponent
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        NgxDaterangepickerMd.forRoot(),
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatSliderModule,
+        MatRadioModule,
+        MatSlideToggleModule,
+        MatCheckboxModule,
+        MatChipsModule,
+        MatTooltipModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatTabsModule,
+        MatTableModule,
+        MatSortModule,
+        MatDialogModule,
+        MatMenuModule,
+        MatPaginatorModule,
+        SlickCarouselModule,
+        NgxDropzoneModule,
+        NgxMaterialTimepickerModule,
+        ReactiveFormsModule,
+        RouterModule
+    ]
 })
 export class PublicModule { }

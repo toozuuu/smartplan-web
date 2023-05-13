@@ -11,13 +11,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
-    ChatModule],
-  exports: [RouterModule],
-  entryComponents: [
-    ChatWidgetComponent,
-    ChatConfigComponent
-  ],
+    imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+        ChatModule],
+    exports: [RouterModule]
 })
 export class AppRoutingModule {
 }
